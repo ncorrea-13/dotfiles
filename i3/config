@@ -3,10 +3,6 @@ set $mod mod4
 # font for window titles. 
 font pango:monospace 8
 
-# brigh control
-bindsym xf86monbrightnessup exec brightnessctl set +10%
-bindsym xf86monbrightnessdown exec brightnessctl set 10%-
-
 # start picom to see the wallpaper with the terminal
 exec_always --no-startup-id picom &
 
@@ -19,14 +15,7 @@ exec --no-startup-id dex --autostart --environment i3
 # networkmanager is a program to contect to wireless networks on linux,
 # nm-applet is a desktop environment-independent system tray gui for it.
 # use whatever program you prefer here.
-exec --no-startup-id networkmanager
-
-# use pactl to adjust volume in pulseaudio.
-set $refresh_i3status killall -sigusr1 i3status
-bindsym xf86audioraisevolume exec --no-startup-id pactl set-sink-volume @default_sink@ +10% && $refresh_i3status
-bindsym xf86audiolowervolume exec --no-startup-id pactl set-sink-volume @default_sink@ -10% && $refresh_i3status
-bindsym xf86audiomute exec --no-startup-id pactl set-sink-mute @default_sink@ toggle && $refresh_i3status
-bindsym xf86audiomicmute exec --no-startup-id pactl set-source-mute @default_source@ toggle && $refresh_i3status
+exec --no-startup-id nm-applet
 
 # use mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -34,6 +23,17 @@ floating_modifier $mod
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
+
+# use pactl to adjust volume in pulseaudio.
+set $refresh_i3status killall -sigusr1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+
+# brigh control
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
 # start a terminal
 bindsym $mod+Return exec wezterm
@@ -49,6 +49,10 @@ bindsym $mod+b exec google-chrome --password-store=gnome-libsecret
 
 # open discord
 bindsym $mod+d exec discord
+
+# make screenshots
+bindsym Print exec xfce4-screenshooter -f
+bindsym $mod+Shift+s exec xfce4-screenshooter -r
 
 # kill focused window
 bindsym $mod+shift+q kill
@@ -188,12 +192,12 @@ bindsym $mod+r mode "resize"
 
 # start i3blocks to display a workspace bar
 bar {
-    font pango: saucecodepro nerd font 9
+    font pango: hack nerd font 9
     i3bar_command i3bar
     output primary
     position top
     status_command i3blocks
-    tray_output primary
+    tray_output none
     colors {
         background #282a36
         statusline #f8f8f2

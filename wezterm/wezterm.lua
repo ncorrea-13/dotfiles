@@ -14,8 +14,8 @@ config = {
 	check_for_updates = false,
 	use_fancy_tab_bar = false,
 	tab_bar_at_bottom = true,
-	font_size = 10,
-	line_height = 1,
+	font_size = 9,
+	line_height = 0.95,
 	font = wezterm.font("HackNerdFont", { weight = "Bold" }),
 	enable_tab_bar = false,
 	initial_cols = 200,
@@ -26,6 +26,9 @@ config = {
 		left = 0,
 		right = 0,
 		top = 0,
+	},
+	set_environment_variables = {
+		PATH = os.getenv("PATH"),
 	},
 	use_resize_increments = true,
 	background = {
@@ -52,6 +55,7 @@ config = {
 			opacity = 0.65,
 		},
 	},
+	default_prog = { "zellij" },
 	-- from: https://akos.ma/blog/adopting-wezterm/
 	hyperlink_rules = {
 		-- Matches: a URL in parens: (URL)
