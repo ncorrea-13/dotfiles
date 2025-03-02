@@ -20,6 +20,7 @@ config = {
 	enable_tab_bar = false,
 	initial_cols = 200,
 	initial_rows = 50,
+	max_fps = 60,
 	window_padding = {
 		bottom = 0,
 		left = 0,
@@ -48,7 +49,7 @@ config = {
 			},
 			width = "100%",
 			height = "100%",
-			opacity = 0.50,
+			opacity = 0.65,
 		},
 	},
 	-- from: https://akos.ma/blog/adopting-wezterm/
