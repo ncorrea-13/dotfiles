@@ -115,8 +115,8 @@ bindsym $mod+Control+l exec systemctl suspend
 
 # name the workspaces
 set $ws1 " "
-set $ws2 " "
-set $ws3 " "
+set $ws2 " "
+set $ws3 " "
 set $ws4 " "
 set $ws5 " "
 set $ws6 " "
@@ -151,12 +151,12 @@ bindsym $mod+shift+0 move container to workspace $ws10
 
 # always open some programs on specified workspace
 assign [class="^google-chrome"]    $ws1
-assign [class="^kdeconnect-app"]   $ws6
-assign [class="^wezterm"]          $ws3
+assign [class="^kdeconnect.app"]   $ws6
+assign [class="^org.wezfurlong.wezterm"]          $ws2
 assign [class="^code"]             $ws3
-assign [class="^thunar"]           $ws4
+assign [class="^Thunar"]           $ws4
 assign [class="^discord"]          $ws7
-assign [class="^telegram-desktop"] $ws7
+assign [class="^TelegramDesktop"] $ws7
 assign [class="^spotify"]          $ws8
 assign [class="^thunderbird"]      $ws9
 
@@ -213,7 +213,7 @@ bar {
 
 # Apps borders
 for_window [class=".*"] border pixel 2
-client.focused          #ff79c6 #ff79c6 #bd93f9 #50fa7b
+client.focused          #bd93f9 #bd93f9 #bd93f9 #bd93f9
 client.focused_inactive #44475a #44475a #282a36 #282a36
 client.unfocused        #282a36 #282a36 #282a36 #282a36
 client.urgent           #ff5555 #ff5555 #ff5555 #ff5555

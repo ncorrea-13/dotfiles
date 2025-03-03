@@ -1,8 +1,4 @@
-layout {
-    tab name="nvim" focus=true {
-        pane
-    }
-
+layout { 
     tab name="shell" {
         pane
     }
