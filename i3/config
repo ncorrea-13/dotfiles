@@ -7,7 +7,7 @@ font pango:monospace 8
 exec_always --no-startup-id picom &
 
 # exec feh to change the wallpaper
-exec --no-startup-id feh --bg-scale ~/Pictures/Wallpaper.png
+exec --no-startup-id feh --bg-scale ~/Pictures/Fondos/5017376844273528268.jpg
 
 # start xdg autostart .desktop files using dex. see also
 exec --no-startup-id dex --autostart --environment i3
@@ -150,7 +150,7 @@ bindsym $mod+shift+9 move container to workspace $ws9
 bindsym $mod+shift+0 move container to workspace $ws10
 
 # always open some programs on specified workspace
-assign [class="^google-chrome"]    $ws1
+assign [class="^Google-chrome"]    $ws1
 assign [class="^kdeconnect.app"]   $ws6
 assign [class="^org.wezfurlong.wezterm"]          $ws2
 assign [class="^code"]             $ws3
@@ -199,7 +199,8 @@ bar {
     status_command i3blocks
     tray_output none
     colors {
-        background #282a36
+        # background #282a36
+        background #00000000 
         statusline #f8f8f2
         separator  #44475a
 

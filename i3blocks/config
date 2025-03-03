@@ -44,7 +44,7 @@ border_left=0
 
 [updates]
 command=apt list --upgradable 2>/dev/null | wc -l
-interval=once
+interval=5
 label=<span color="#1793d1"> </span>
 border=#1793d1
 border_top=1
@@ -76,7 +76,7 @@ border_left=0
 [cpu_stats]
 command=mpstat 1 1 | awk 'NR==4 { printf "%04.1f<span color=\"#ff5555\">%</span>", (100 - $NF) }' && sensors | awk '/Core 0/ { printf " %d<span color=\"#ff5555\">°C</span>\n", $3 }'
 interval=2
-label=<span color="#ff5555"><b>CPU: </b></span>
+label=<span color="#ff5555"><b>CPU:</b></span>
 border=#ff5555
 border_top=1
 border_right=0
@@ -96,7 +96,7 @@ border_left=0
 [volume]
 command=amixer get Master | awk -F'[][]' '/%/ { print $2 "<span color=\"#bd93f9\">%</span>" }'
 interval=1
-label=<span color="#bd93f9"> </span>
+label=<span color="#bd93f9">  </span>
 border=#bd93f9
 border_top=1
 border_right=0
