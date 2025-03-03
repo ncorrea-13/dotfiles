@@ -1,26 +1,28 @@
-# dotfiles
+# 💻 Nicolás Correa's Dotfiles 🎨
 
-This is my personal Neovim and Wezterm configuration.
+Welcome to my collection of dotfiles. Here you'll find my configurations for essential Linux tools. 🚀
 
-It is based on lazy.nvim modified to match my preferences and maximize my productivity.
+## 📂 Contents
+- 📝 **Neovim** - Custom configuration based on LazyVim.
+- 🔲 **WezTerm** - Terminal emulator configuration.
+- 🖥️ **i3** - Window manager configuration.
+- 📊 **i3blocks** - Status bar configuration.
+- 🚀 **Rofi** - Application launcher configuration.
+- 🔍 **Zellij** - Terminal multiplexer configuration.
+- 🌫️ **Picom** - Window compositor configuration.
 
-## File structure
+## ⚙️ Installation
+To install these configurations on your system, clone the repository and create symbolic links:
 
-<pre>
-~/.config
-|-nvim
-| |-lua
-| | |-config
-| | | |-autocmds.lua
-| | | |-keymaps.lua
-| | | |-lazy.lua
-| | | |-options.lua
-| | |-plugins
-| | | |-spec1.lua
-| | | |-**
-| | | |-spec2.lua
-| └─init.lua
-|-wezterm
-| └─wezterm.lua
-</pre>
+```bash
+git clone https://github.com/ncorrea-13/dotfiles.git ~/dotfiles
+```
 
+Then, link the configuration files to `~/.config/`:
+
+```bash
+ln -s ~/dotfiles/nvim ~/.config/nvim
+```
+
+## 📜 License
+This project is licensed under the MIT License. You are free to use and modify it.
