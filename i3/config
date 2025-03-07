@@ -1,3 +1,5 @@
+for_window [class="org.wezfurlong.wezterm"] fullscreen enable
+
 set $mod mod4
 
 # font for window titles. 
