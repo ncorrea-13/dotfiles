@@ -1,0 +1,35 @@
+## Configuration file for CAVA.
+# Remove the ; to change parameters.
+
+[general]
+# Define the number of bars in the spectrum
+bars = 128
+# Manual sensitivity. This adjusts how sensitive the visualizer is to the audio.
+sensitivity = 100
+
+# Audio capturing method
+[input]
+method = pulse
+source = auto
+
+# Output method. 'noncurses' works well in most terminal emulators.
+[output]
+method = noncurses
+
+# Color settings: you can adjust these based on your terminal theme
+[color]
+background = default
+foreground = default
+
+# For smoother visualization
+[smoothing]
+noise_reduction = 77
+
+# Equalizer settings (optional, you can tweak them if needed)
+[eq]
+1 = 1 # bass
+2 = 1 # bass
+3 = 1 # midtone
+4 = 1 # treble
+5 = 1 # treble
+
