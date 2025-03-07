@@ -7,7 +7,7 @@ font pango:monospace 8
 exec_always --no-startup-id picom &
 
 # exec feh to change the wallpaper
-exec --no-startup-id feh --bg-scale ~/Pictures/Fondos/5017376844273528268.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpaper.jpeg
 
 # start xdg autostart .desktop files using dex. see also
 exec --no-startup-id dex --autostart --environment i3
@@ -45,14 +45,14 @@ bindsym $mod+e exec thunar
 bindsym $mod+m exec thunderbird
 
 # open a browser (google chrome in this case)
-bindsym $mod+b exec google-chrome --password-store=gnome-libsecret
+bindsym $mod+b exec --no-startup-id google-chrome --password-store=gnome-libsecret
 
 # open discord
 bindsym $mod+d exec discord
 
 # make screenshots
-bindsym Print exec xfce4-screenshooter -f
-bindsym $mod+Shift+s exec xfce4-screenshooter -r
+bindsym Print exec xfce4-screenshooter -f -o "xclip -selection clipboard -t image/png"
+bindsym $mod+Shift+s exec xfce4-screenshooter -r -o "xclip -selection clipboard -t image/png"
 
 # kill focused window
 bindsym $mod+shift+q kill
@@ -159,6 +159,7 @@ assign [class="^discord"]          $ws7
 assign [class="^TelegramDesktop"] $ws7
 assign [class="^spotify"]          $ws8
 assign [class="^thunderbird"]      $ws9
+assign [class="^steam"]      $ws10
 
 # reload the configuration file
 bindsym $mod+shift+c reload
