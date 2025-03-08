@@ -5,7 +5,13 @@ dir="$HOME/.config/rofi/powermenu/"
 theme='style-1'
 
 # CMDs
-lastlogin="$(last "$USER" | head -n1 | tr -s ' ' | cut -d' ' -f5-7)"
+
+last_output="$(last -n 1 "$USER")"
+if [ -n "$last_output" ]; then
+  lastlogin="$(echo "$last_output" | head -n 1 | awk '{print $4, $5, $6}')"
+else
+  lastlogin="No recent logins"
+fi
 uptime="$(uptime -p | sed -e 's/up //g')"
 host=$(hostname)
 
@@ -29,11 +35,14 @@ rofi_cmd() {
 
 # Confirmation CMD
 confirm_cmd() {
-  rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 350px;}' \
+  rofi -theme-str 'window {location: center; anchor: center; fullscreen: true;}' \
     -theme-str 'mainbox {children: [ "message", "listview" ];}' \
     -theme-str 'listview {columns: 2; lines: 1;}' \
     -theme-str 'element-text {horizontal-align: 0.5;}' \
     -theme-str 'textbox {horizontal-align: 0.5;}' \
+    -theme-str 'message {margin: 200px 10px 10px 10px; padding: 10px; border-radius: 20px; background-color: @background-normal; text-color: @foreground-normal;}' \
+    -theme-str 'element {padding: 10px; border-radius: 20px; background-color: @background-normal; text-color: @foreground-normal;}' \
+    -theme-str 'element selected.normal {background-color: @background-selected; text-color: @foreground-selected;}' \
     -dmenu \
     -p 'Confirmation' \
     -mesg 'Are you Sure?' \
