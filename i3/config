@@ -112,8 +112,6 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# lock the screen
-bindsym $mod+Control+l exec systemctl suspend
 
 # name the workspaces
 set $ws1 " "
@@ -169,6 +167,8 @@ bindsym $mod+shift+c reload
 bindsym $mod+shift+r restart
 # exit i3 (logs you out of your x session)
 bindsym $mod+shift+e exec i3-msg exit
+# open powermenu
+bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -214,8 +214,6 @@ bar {
         binding_mode       #ff5555 #ff5555 #f8f8f2
     }
 }
-
-bindsym $mod+Pause exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
 
 # Apps borders
 for_window [class=".*"] border pixel 2

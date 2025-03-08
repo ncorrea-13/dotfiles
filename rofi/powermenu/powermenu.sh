@@ -14,7 +14,7 @@ dir="$HOME/.config/rofi/powermenu/"
 theme='style-1'
 
 # CMDs
-lastlogin="$(last $USER | head -n1 | tr -s ' ' | cut -d' ' -f5,6,7)"
+lastlogin="$(last "$USER" | head -n1 | tr -s ' ' | cut -d' ' -f5-7)"
 uptime="$(uptime -p | sed -e 's/up //g')"
 host=$(hostname)
 
@@ -33,7 +33,7 @@ rofi_cmd() {
   rofi -dmenu \
     -p " $USER@$host" \
     -mesg " Last Login: $lastlogin |  Uptime: $uptime" \
-    -theme ${dir}/${theme}.rasi
+    -theme "${dir}/${theme}.rasi"
 }
 
 # Confirmation CMD
@@ -46,7 +46,7 @@ confirm_cmd() {
     -dmenu \
     -p 'Confirmation' \
     -mesg 'Are you Sure?' \
-    -theme ${dir}/${theme}.rasi
+    -theme "${dir}/${theme}.rasi"
 }
 
 # Ask for confirmation
@@ -63,42 +63,27 @@ run_rofi() {
 run_cmd() {
   selected="$(confirm_exit)"
   if [[ "$selected" == "$yes" ]]; then
-    if [[ $1 == '--shutdown' ]]; then
-      systemctl poweroff
-    elif [[ $1 == '--reboot' ]]; then
-      systemctl reboot
-    elif [[ $1 == '--hibernate' ]]; then
-      systemctl hibernate
-    elif [[ $1 == '--suspend' ]]; then
-      mpc -q pause
-      amixer set Master mute
+    case "$1" in
+    --shutdown) systemctl poweroff ;;
+    --reboot) systemctl reboot ;;
+    --hibernate) systemctl hibernate ;;
+    --suspend)
+      command -v mpc &>/dev/null && mpc -q pause
+      command -v amixer &>/dev/null && amixer set Master mute
       systemctl suspend
-    elif [[ $1 == '--logout' ]]; then
-      loginctl terminate-user $USER  # Cierra la sesión del usuario en LightDM
-    else
-    exit 0
+      ;;
+    --logout) loginctl terminate-user "$USER" ;;
+    esac
   fi
 }
 
 # Actions
 chosen="$(run_rofi)"
-case ${chosen} in
-$shutdown)
-  run_cmd --shutdown
-  ;;
-$reboot)
-  run_cmd --reboot
-  ;;
-$hibernate)
-  run_cmd --hibernate
-  ;;
-$lock)
-  run light-locker-command -l
-  ;;
-$suspend)
-  run_cmd --suspend
-  ;;
-$logout)
-  run_cmd --logout
-  ;;
+case "$chosen" in
+"$shutdown") run_cmd --shutdown ;;
+"$reboot") run_cmd --reboot ;;
+"$hibernate") run_cmd --hibernate ;;
+"$lock") light-locker-command -l ;;
+"$suspend") run_cmd --suspend ;;
+"$logout") run_cmd --logout ;;
 esac
