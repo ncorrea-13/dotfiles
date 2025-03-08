@@ -169,7 +169,8 @@ bindsym $mod+shift+r restart
 bindsym $mod+shift+e exec i3-msg exit
 # open powermenu
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
-
+# open wifimenu
+bindsym $mod+shift+w exec --no-startup-id ~/.config/rofi/wifimenu/wifimenu.sh
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # these bindings trigger as soon as you enter the resize mode
