@@ -215,6 +215,8 @@ bar {
     }
 }
 
+bindsym $mod+Pause exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
+
 # Apps borders
 for_window [class=".*"] border pixel 2
 client.focused          #bd93f9 #bd93f9 #bd93f9 #bd93f9
