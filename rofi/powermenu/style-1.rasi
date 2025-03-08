@@ -1,12 +1,3 @@
-/**
- *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- * 
- * Rofi Theme File
- * Rofi Version: 1.7.3
- **/
-
 /*****----- Configuration -----*****/
 configuration {
     show-icons:                 false;
@@ -14,84 +5,85 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font:                        "JetBrains Mono Nerd Font 10";
-    background:                  #11092D;
-    background-alt:              #281657;
-    foreground:                  #FFFFFF;
-    selected:                    #DF5296;
-    active:                      #6E77FF;
-    urgent:                      #8E3596;
-}
+    /* Resolution : 1366x768 */
+    mainbox-spacing:             50px;
+    mainbox-margin:              50px 100px;
+    message-margin:              0px 150px;
+    message-padding:             10px;
+    message-border-radius:       20px;
+    listview-spacing:            20px;
+    element-padding:             20px 25px;
+    element-border-radius:       20px;
 
-/*
-USE_BUTTONS=YES
-*/
+    prompt-font:                 "JetBrains Mono Nerd Font Bold Italic 32";
+    textbox-font:                "JetBrains Mono Nerd Font 12";
+    element-text-font:           "feather 32";
+
+    background-window:           black/75%;
+    background-normal:           white/5%;
+    background-selected:         white/15%;
+    foreground-normal:           white;
+    foreground-selected:         #bd93f9;
+}
 
 /*****----- Main Window -----*****/
 window {
     transparency:                "real";
     location:                    center;
     anchor:                      center;
-    fullscreen:                  false;
-    width:                       500px;
-    x-offset:                    0px;
-    y-offset:                    0px;
-
-    padding:                     0px;
-    border:                      0px solid;
-    border-radius:               20px;
-    border-color:                @selected;
+    fullscreen:                  true;
     cursor:                      "default";
-    background-color:            @background;
+    background-color:            var(background-window);
 }
 
 /*****----- Main Box -----*****/
 mainbox {
     enabled:                     true;
-    spacing:                     0px;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @selected;
+    spacing:                     var(mainbox-spacing);
+    margin:                      var(mainbox-margin);
     background-color:            transparent;
-    children:                    [ "inputbar", "listview", "message" ];
+    children:                    [ "dummy", "inputbar", "listview", "message", "dummy" ];
 }
 
 /*****----- Inputbar -----*****/
 inputbar {
     enabled:                     true;
-    spacing:                     0px;
-    padding:                     30px 20px;
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/images/a.png", width);
-    children:                    [ "textbox-prompt-colon", "dummy","prompt"];
+    children:                    [ "dummy", "prompt", "dummy"];
 }
 
 dummy {
     background-color:            transparent;
 }
 
-textbox-prompt-colon {
-    enabled:                     true;
-    expand:                      false;
-    str:                         " System";
-    padding:                     12px;
-    border-radius:               12px;
-    background-color:            @urgent;
-    text-color:                  @background;
-}
 prompt {
     enabled:                     true;
-    padding:                     12px;
-    border-radius:               12px;
-    background-color:            @active;
-    text-color:                  @background;
+    font:                        var(prompt-font);
+    background-color:            transparent;
+    text-color:                  var(foreground-normal);
+}
+
+/*****----- Message -----*****/
+message {
+    enabled:                     true;
+    margin:                      var(message-margin);
+    padding:                     var(message-padding);
+    border-radius:               var(message-border-radius);
+    background-color:            var(background-normal);
+    text-color:                  var(foreground-normal);
+}
+textbox {
+    font:                        var(textbox-font);
+    background-color:            transparent;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
 }
 
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
+    expand:                      false;
     columns:                     6;
     lines:                       1;
     cycle:                       true;
@@ -101,9 +93,8 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
-    spacing:                     10px;
-    margin:                      10px;
+
+    spacing:                     var(listview-spacing);
     background-color:            transparent;
     cursor:                      "default";
 }
@@ -111,14 +102,14 @@ listview {
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    padding:                     20px 5px;
-    border-radius:               20px;
-    background-color:            @background-alt;
-    text-color:                  @foreground;
+    padding:                     var(element-padding);
+    border-radius:               var(element-border-radius);
+    background-color:            var(background-normal);
+    text-color:                  var(foreground-normal);
     cursor:                      pointer;
 }
 element-text {
-    font:                        "feather bold 12";
+    font:                        var(element-text-font);
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
@@ -126,22 +117,6 @@ element-text {
     horizontal-align:            0.5;
 }
 element selected.normal {
-    background-color:            var(selected);
-    text-color:                  var(background);
-}
-
-/*****----- Message -----*****/
-message {
-    enabled:                     true;
-    margin:                      0px;
-    padding:                     15px;
-    border-radius:               0px;
-    background-color:            @background-alt;
-    text-color:                  @foreground;
-}
-textbox {
-    background-color:            inherit;
-    text-color:                  inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.5;
+    background-color:            var(background-selected);
+    text-color:                  var(foreground-selected);
 }
