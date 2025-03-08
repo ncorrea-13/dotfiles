@@ -1,5 +1,3 @@
-// nvim: fdm=marker
-
 configuration {
   /*---------- General setting ----------*/
   modi: "drun,run,filebrowser,window";
@@ -91,7 +89,7 @@ configuration {
 * {
   // general
   bg: #181a1f;
-  bgt: #16191c86;
+  bgt: #00000086;
   t: transparent; 
   fg: #bd93f9;
   selected-bg: @fg;
