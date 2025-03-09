@@ -28,9 +28,9 @@ no=''
 # Rofi CMD
 rofi_cmd() {
   rofi -dmenu \
-    -p " $USER@$host" \
-    -mesg " Last Login: $lastlogin |  Uptime: $uptime" \
-    -theme "${dir}/${theme}.rasi"
+    -p "Goodbye ${USER}" \
+    -mesg "Uptime: $uptime" \
+    -theme ${dir}/${theme}.rasi
 }
 
 # Confirmation CMD
