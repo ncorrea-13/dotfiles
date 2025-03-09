@@ -1,8 +1,29 @@
 #!/usr/bin/env bash
-
+# Source : https://github.com/ericmurphyxyz/rofi-wifi-menu
 notify-send "Getting list of available Wi-Fi networks..."
+
 # Get a list of available wifi connections and morph it into a nice-looking list
 wifi_list=$(nmcli --fields "SECURITY,SSID" device wifi list | sed 1d | sed 's/  */ /g' | sed -E "s/WPA*.?\S/ /g" | sed "s/^--/ /g" | sed "s/  //g" | sed "/--/d")
+
+# Get the list of saved connections
+saved_connections=$(nmcli -g NAME connection)
+
+# Get the currently active connection
+active_connection=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2)
+
+# Modify the wifi_list to include icons for saved and active connections
+wifi_list=$(echo "$wifi_list" | while read -r line; do
+  ssid=$(echo "$line" | awk '{print $NF}')
+  if [[ "$saved_connections" == *"$ssid"* ]]; then
+    if [[ "$ssid" == "$active_connection" ]]; then
+      echo " $line" # Icon for active connection
+    else
+      echo " $line" # Icon for saved connection
+    fi
+  else
+    echo "$line"
+  fi
+done)
 
 connected=$(nmcli -fields WIFI g)
 if [[ "$connected" =~ "enabled" ]]; then
@@ -25,14 +46,20 @@ elif [ "$chosen_network" = "󰖪  Disable Wi-Fi" ]; then
 else
   # Message to show when connection is activated successfully
   success_message="You are now connected to the Wi-Fi network \"$chosen_id\"."
-  # Get saved connections
-  saved_connections=$(nmcli -g NAME connection)
   if [[ $(echo "$saved_connections" | grep -w "$chosen_id") = "$chosen_id" ]]; then
     nmcli connection up id "$chosen_id" | grep "successfully" && notify-send "Connection Established" "$success_message"
   else
     if [[ "$chosen_network" =~ "" ]]; then
       wifi_password=$(rofi -dmenu -p "Password: ")
     fi
-    nmcli device wifi connect "$chosen_id" password "$wifi_password" | grep "successfully" && notify-send "Connection Established" "$success_message"
+
+    if nmcli device wifi connect "$chosen_id" password "$wifi_password"; then
+      notify-send "Connection Established" "$success_message"
+      nmcli connection modify id "$chosen_id" wifi-security.psk "$wifi_password"
+      nmcli connection up id "$chosen_id"
+    else
+      notify-send "Connection Failed" "Failed to connect to the Wi-Fi network \"$chosen_id\"."
+      nmcli connection delete "$chosen_id"
+    fi
   fi
 fi

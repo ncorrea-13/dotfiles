@@ -6,14 +6,7 @@ theme='style-1'
 
 # CMDs
 
-last_output="$(last -n 1 "$USER")"
-if [ -n "$last_output" ]; then
-  lastlogin="$(echo "$last_output" | head -n 1 | awk '{print $4, $5, $6}')"
-else
-  lastlogin="No recent logins"
-fi
 uptime="$(uptime -p | sed -e 's/up //g')"
-host=$(hostname)
 
 # Options
 hibernate=''
@@ -56,7 +49,7 @@ confirm_exit() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-  echo -e "$lock\n$suspend\n$logout\n$hibernate\n$reboot\n$shutdown" | rofi_cmd
+  echo -e "$shutdown\n$reboot\n$lock\n$logout\n$suspend\n$hibernate" | rofi_cmd
 }
 
 # Execute Command
