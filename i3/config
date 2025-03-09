@@ -217,7 +217,7 @@ bar {
         binding_mode       #ff5555 #ff5555 #f8f8f2
     }
 }
-
+for_window [class=".*"] border pixel 1
 # Apps borders
 for_window [class=".*"] border pixel 0
 # client.focused          #bd93f9 #bd93f9 #bd93f9 #bd93f9

@@ -18,8 +18,6 @@ config = {
 	line_height = 1.08,
 	font = wezterm.font("HackNerdFont", { weight = "Bold" }),
 	enable_tab_bar = false,
-	initial_cols = 200,
-	initial_rows = 50,
 	max_fps = 60,
 	window_padding = {
 		bottom = 0,
@@ -27,10 +25,10 @@ config = {
 		right = 0,
 		top = 0,
 	},
+	use_resize_increments = false,
 	set_environment_variables = {
 		PATH = os.getenv("PATH"),
 	},
-	use_resize_increments = true,
 	background = {
 		{
 			source = {
