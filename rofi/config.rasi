@@ -1,6 +1,10 @@
 configuration {
   /*---------- General setting ----------*/
-  modi: "drun,run,filebrowser,window";
+
+  modi: "window,drun,run,ssh,filebrowser";
+  combi-modi: "window,drun,run,ssh,filebrowser";
+  sidebar-mode: true;
+
   case-sensitive: false;
   cycle: true;
   filter: "";
@@ -10,6 +14,7 @@ configuration {
   icon-theme: "Papirus";
   steal-focus: false;
 
+  kb-mode-next: "Control+Tab";
   /*---------- Matching setting ----------*/
   matching: "normal";
   tokenize: true;
@@ -19,6 +24,12 @@ configuration {
   ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";
   parse-hosts: true;
   parse-known-hosts: true;
+
+  /*---------- File browser settings ----------*/
+  filebrowser {
+    directories-first: true;
+    sorting-method:    "name";
+  }
 
   /*---------- Drun settings ----------*/
   drun-categories: "";
@@ -57,15 +68,12 @@ configuration {
   max-history-size: 25;
 
   /*---------- Display setting ----------*/
-  display-window: "Windows";
-  display-windowcd: "Window CD";
-  display-run: "Run";
-  display-ssh: "SSH";
-  display-drun: "Apps";
-  display-combi: "Combi";
-  display-keys: "Keys";
-  display-filebrowser: "Files";
-
+  display-window: " Windows";
+  display-drun: " Apps";
+  display-run: " Run";
+  display-ssh: " SSH";
+  display-filebrowser: " Files";
+  
   /*---------- Misc setting ----------*/
   terminal: "rofi-sensible-terminal";
   font: "JetbrainsMono SemiBold 12";
@@ -73,17 +81,12 @@ configuration {
   threads: 0;
   click-to-exit: true;
 
-  /*---------- File browser settings ----------*/
-  filebrowser {
-    directories-first: true;
-    sorting-method:    "name";
-  }
-
   /*---------- Other settings ----------*/
   timeout {
     action: "kb-cancel";
     delay:  0;
   }
+
 }
 
 * {
@@ -172,8 +175,23 @@ element.alternate.active {
 }
 
 sidebar {
-    border:       2px 0 0;
-    border-color: @fg;
+    enabled: true;
+    spacing: 10px;
+    background-color: @bg;
+    padding: 8px;
+    children: [ "window", "drun", "run", "ssh", "filebrowser" ];  // Usa los nombres de los modos
+}
+
+button {
+    background-color: @t;
+    text-color: @fg;
+    border-radius: 7px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+button.selected {
+    background-color: @selected-bg;
+    text-color: @selected-fg;
 }
 
 inputbar {
