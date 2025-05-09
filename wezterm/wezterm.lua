@@ -29,6 +29,8 @@ config = {
 	set_environment_variables = {
 		PATH = os.getenv("PATH"),
 	},
+	enable_kitty_graphics = true,
+
 	background = {
 		{
 			source = {

@@ -8,16 +8,22 @@ font pango:monospace 8
 # start picom to see the wallpaper with the terminal
 exec_always --no-startup-id picom &
 
+# exec dunst to show notifications
+exec_always --no-startup-id dunst &
+
 # exec feh to change the wallpaper
-exec --no-startup-id feh --bg-scale ~/Pictures/Wallpaper.jpeg
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpaper.jpg
 
 # start xdg autostart .desktop files using dex. see also
 exec --no-startup-id dex --autostart --environment i3
 
+# set xset to disable the beep sound
+exec --no-startup-id xset b off
+
 # networkmanager is a program to contect to wireless networks on linux,
 # nm-applet is a desktop environment-independent system tray gui for it.
 # use whatever program you prefer here.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 # use mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -47,7 +53,7 @@ bindsym $mod+e exec thunar
 bindsym $mod+m exec thunderbird
 
 # open a browser (google chrome in this case)
-bindsym $mod+b exec --no-startup-id google-chrome --password-store=gnome-libsecret
+bindsym $mod+b exec --no-startup-id google-chrome-stable
 
 # open discord
 bindsym $mod+d exec discord
@@ -112,10 +118,11 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# gaps between windows and around screen
 gaps inner 6
 gaps outer -1
 
-# name the workspaces
+# icons from the workspaces
 set $ws1 " "
 set $ws2 " "
 set $ws3 " "
@@ -155,7 +162,7 @@ bindsym $mod+shift+0 move container to workspace $ws10
 assign [class="^Google-chrome"]    $ws1
 assign [class="^kdeconnect.app"]   $ws6
 assign [class="^org.wezfurlong.wezterm"]          $ws2
-assign [class="^code"]             $ws3
+assign [class="^Code"]             $ws3
 assign [class="^Thunar"]           $ws4
 assign [class="^discord"]          $ws7
 assign [class="^TelegramDesktop"] $ws7
@@ -173,6 +180,7 @@ bindsym $mod+shift+e exec i3-msg exit
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
 # open wifimenu
 bindsym $mod+shift+w exec --no-startup-id ~/.config/rofi/wifimenu/wifimenu.sh
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # these bindings trigger as soon as you enter the resize mode
@@ -217,7 +225,7 @@ bar {
         binding_mode       #ff5555 #ff5555 #f8f8f2
     }
 }
-for_window [class=".*"] border pixel 1
+
 # Apps borders
 for_window [class=".*"] border pixel 0
 # client.focused          #bd93f9 #bd93f9 #bd93f9 #bd93f9

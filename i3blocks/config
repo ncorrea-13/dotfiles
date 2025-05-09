@@ -4,16 +4,6 @@ color=#f8f8f2
 separator_block_width=15
 markup=pango
 
-[updates]
-command=apt list --upgradable 2>/dev/null | tail -n +2 | wc -l
-interval=2
-label=<span color="#ff5555"> </span>
-border=#ff5555
-border_top=1
-border_right=0
-border_bottom=0
-border_left=0
-
 [battery]
 command=cat /sys/class/power_supply/BAT0/capacity
 interval=2
@@ -96,20 +86,20 @@ border_bottom=0
 border_left=0
 
 [time]
-command=TZ=":GMT+3" date '+%H:%M' | awk '{ printf "%s<span color=\"#bd93f9\">%s</span>%s<span color=\"#bd93f9\"> %s</span>\n", $1, $2, $3, $4 }'
+command=TZ=":GMT+3" date '+%H:%M' | awk '{ printf "%s<span color=\"#8be9fd\">%s</span>%s<span color=\"#8be9fd\"> %s</span>\n", $1, $2, $3, $4 }'
 interval=1
-label=<span color="#bd93f9"> </span>
-border=#bd93f9
+label=<span color="#8be9fd"> </span>
+border=#8be9fd
 border_top=1
 border_right=0
 border_bottom=0
 border_left=0
 
 [date]
-command=date '+%d-%m-%Y %A' | awk '{ printf "%s<span color=\"#8be9fd\"> %s</span>\n", $1, $2 }'
+command=date '+%d-%m-%Y %A' | awk '{ printf "%s<span color=\"#bd93f9\"> %s</span>\n", $1, $2 }'
 interval=60
-label=<span color="#8be9fd"> </span>
-border=#8be9fd
+label=<span color="#bd93f9"> </span>
+border=#bd93f9
 border_top=1
 border_right=0
 border_bottom=0
