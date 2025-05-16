@@ -24,125 +24,127 @@
     {
       "type": "custom",
       "outputColor": "yellow",
-      "format": "┌──────────────────────────── General  Information ──────────────────────────┐" // `\u001b` is `\033`, or `\e`
+      "format": "┌────────────────── General  Information ────────────────┐" // `\u001b` is `\033`, or `\e`
     },
     "break",
     {
       "type": "title",
-      "format": "                                {6}{7}{8}"
+      "format": "                     {6}{7}{8}"
     },
     "break",
     {
       "type": "custom",
-      "format": "┌──────────────────────────── Hardware Information ──────────────────────────┐" // `\u001b` is `\033`, or `\e`
+      "format": "├────────────────── Hardware Information ────────────────┤" // `\u001b` is `\033`, or `\e`
     },
     "break",
     {
-      "key": "    󰌢 Machine      ",
-      "keyColor": "cyan",
+      "key": "  󰌢 Machine      ",
+      "keyColor": "blue",
       "type": "host"
     },
     {
-      "key": "    󰍛 CPU          ",
+      "key": "  󰍛 CPU          ",
       "keyColor": "green",
-      "type": "cpu"
+      "type": "cpu",
+      "format": "{1}"
     },
     {
-      "key": "    󰍛 GPU          ",
+      "key": "  󰍛 GPU          ",
       "keyColor": "cyan",
       "type": "gpu",
-      "format": "{2} @ {12}"
+      "format": "{1} {6} @ {12}"
     },
     {
-      "key": "    󰍹 Screen       ",
+      "key": "  󰍹 Screen       ",
       "keyColor": "blue",
-      "type": "display"
+      "type": "display",
+      "format": "{1}x{2} {3}Hz"
     },
     {
-      "key": "     Disk (/)     ",
+      "key": "   Disk (/)     ",
       "keyColor": "green",
       "type": "disk",
       "folders": "/",
       "format": "{1}: {2} ({3}%)"
     },
     {
-      "key": "     Disk (/home) ",
+      "key": "   Disk (/home) ",
       "keyColor": "cyan",
       "type": "disk",
       "folders": "/home",
       "format": "{1}: {2} ({3}%)"
     },
     {
-      "key": "    󰑭 Memory       ",
+      "key": "  󰑭 Memory       ",
       "keyColor": "blue",
       "type": "memory"
     },
     {
-      "key": "    󱈑 Battery      ",
+      "key": "  󱈑 Battery      ",
       "keyColor": "green",
       "type": "battery"
     },
     "break",
     {
       "type": "custom",
-      "format": "┌──────────────────────────── Software Information ──────────────────────────┐" // `\u001b` is `\033`, or `\e`,
+      "format": "├────────────────── Software Information ───────────────┤" // `\u001b` is `\033`, or `\e`,
     },
     "break",
     {
-      "key": "     OS           ",
+      "key": "   OS           ",
       "keyColor": "cyan",
       "type": "os"
     },
     {
-      "key": "     Kernel       ",
+      "key": "   Kernel       ",
       "keyColor": "blue",
       "type": "kernel"
     },
     {
-      "key": "     WM           ",
+      "key": "   WM           ",
       "keyColor": "green",
       "type": "wm"
     },
     {
-      "key": "     Shell        ",
+      "key": "   Shell        ",
       "keyColor": "cyan",
       "type": "shell"
     },
     {
-      "key": "     Terminal     ",
+      "key": "   Terminal     ",
       "keyColor": "blue",
       "type": "terminal"
     },
     {
-      "key": "    󰉼 Theme        ",
+      "key": "  󰉼 Theme        ",
       "keyColor": "green",
       "type": "theme"
     },
     {
-      "key": "     Packages     ",
+      "key": "   Packages     ",
       "keyColor": "cyan",
       "type": "packages"
     },
     {
-      "key": "    󰅐 Uptime       ",
-      "keyColor": "green",
+      "key": "  󰅐 Uptime       ",
+      "keyColor": "blue",
       "type": "uptime"
     },
     {
-      "key": "     Local IP     ",
-      "keyColor": "cyan",
+      "key": "   Local IP     ",
+      "keyColor": "green",
       "type": "localip",
       "compact": true
     },
     "break",
     {
       "type": "custom",
-      "format": "└────────────────────────────────────────────────────────────────────────────┘" // `\u001b` is `\033`, or `\e`
+      "format": "└──────────────────────────────────────────────────────┘" // `\u001b` is `\033`, or `\e`
     },
     "break",
     {
       "type": "colors",
-      "paddingLeft": 34,
+      "paddingLeft": 22,
       "symbol": "circle",
       "block": {
         "width": 10
