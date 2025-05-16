@@ -1,0 +1,152 @@
+//   _____ _____ _____ _____ _____ _____ _____ _____ _____ 
+//  |   __|  _  |   __|_   _|   __|   __|_   _|     |  |  |
+//  |   __|     |__   | | | |   __|   __| | | |   --|     |
+//  |__|  |__|__|_____| |_| |__|  |_____| |_| |_____|__|__|  GROUPS
+//
+//  by Bina
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "source": "~/.config/fastfetch/logo",
+    "color": {
+      "1": "white"
+    },
+    "height": 20,
+    "padding": {
+      "top": 1
+    }
+  },
+  "display": {
+    "separator": " ➜  "
+  },
+  "modules": [
+    "break",
+    {
+      "type": "custom",
+      "outputColor": "yellow",
+      "format": "┌──────────────────────────── General  Information ──────────────────────────┐" // `\u001b` is `\033`, or `\e`
+    },
+    "break",
+    {
+      "type": "title",
+      "format": "                                {6}{7}{8}"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "┌──────────────────────────── Hardware Information ──────────────────────────┐" // `\u001b` is `\033`, or `\e`
+    },
+    "break",
+    {
+      "key": "    󰌢 Machine      ",
+      "keyColor": "cyan",
+      "type": "host"
+    },
+    {
+      "key": "    󰍛 CPU          ",
+      "keyColor": "green",
+      "type": "cpu"
+    },
+    {
+      "key": "    󰍛 GPU          ",
+      "keyColor": "cyan",
+      "type": "gpu",
+      "format": "{2} @ {12}"
+    },
+    {
+      "key": "    󰍹 Screen       ",
+      "keyColor": "blue",
+      "type": "display"
+    },
+    {
+      "key": "     Disk (/)     ",
+      "keyColor": "green",
+      "type": "disk",
+      "folders": "/",
+      "format": "{1}: {2} ({3}%)"
+    },
+    {
+      "key": "     Disk (/home) ",
+      "keyColor": "cyan",
+      "type": "disk",
+      "folders": "/home",
+      "format": "{1}: {2} ({3}%)"
+    },
+    {
+      "key": "    󰑭 Memory       ",
+      "keyColor": "blue",
+      "type": "memory"
+    },
+    {
+      "key": "    󱈑 Battery      ",
+      "keyColor": "green",
+      "type": "battery"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "┌──────────────────────────── Software Information ──────────────────────────┐" // `\u001b` is `\033`, or `\e`,
+    },
+    "break",
+    {
+      "key": "     OS           ",
+      "keyColor": "cyan",
+      "type": "os"
+    },
+    {
+      "key": "     Kernel       ",
+      "keyColor": "blue",
+      "type": "kernel"
+    },
+    {
+      "key": "     WM           ",
+      "keyColor": "green",
+      "type": "wm"
+    },
+    {
+      "key": "     Shell        ",
+      "keyColor": "cyan",
+      "type": "shell"
+    },
+    {
+      "key": "     Terminal     ",
+      "keyColor": "blue",
+      "type": "terminal"
+    },
+    {
+      "key": "    󰉼 Theme        ",
+      "keyColor": "green",
+      "type": "theme"
+    },
+    {
+      "key": "     Packages     ",
+      "keyColor": "cyan",
+      "type": "packages"
+    },
+    {
+      "key": "    󰅐 Uptime       ",
+      "keyColor": "green",
+      "type": "uptime"
+    },
+    {
+      "key": "     Local IP     ",
+      "keyColor": "cyan",
+      "type": "localip",
+      "compact": true
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "└────────────────────────────────────────────────────────────────────────────┘" // `\u001b` is `\033`, or `\e`
+    },
+    "break",
+    {
+      "type": "colors",
+      "paddingLeft": 34,
+      "symbol": "circle",
+      "block": {
+        "width": 10
+      }
+    }
+  ]
+}
