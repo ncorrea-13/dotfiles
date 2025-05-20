@@ -9,7 +9,7 @@ Welcome to my collection of dotfiles! Here you will find my personal configurati
 - 📈 **Btop++** - Resource monitor configuration.
 - 🎵 **Cava** - Audio visualizer configuration.
 - 🔔 **Dunst** - Notification service configuration.
-- 🖼️ **Neofetch** - System information tool configuration.
+- 🖼️ **Fastfetch** - System information tool configuration.
 - 📝 **Neovim** - Custom configuration based on LazyVim.
 - 🌫️ **Picom** - Window compositor configuration.
 - 🚀 **Rofi** - Application launcher configuration.
@@ -46,7 +46,7 @@ To install these configurations on your system, follow these steps:
     ln -s ~/dotfiles/btop ~/.config/btop
     ln -s ~/dotfiles/cava ~/.config/cava
     ln -s ~/dotfiles/dunst ~/.config/dunst
-    ln -s ~/dotfiles/neofetch ~/.config/neofetch
+    ln -s ~/dotfiles/fastfetch ~/.config/fastfetch/
     ln -s ~/dotfiles/vifm ~/.config/vifm
     ```
 
