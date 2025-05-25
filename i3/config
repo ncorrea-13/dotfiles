@@ -52,8 +52,8 @@ bindsym $mod+e exec thunar
 # open thunderbird
 bindsym $mod+m exec thunderbird
 
-# open a browser (google chrome in this case)
-bindsym $mod+b exec --no-startup-id google-chrome-stable
+# open a browser (librewolf in this case)
+bindsym $mod+b exec --no-startup-id librewolf
 
 # open discord
 bindsym $mod+d exec discord
@@ -159,7 +159,7 @@ bindsym $mod+shift+9 move container to workspace $ws9
 bindsym $mod+shift+0 move container to workspace $ws10
 
 # always open some programs on specified workspace
-assign [class="^Google-chrome"]    $ws1
+assign [class="^librewolf"]    $ws1
 assign [class="^kdeconnect.app"]   $ws6
 assign [class="^org.wezfurlong.wezterm"]          $ws2
 assign [class="^Code"]             $ws3
