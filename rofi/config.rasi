@@ -1,222 +1,114 @@
 configuration {
-  /*---------- General setting ----------*/
+  modi:			"window,drun,filebrowser";
+  sidebar-mode:		true;
+  show-icons: false;
+  sort:			true;
+  sorting-method:	"normal";
+  disable-history:	false;
+  scroll-method:	0;
+  drun-display-format:	"{name}";
+  matching:		"fuzzy";
+  window-thumbnail:	true;
+  display-drun:		"Apps";
+  display-window:	"Windows";
+  display-filebrowser:	"Files";
 
-  modi: "window,drun,run,ssh,filebrowser";
-  combi-modi: "window,drun,run,ssh,filebrowser";
-  sidebar-mode: true;
-
-  case-sensitive: false;
-  cycle: true;
-  filter: "";
-  scroll-method: 0;
-  normalize-match: true;
-  show-icons: true;
-  icon-theme: "Papirus";
-  steal-focus: false;
-
-  kb-mode-next: "Control+Tab";
-  /*---------- Matching setting ----------*/
-  matching: "normal";
-  tokenize: true;
-
-  /*---------- SSH settings ----------*/
-  ssh-client: "ssh";
-  ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";
-  parse-hosts: true;
-  parse-known-hosts: true;
-
-  /*---------- File browser settings ----------*/
-  filebrowser {
-    directories-first: true;
-    sorting-method:    "name";
+filebrowser {
+  directories-first:	true;
+  sorting-method:	"name";
   }
-
-  /*---------- Drun settings ----------*/
-  drun-categories: "";
-  drun-match-fields: "name,generic,exec,categories,keywords";
-  drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
-  drun-show-actions: false;
-  drun-url-launcher: "xdg-open";
-  drun-use-desktop-cache: false;
-  drun-reload-desktop-cache: false;
-  drun {
-    /** Parse user desktop files. */
-    parse-user:   true;
-    /** Parse system desktop files. */
-    parse-system: true;
-  }
-
-  /*---------- Run settings ----------*/
-  run-command: "{cmd}";
-  run-list-command: "";
-  run-shell-command: "{terminal} -e {cmd}";
-
-  /*---------- Fallback Icon ----------*/
-  run,drun {
-    fallback-icon: "application-x-addon";
-  }
-
-  /*---------- Window switcher settings ----------*/
-  window-match-fields: "title,class,role,name,desktop";
-  window-command: "wmctrl -i -R {window}";
-  window-format: "{w} - {c} - {t:0}";
-  window-thumbnail: false;
-
-  /*---------- History and Sorting ----------*/
-  disable-history: false;
-  sorting-method: "normal";
-  max-history-size: 25;
-
-  /*---------- Display setting ----------*/
-  display-window: " Windows";
-  display-drun: " Apps";
-  display-run: " Run";
-  display-ssh: " SSH";
-  display-filebrowser: " Files";
-  
-  /*---------- Misc setting ----------*/
-  terminal: "rofi-sensible-terminal";
-  font: "JetbrainsMono SemiBold 12";
-  sort: false;
-  threads: 0;
-  click-to-exit: true;
-
-  /*---------- Other settings ----------*/
-  timeout {
-    action: "kb-cancel";
-    delay:  0;
-  }
-
 }
+
+@theme "/dev/null"
 
 * {
-  // general
-  bg: #181a1f;
-  bgt: #00000086;
-  t: transparent; 
-  fg: #bd93f9;
-  selected-bg: @fg;
-  selected-fg: @bg;
-
-  // for windows
-  active: #5a687e;
-  urgent: #aa4f54;
+  bg:		#0C0F09;
+  fg:		#05E289;
+  bgAlt: #1B1E25;
+  button:		#05E289;
+  background-color:	@bg;
+  text-color:		@fg;
 }
+
+@import "./Themes/style.rasi"
+
+mainbox { children: [ mode-switcher, inputbar, listview ]; }
 
 window {
-  fullscreen: true;
-  padding: 20% 30%;       // you might want to ajust these to resize rofi.
-  transparency: "real";
-  background-color: @bgt;
-  border-color: @t;
-}
-
-listview {
-  border: 0 0 0 0;
-  padding: 40 10 0;
-  scrollbar: true;
-}
-
-scrollbar {
-    width:        15px;
-    border-radius:       7px;
-    handle-color: @fg;
-    handle-width: 13px;
-    padding:      0 5;
-}
-
-entry {
-    placeholder: "";
-}
-
-textbox {
-    text-color: @fg;
-}
-
-element {
-    border-radius:  7px;
-    padding: 8px;
-}
-element.normal.normal {
-    background-color: @t;
-    text-color:       @fg;
-}
-element.normal.urgent {
-    background-color: @t;
-    text-color:       @urgent;
-}
-element.normal.active {
-    background-color: @t;
-    text-color:       @active;
-}
-element.selected.normal {
-    background-color: @selected-bg;
-    text-color:       @selected-fg;
-}
-element.selected.urgent {
-    background-color: @selected-bg;
-    text-color:       @urgent;
-}
-element.selected.active {
-    background-color: @selected-bg;
-    text-color:       @selected-fg;
-}
-element.alternate.normal {
-    background-color: @t;
-    text-color:       @fg;
-}
-element.alternate.urgent {
-    background-color: @t;
-    text-color:       @urgent;
-}
-element.alternate.active {
-    background-color: @t;
-    text-color:       @active;
-}
-
-sidebar {
-    enabled: true;
-    spacing: 10px;
-    background-color: @bg;
-    padding: 8px;
-    children: [ "window", "drun", "run", "ssh", "filebrowser" ];  // Usa los nombres de los modos
-}
-
-button {
-    background-color: @t;
-    text-color: @fg;
-    border-radius: 7px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-button.selected {
-    background-color: @selected-bg;
-    text-color: @selected-fg;
+  transparency:		"real";
+  width:		650px;
+  border-radius:	15px;
+  height:		500px;
+  border: 12px;
+  border-color: @bg;
 }
 
 inputbar {
-    spacing:    0;
-    text-color: @fg;
-    padding:    2px;
-    children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
+  children:		[ entry ];
+  expand:		false;
+  padding:		5px 10px 5px 10px;
 }
 
-case-indicator,
-entry,
-prompt,
+prompt { 
+  enabled: true; 
+  background-color:	@bgAlt;
+  padding:		15px;
+  border-radius:	15px;
+}
+
+entry {
+  background-color:	@bgAlt;
+  placeholder:		"Search";
+  expand:		true;
+  padding:		15px;
+  border-radius:	15px;
+}
+
+listview {
+  columns:		2;
+  cycle:		true;
+  dynamic:		true;
+  layout:		vertical;
+  scrollbar:		false;
+}
+
+element {
+  orientation:		vertical;
+  margin:		2px 3px 2px 3px;
+  border-radius:	10px;
+  background-color:	@bgAlt;
+}
+
+element-text {
+  expand:		true;
+  margin:		15px 15px 15px 15px;
+  background-color:	inherit;
+  text-color:		inherit;
+}
+
+element selected {
+  background-color:	@fg;
+  text-color:		@bgAlt;
+  border-radius:	10px;
+}
+
+mode-switcher {
+  spacing:		2px;
+  border-radius:	10px;
+  background-color:	inherit;
+  text-color:		inherit;
+  margin:		10px 50px 10px 50px;
+}
+
 button {
-    spacing:    0;
-    text-color: @fg;
+  padding:		8px;
+  background-color:	@bgAlt;
+  vertical-align:	0.5; 
+  horizontal-align:	0.5;
 }
 
-button.selected {
-    background-color: @bg;
-    text-color:       @fg;
-}
-
-textbox-prompt-sep {
-    expand:     false;
-    str:        ":";
-    text-color: @fg;
-    margin:     0 0.3em 0 0;
+button selected {
+  padding:		8px;
+  background-color:	@fg;
+  text-color:		@bgAlt;
 }

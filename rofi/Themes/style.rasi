@@ -1,0 +1,15 @@
+
+* {
+bg: #1A1B26;
+bgAlt: #24283B;
+fg: #BB9AF7;
+button: #414868;
+background-color: @bg;
+text-color: @fg;
+icon-margin: 5px; /* Added to adjust the position of icons */
+}
+
+configuration {
+  font: "FiraCode Nerd Font 13";
+}
+

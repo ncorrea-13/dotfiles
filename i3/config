@@ -59,8 +59,8 @@ bindsym $mod+b exec --no-startup-id librewolf
 bindsym $mod+d exec discord
 
 # make screenshots
-bindsym Print exec xfce4-screenshooter -f -o "xclip -selection clipboard -t image/png"
-bindsym $mod+Shift+s exec xfce4-screenshooter -r -o "xclip -selection clipboard -t image/png"
+bindsym $mod+shift+Shift+s exec --no-startup-id ~/.config/rofi/screenshot/screenshot
+bindsym Print exec --no-startup-id ~/.config/rofi/screenshot/screenshot
 
 # kill focused window
 bindsym $mod+shift+q kill
@@ -120,7 +120,7 @@ bindsym $mod+a focus parent
 
 # gaps between windows and around screen
 gaps inner 6
-gaps outer -1
+gaps outer 1
 
 # icons from the workspaces
 set $ws1 " "
@@ -179,7 +179,7 @@ bindsym $mod+shift+e exec i3-msg exit
 # open powermenu
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
 # open wifimenu
-bindsym $mod+shift+w exec --no-startup-id ~/.config/rofi/wifimenu/wifimenu.sh
+bindsym $mod+shift+w exec --no-startup-id ~/.config/rofi/wifi/wifi
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
