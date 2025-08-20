@@ -75,13 +75,20 @@
       "format": "{1}: {2} ({3}%)"
     },
     {
-      "key": "  󰑭 Memory       ",
+      "key": "   Disk (/HDD)  ",
       "keyColor": "blue",
+      "type": "disk",
+      "folders": "/media/ncorrea/HDD",
+      "format": "{1}: {2} ({3}%)"
+    },
+    {
+      "key": "  󰑭 Memory       ",
+      "keyColor": "green",
       "type": "memory"
     },
     {
       "key": "  󱈑 Battery      ",
-      "keyColor": "green",
+      "keyColor": "cyan",
       "type": "battery"
     },
     "break",
@@ -92,48 +99,48 @@
     "break",
     {
       "key": "   OS           ",
-      "keyColor": "cyan",
+      "keyColor": "blue",
       "type": "os",
       "format": "{2} {8}"
     },
     {
       "key": "   Kernel       ",
-      "keyColor": "blue",
+      "keyColor": "green",
       "type": "kernel"
     },
     {
       "key": "   WM           ",
-      "keyColor": "green",
+      "keyColor": "cyan",
       "type": "wm"
     },
     {
       "key": "   Shell        ",
-      "keyColor": "cyan",
+      "keyColor": "blue",
       "type": "shell"
     },
     {
       "key": "   Terminal     ",
-      "keyColor": "blue",
+      "keyColor": "green",
       "type": "terminal"
     },
     {
       "key": "  󰉼 Theme        ",
-      "keyColor": "green",
+      "keyColor": "cyan",
       "type": "theme"
     },
     {
       "key": "   Packages     ",
-      "keyColor": "cyan",
+      "keyColor": "blue",
       "type": "packages"
     },
     {
       "key": "  󰅐 Uptime       ",
-      "keyColor": "blue",
+      "keyColor": "green",
       "type": "uptime"
     },
     {
       "key": "   Local IP     ",
-      "keyColor": "green",
+      "keyColor": "cyan",
       "type": "localip",
       "compact": true
     },
