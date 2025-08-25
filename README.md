@@ -55,7 +55,7 @@ To install these configurations on your system, follow these steps:
 4. Install the necessary dependencies
 5. Restart applications or your user session for the changes to take effect.
 
-```
+
 ## 📜 License
 
 This repository is licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute the configurations as per the terms of this license.
