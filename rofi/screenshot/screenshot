@@ -26,11 +26,11 @@ roficonfig=~/.config/rofi/screenshot/config.rasi
 # ├┬┘│ │├┤ │
 # ┴└─└─┘└  ┴
 
-area=""
-cwin=""
-full=""
-copy=""
-save=""
+area="󰄴"
+cwin="󰄵"
+full="󰍹"
+copy="󰄷"
+save="󰄸"
 
 rofiopt="$area\n$cwin\n$full"
 rofi=$(printf "$rofiopt" | rofi -config $roficonfig -dmenu -i)
