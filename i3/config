@@ -25,6 +25,9 @@ exec --no-startup-id xset b off
 # use whatever program you prefer here.
 # exec --no-startup-id nm-applet
 
+# script to detect another monitors
+exec --no-startup-id ~/.config/i3/monitors.sh
+
 # use mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -146,6 +149,9 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
+# move workspace to another monitor
+bindsym $mod+Shift+m move workspace to output right
+
 # move focused container to workspace
 bindsym $mod+shift+1 move container to workspace $ws1
 bindsym $mod+shift+2 move container to workspace $ws2
@@ -208,7 +214,6 @@ bindsym $mod+r mode "resize"
 bar {
     font pango: hack nerd font 9
     i3bar_command i3bar  --transparency
-    output primary
     position top
     status_command i3blocks -c ~/.config/i3blocks/config
     tray_output none
