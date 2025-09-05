@@ -1,23 +1,23 @@
-# 💻 Nicolás Correa's Dotfiles 🎨
+# My personal linux's dotfiles
 
-Welcome to my collection of dotfiles! Here you will find my personal configurations for essential Linux tools. 🚀
+Welcome to my collection of dotfiles! Here you will find my personal configurations for essential Linux tools.
 
-## 📂 Contents
+## Contents
 
-- 🖥️ **i3** - Window manager configuration.
-- 📊 **i3blocks** - Status bar configuration.
-- 📈 **Btop++** - Resource monitor configuration.
-- 🎵 **Cava** - Audio visualizer configuration.
-- 🔔 **Dunst** - Notification service configuration.
-- 🖼️ **Fastfetch** - System information tool configuration.
-- 📝 **Neovim** - Custom configuration based on LazyVim.
-- 🌫️ **Picom** - Window compositor configuration.
-- 🚀 **Rofi** - Application launcher configuration.
-- 📁 **Vifm** - Terminal file manager configuration.
-- 🔲 **WezTerm** - Terminal emulator configuration.
-- 🔍 **Zellij** - Terminal multiplexer configuration.
+- **i3** - Window manager configuration.
+- **i3blocks** - Status bar configuration.
+- **Btop++** - Resource monitor configuration.
+- **Cava** - Audio visualizer configuration.
+- **Dunst** - Notification service configuration.
+- **Fastfetch** - System information tool configuration.
+- **Neovim** - Custom configuration based on LazyVim.
+- **Picom** - Window compositor configuration.
+- **Rofi** - Application launcher configuration.
+- **Vifm** - Terminal file manager configuration.
+- **WezTerm** - Terminal emulator configuration.
+- **Zellij** - Terminal multiplexer configuration.
 
-## ⚙️ Installation
+## Installation
 
 To install these configurations on your system, follow these steps:
 
@@ -33,30 +33,25 @@ To install these configurations on your system, follow these steps:
     cd ~/dotfiles
     ```
 
-3. Create symbolic links from the configuration files in the repository to your `~/.config` directory:
+3. Move the configuration files in the repository to your `~/.config` directory:
 
     ```bash
-    ln -s ~/dotfiles/nvim ~/.config/nvim
-    ln -s ~/dotfiles/wezterm ~/.config/wezterm
-    ln -s ~/dotfiles/i3 ~/.config/i3
-    ln -s ~/dotfiles/i3blocks ~/.config/i3blocks
-    ln -s ~/dotfiles/rofi ~/.config/rofi
-    ln -s ~/dotfiles/zellij ~/.config/zellij
-    ln -s ~/dotfiles/picom.conf ~/.config/picom.conf
-    ln -s ~/dotfiles/btop ~/.config/btop
-    ln -s ~/dotfiles/cava ~/.config/cava
-    ln -s ~/dotfiles/dunst ~/.config/dunst
-    ln -s ~/dotfiles/fastfetch ~/.config/fastfetch/
-    ln -s ~/dotfiles/vifm ~/.config/vifm
+    mv * ~/.config
+    ```
+    
+    You could also move only the configuration you want to import
+
+    ```bash
+    mv nvim ~/.config
     ```
 
     **Note**: Ensure that the `~/.config` directory exists before creating symbolic links.
 
-4. Install the necessary dependencies
-5. Restart applications or your user session for the changes to take effect.
+5. Install the necessary dependencies
+6. Restart applications or your user session for the changes to take effect.
 
 
-## 📜 License
+## License
 
 This repository is licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute the configurations as per the terms of this license.
 
