@@ -26,6 +26,8 @@ roficonfig=~/.config/rofi/screenshot/config.rasi
 # ├┬┘│ │├┤ │
 # ┴└─└─┘└  ┴
 
+# if you don't have the icons, go to Niraj's github and download them from their repository.
+
 area=""
 cwin=""
 full=""

@@ -61,15 +61,23 @@ bindsym $mod+b exec --no-startup-id librewolf
 # open discord
 bindsym $mod+d exec discord
 
-# make screenshots
-bindsym $mod+shift+Shift+s exec --no-startup-id ~/.config/rofi/screenshot/screenshot
-bindsym Print exec --no-startup-id ~/.config/rofi/screenshot/screenshot
-
 # kill focused window
 bindsym $mod+shift+q kill
 
-# start rofi 
+# Rofi block
+# start drun menu on rofi 
 bindsym $mod+space exec rofi -show drun 
+# make screenshots
+bindsym $mod+shift+s exec --no-startup-id ~/.config/rofi/screenshot/screenshot
+bindsym Print exec --no-startup-id ~/.config/rofi/screenshot/screenshot
+# monitors
+bindsym $mod+o exec --no-startup-id ~/.config/rofi/screen/screen
+# music control
+bindsym $mod+n exec --no-startup-id ~/.config/rofi/music/music
+# open powermenu
+bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
+# open wifimenu
+bindsym $mod+shift+w exec --no-startup-id ~/.config/rofi/wifi/wifi
 
 # change focus
 bindsym $mod+j focus down 
@@ -182,10 +190,6 @@ bindsym $mod+shift+c reload
 bindsym $mod+shift+r restart
 # exit i3 (logs you out of your x session)
 bindsym $mod+shift+e exec i3-msg exit
-# open powermenu
-bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
-# open wifimenu
-bindsym $mod+shift+w exec --no-startup-id ~/.config/rofi/wifi/wifi
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
