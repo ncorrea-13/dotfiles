@@ -145,52 +145,8 @@ command! FZFfind :
 " You can also add %CLEAR if you want to clear screen before running FUSE
 " program.
 
-
-fileviewer *.pdf
-    \ vifmimg pdf %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
-
-fileviewer *.djvu
-    \ vifmimg djvu %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
-
-fileviewer *.epub
-    \ vifmimg epub %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
-
-fileviewer <video/*>
-    \ vifmimg video %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
-
-"fileviewer <image/*>
-"    \ vifmimg draw %px %py %pw %ph %c
-"   \ %pc
-"  \ vifmimg clear
-
-fileviewer <image/*> chafa -f symbols -s 120x60 %c
-"fileviewer <image/*> chafa -f symbols -s %pw%x%ph% %c
-
-fileviewer <audio/*>
-    \ vifmimg audio %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
-
-fileviewer <font/*>
-    \ vifmimg font %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
-
-
-fileviewer *.csv sed "s/,,,,/,,-,,/g;s/,,/ /g" %c | column -t | sed "s/ - /  /g" | cut -c -%pw
-
-fileviewer *.html, *.htm, *.xhtml w3m -dump %c
-
-" fileviewer <text/*> env -uCOLORTERM bat --color always --wrap never --pager never %c -p
-fileviewer <text/*> batcat --color=always --wrap=never --pager=never %c
+set previewprg=~/.config/vifm/scripts/preview.sh
+set previewoptions=wrap
 
 " Archives
 fileviewer *.zip,*.jar,*.war,*.ear,*.oxt zip -sf %c
