@@ -193,16 +193,16 @@ nnoremap re :!bash ~/bin/utils/tineye %c &<cr>
 nnoremap gg ggj
 
 " Quick shortcuts to some dirs 
-nnoremap bin :cd ~/bin<cr>
-nnoremap docs :cd ~/documents<cr>
-nnoremap dls :cd ~/downloads<cr>
-nnoremap pics :cd ~/pictures<cr>
-nnoremap walls :cd ~/pictures/wallpapers<cr>
-nnoremap vids :cd ~/videos<cr>
-nnoremap dots :cd ~/dotfiles<cr>
-nnoremap shots :cd ~/pictures/screenshots<cr>
-nnoremap music :cd ~/music<cr>
-nnoremap prjs :cd ~/projects<cr>
+nnoremap docs :cd ~/Documents<cr>
+nnoremap dls :cd ~/Downloads<cr>
+nnoremap pics :cd ~/Pictures<cr>
+nnoremap walls :cd ~/Pictures/Wallpapers<cr>
+nnoremap vids :cd ~/Videos<cr>
+nnoremap shots :cd ~/Pictures/Screenshots<cr>
+nnoremap music :cd ~/Music<cr>
+nnoremap prjs :cd ~/Projects<cr>
+nnoremap dots :cd ~/Projects/things/dotfiles<cr>
+nnoremap drive :cd ~/OneDrive<cr>
 nnoremap cd :cd<cr>
 
 
@@ -234,7 +234,7 @@ nnoremap cc cw<c-u>
 nnoremap A cw
 
 " Extract an archive
-nnoremap x :!/home/siddharth/bin/utils/ex %f &<cr>
+nnoremap x :!tar -xzf %f &<cr>
 
 " Make a new directory
 nnoremap mkd :mkdir<space>
