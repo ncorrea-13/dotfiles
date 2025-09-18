@@ -12,7 +12,7 @@ exec_always --no-startup-id picom &
 exec_always --no-startup-id dunst &
 
 # exec feh to change the wallpaper
-exec --no-startup-id feh --bg-scale ~/Pictures/Wallpaper.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/Wallpaper.jpg
 
 # start xdg autostart .desktop files using dex. see also
 exec --no-startup-id dex --autostart --environment i3
