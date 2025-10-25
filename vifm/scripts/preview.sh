@@ -20,20 +20,16 @@ text/* | application/json | application/xml)
 
 # Imágenes
 image/*)
-  if $in_zellij; then
-    # Mostrar en ASCII
-    chafa -f symbols -s 80x40 "$file"
-  else
-    # Placeholder para ueberzugpp o inline images
-    chafa -f symbols -s 80x40 "$file"
-  fi
+  cols=$(tput cols)
+  rows=$(tput lines)
+  chafa -f symbols -s ${cols}x${rows} "$file"
   ;;
 
 # PDFs
 application/pdf)
   if command -v pdftoppm >/dev/null; then
     tmp="/tmp/vifm-pdf-${RANDOM}"
-    pdftoppm -png -singlefile -scale-to 320 "$file" "$tmp"
+    pdftoppm -png -f 1 -singlefile -scale-to-x 600 -scale-to-y -1 "$file" "$tmp"
     chafa -f symbols -s 120x60 "${tmp}.png"
     rm -f "${tmp}.png"
   else

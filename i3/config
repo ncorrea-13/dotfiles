@@ -59,7 +59,7 @@ bindsym $mod+m exec thunderbird
 bindsym $mod+b exec --no-startup-id librewolf
 
 # open discord
-bindsym $mod+d exec vesktop
+bindsym $mod+d exec webcord 
 
 # kill focused window
 bindsym $mod+shift+q kill
@@ -178,7 +178,7 @@ assign [class="^kdeconnect.app"]   $ws6
 assign [class="^org.wezfurlong.wezterm"]          $ws2
 assign [class="^Code"]             $ws3
 assign [class="^Thunar"]           $ws4
-assign [class="^vesktop"]          $ws7
+assign [class="^WebCord"]          $ws7
 assign [class="^TelegramDesktop"] $ws7
 assign [class="^spotify"]          $ws8
 assign [class="^thunderbird"]      $ws9
