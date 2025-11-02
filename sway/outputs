@@ -1,7 +1,7 @@
 output eDP-1 scale 1
 output HDMI-A-1 enable
-output eDP-1 position 0 0
-output HDMI-A-1 position 1920 0
+output eDP-1 pos 0 0
+output HDMI-A-1 pos 1366 0
 
 # Assign workspaces 7-0 to the external monitor
 workspace 1 output eDP-1
