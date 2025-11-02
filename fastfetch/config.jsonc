@@ -78,7 +78,7 @@
       "key": "   Disk (/HDD)  ",
       "keyColor": "blue",
       "type": "disk",
-      "folders": "/media/ncorrea/HDD",
+      "folders": "/media/HDD",
       "format": "{1}: {2} ({3}%)"
     },
     {

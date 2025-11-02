@@ -56,7 +56,7 @@ border_left=0
 
 
 [cpu_stats]
-command=mpstat 1 1 | awk 'NR==4 { printf "%04.1f<span color=\"#f1fa8c\">%</span>", (100 - $NF) }' && sensors | awk '/Core 0/ { printf " %d<span color=\"#f1fa8c\">°C</span>\n", $3 }'
+command= vmstat 1 2 | tail -1 | awk '{print 100-$15 "%"}'
 interval=2
 label=<span color="#f1fa8c"><b>CPU:</b></span>
 border=#f1fa8c
@@ -76,7 +76,7 @@ border_bottom=0
 border_left=0
 
 [volume]
-command=amixer get Master | awk -F'[][]' '/%/ { print $2 "<span color=\"#ff79c6\">%</span>" }'
+command=pactl get-sink-volume @DEFAULT_SINK@ | awk -F'/' '{print $2}' | xargs
 interval=1
 label=<span color="#ff79c6">  </span>
 border=#ff79c6

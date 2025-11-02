@@ -76,7 +76,7 @@ case "$chosen" in
 "$shutdown") run_cmd --shutdown ;;
 "$reboot") run_cmd --reboot ;;
 "$hibernate") run_cmd --hibernate ;;
-"$lock") light-locker-command -l ;;
+"$lock") i3lock -c 000000 ;;
 "$suspend") run_cmd --suspend ;;
 "$logout") run_cmd --logout ;;
 esac

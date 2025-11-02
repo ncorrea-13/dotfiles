@@ -5,12 +5,16 @@ set $mod mod4
 # font for window titles. 
 font pango:monospace 8
 
+exec --no-startup-id xset dpms force off && systemctl suspend
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000
 # start picom to see the wallpaper with the terminal
 exec_always --no-startup-id picom &
 
 # exec dunst to show notifications
 exec_always --no-startup-id dunst &
 
+
+exec --no-startup-id xsetroot -cursor_name oreo 
 # exec feh to change the wallpaper
 exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/Wallpaper.jpg
 
@@ -50,7 +54,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym $mod+Return exec wezterm
 
 # open thunar
-bindsym $mod+e exec thunar
+bindsym $mod+e exec dolphin 
 
 # open thunderbird
 bindsym $mod+m exec thunderbird
@@ -236,8 +240,8 @@ bar {
 }
 
 # Apps borders
-for_window [class=".*"] border pixel 0
-# client.focused          #bd93f9 #bd93f9 #bd93f9 #bd93f9
+for_window [class=".*"] border pixel 2.5
+client.focused          #bd93f9 #bd93f9 #bd93f9 #bd93f9
 # client.focused_inactive #44475a #44475a #282a36 #282a36
 # client.unfocused        #282a36 #282a36 #282a36 #282a36
 # client.urgent           #ff5555 #ff5555 #ff5555 #ff5555
