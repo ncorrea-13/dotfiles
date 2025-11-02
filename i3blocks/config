@@ -4,6 +4,17 @@ color=#f8f8f2
 separator_block_width=15
 markup=pango
 
+[charge_status]
+command=~/.config/i3blocks/chargin.sh
+interval=5
+label=<span color="#ff5555"> </span>
+border=#ff5555
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+
 [battery]
 command=cat /sys/class/power_supply/BAT0/capacity
 interval=2
