@@ -15,7 +15,7 @@ config = {
 	use_fancy_tab_bar = false,
 	tab_bar_at_bottom = true,
 	font_size = 9,
-	line_height = 1.15,
+	line_height = 1.08,
 	font = wezterm.font("HackNerdFont", { weight = "Bold" }),
 	enable_tab_bar = false,
 	max_fps = 60,
@@ -55,7 +55,6 @@ config = {
 			opacity = 0.85,
 		},
 	},
-
 	default_prog = { "zellij" },
 	-- from: https://akos.ma/blog/adopting-wezterm/
 	hyperlink_rules = {

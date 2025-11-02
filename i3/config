@@ -1,0 +1,243 @@
+for_window [class="org.wezfurlong.wezterm"] fullscreen enable
+
+set $mod mod4
+
+# font for window titles. 
+font pango:monospace 8
+
+# start picom to see the wallpaper with the terminal
+exec_always --no-startup-id picom &
+
+# exec dunst to show notifications
+exec_always --no-startup-id dunst &
+
+# exec feh to change the wallpaper
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/Wallpaper.jpg
+
+# start xdg autostart .desktop files using dex. see also
+exec --no-startup-id dex --autostart --environment i3
+
+# set xset to disable the beep sound
+exec --no-startup-id xset b off
+
+# networkmanager is a program to contect to wireless networks on linux,
+# nm-applet is a desktop environment-independent system tray gui for it.
+# use whatever program you prefer here.
+# exec --no-startup-id nm-applet
+
+# script to detect another monitors
+exec --no-startup-id ~/.config/i3/monitors.sh
+
+# use mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
+
+# use pactl to adjust volume in pulseaudio.
+set $refresh_i3status killall -sigusr1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+
+# brigh control
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+# start a terminal
+bindsym $mod+Return exec wezterm
+
+# open thunar
+bindsym $mod+e exec thunar
+
+# open thunderbird
+bindsym $mod+m exec thunderbird
+
+# open a browser (librewolf in this case)
+bindsym $mod+b exec --no-startup-id librewolf
+
+# open discord
+bindsym $mod+d exec webcord 
+
+# kill focused window
+bindsym $mod+shift+q kill
+
+# Rofi block
+# start drun menu on rofi 
+bindsym $mod+space exec rofi -show drun 
+# make screenshots
+bindsym $mod+shift+s exec --no-startup-id ~/.config/rofi/screenshot/screenshot
+bindsym Print exec --no-startup-id ~/.config/rofi/screenshot/screenshot
+# monitors
+bindsym $mod+o exec --no-startup-id ~/.config/rofi/screen/screen
+# music control
+bindsym $mod+n exec --no-startup-id ~/.config/rofi/music/music
+# open powermenu
+bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
+# open wifimenu
+bindsym $mod+shift+w exec --no-startup-id ~/.config/rofi/wifi/wifi
+
+# change focus
+bindsym $mod+j focus down 
+bindsym $mod+k focus up 
+bindsym $mod+l focus right
+bindsym $mod+h focus left
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+left focus left
+bindsym $mod+down focus down
+bindsym $mod+up focus up
+bindsym $mod+right focus right
+
+# move focused window
+bindsym $mod+shift+j move down
+bindsym $mod+shift+k move up 
+bindsym $mod+shift+l move right
+bindsym $mod+shift+h move left
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+shift+left move left
+bindsym $mod+shift+down move down
+bindsym $mod+shift+up move up
+bindsym $mod+shift+right move right
+
+# split in horizontal orientation
+bindsym $mod+u split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+x layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+shift+d focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# gaps between windows and around screen
+gaps inner 6
+gaps outer 1
+
+# icons from the workspaces
+set $ws1 " "
+set $ws2 " "
+set $ws3 " "
+set $ws4 " "
+set $ws5 " "
+set $ws6 " "
+set $ws7 " "
+set $ws8 "♫ "
+set $ws9 " "
+set $ws10 " "
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move workspace to another monitor
+bindsym $mod+Shift+m move workspace to output right
+
+# move focused container to workspace
+bindsym $mod+shift+1 move container to workspace $ws1
+bindsym $mod+shift+2 move container to workspace $ws2
+bindsym $mod+shift+3 move container to workspace $ws3
+bindsym $mod+shift+4 move container to workspace $ws4
+bindsym $mod+shift+5 move container to workspace $ws5
+bindsym $mod+shift+6 move container to workspace $ws6
+bindsym $mod+shift+7 move container to workspace $ws7
+bindsym $mod+shift+8 move container to workspace $ws8
+bindsym $mod+shift+9 move container to workspace $ws9
+bindsym $mod+shift+0 move container to workspace $ws10
+
+# always open some programs on specified workspace
+assign [class="^librewolf"]    $ws1
+assign [class="^kdeconnect.app"]   $ws6
+assign [class="^org.wezfurlong.wezterm"]          $ws2
+assign [class="^Code"]             $ws3
+assign [class="^Thunar"]           $ws4
+assign [class="^WebCord"]          $ws7
+assign [class="^TelegramDesktop"] $ws7
+assign [class="^spotify"]          $ws8
+assign [class="^thunderbird"]      $ws9
+assign [class="^steam"]      $ws10
+
+# reload the configuration file
+bindsym $mod+shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+shift+r restart
+# exit i3 (logs you out of your x session)
+bindsym $mod+shift+e exec i3-msg exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # these bindings trigger as soon as you enter the resize mode
+
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym left resize shrink width 10 px or 10 ppt
+        bindsym down resize grow height 10 px or 10 ppt
+        bindsym up resize shrink height 10 px or 10 ppt
+        bindsym right resize grow width 10 px or 10 ppt
+
+        # back to normal: enter or escape or $mod+r
+        bindsym return mode "default"
+        bindsym escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# start i3blocks to display a workspace bar
+bar {
+    font pango: hack nerd font 9
+    i3bar_command i3bar  --transparency
+    position top
+    status_command i3blocks -c ~/.config/i3blocks/config
+    tray_output none
+    colors {
+        # background #282a36
+        background #00000000 
+        statusline #f8f8f2
+        separator  #44475a
+
+        focused_workspace  #44475a #44475a #f8f8f2
+        active_workspace   #282a36 #44475a #f8f8f2
+        inactive_workspace #282a36 #282a36 #bfbfbf
+        urgent_workspace   #ff5555 #ff5555 #f8f8f2
+        binding_mode       #ff5555 #ff5555 #f8f8f2
+    }
+}
+
+# Apps borders
+for_window [class=".*"] border pixel 0
+# client.focused          #bd93f9 #bd93f9 #bd93f9 #bd93f9
+# client.focused_inactive #44475a #44475a #282a36 #282a36
+# client.unfocused        #282a36 #282a36 #282a36 #282a36
+# client.urgent           #ff5555 #ff5555 #ff5555 #ff5555
