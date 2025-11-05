@@ -1,0 +1,55 @@
+#!/bin/bash
+
+discord_url="https://discord.com/api/download/stable?platform=linux&format=deb"
+discord_deb="discord.deb"
+betterdiscord_appimage="BetterDiscord.AppImage"
+
+if [ "$EUID" -ne 0 ]; then
+  echo "Por favor, ejecuta este script como root."
+  exit 1
+fi
+
+echo "Descargando Discord..."
+wget -O "$discord_deb" "$discord_url"
+if [ $? -ne 0 ]; then
+  echo "Fallo al descargar Discord. Verifica tu conexión a internet."
+  exit 1
+fi
+
+echo "Instalando Discord..."
+sudo dpkg -i "$discord_deb"
+if [ $? -ne 0 ]; then
+  echo "Fallo al instalar Discord. Verifica las dependencias necesarias."
+  exit 1
+fi
+
+echo "Limpiando archivos temporales..."
+rm -f "$discord_deb"
+
+echo "Ejecutando Discord..."
+sudo -u $SUDO_USER discord &
+if [ $? -ne 0 ]; then
+  echo "Fallo al iniciar Discord."
+  exit 1
+fi
+
+echo "Esperando 10 segundos para que se cree la carpeta de la versión..."
+sleep 10
+
+echo "Verificando BetterDiscord..."
+if [ ! -f "$betterdiscord_appimage" ]; then
+  echo "Descargando BetterDiscord..."
+  sudo -u $SUDO_USER wget -O "$betterdiscord_appimage" "https://github.com/BetterDiscord/Installer/releases/latest/download/BetterDiscord-Linux.AppImage"
+  if [ $? -ne 0 ]; then
+    echo "Fallo al descargar BetterDiscord."
+    exit 1
+  fi
+fi
+
+echo "Dando permisos de ejecución a BetterDiscord..."
+sudo -u $SUDO_USER chmod +x "$betterdiscord_appimage"
+
+echo "Ejecutando BetterDiscord..."
+sudo -u $SUDO_USER ./"$betterdiscord_appimage"
+
+echo "Instalación completada."

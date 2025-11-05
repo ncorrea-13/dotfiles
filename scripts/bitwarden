@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+if [ -z "$BW_SESSION" ]; then
+  echo "❌ No hay sesión activa de Bitwarden."
+  echo "Iniciá sesión con: bw login o bw unlock"
+  exit 1
+fi
+
+items_json=$(bw list items --session "$BW_SESSION")
+
+if [ -z "$items_json" ] || [ "$items_json" = "[]" ]; then
+  echo "⚠️ No se encontraron ítems en Bitwarden."
+  exit 1
+fi
+
+selection=$(
+  echo "$items_json" |
+    jq -r '.[] | select(.name != null) | [.name, (.login.username // "-")] | @tsv' |
+    fzf --ansi --height=50% --reverse --prompt="Seleccioná una entrada: " \
+      --header="NOMBRE\tUSUARIO" |
+    awk -F'\t' '{print $1}'
+)
+
+if [ -z "$selection" ]; then
+  echo "❌ No se seleccionó ningún ítem."
+  exit 0
+fi
+
+password=$(bw get password "$selection" --session "$BW_SESSION" 2>/dev/null)
+
+if [ -z "$password" ]; then
+  echo "⚠️ No se pudo obtener la contraseña para '$selection'."
+  exit 1
+fi
+
+echo -n "$password" | xclip -selection clipboard
+notify-send "✅ Contraseña copiada al portapapeles para: $selection"
+
+(sleep 5 && echo -n "" | xclip -selection clipboard && notify-send "🧹 Portapapeles limpiado.") &
