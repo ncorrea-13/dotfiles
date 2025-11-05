@@ -1,20 +1,18 @@
-for_window [class="org.wezfurlong.wezterm"] fullscreen enable
-
+# set the command / windows key as mod key
 set $mod mod4
 
 # font for window titles. 
 font pango:monospace 8
 
-exec --no-startup-id xset dpms force off && systemctl suspend
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000
 # start picom to see the wallpaper with the terminal
 exec_always --no-startup-id picom &
 
 # exec dunst to show notifications
 exec_always --no-startup-id dunst &
 
-
+# set a theme for the cursor
 exec --no-startup-id xsetroot -cursor_name oreo 
+
 # exec feh to change the wallpaper
 exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/Wallpaper.jpg
 
@@ -24,16 +22,14 @@ exec --no-startup-id dex --autostart --environment i3
 # set xset to disable the beep sound
 exec --no-startup-id xset b off
 
-# networkmanager is a program to contect to wireless networks on linux,
-# nm-applet is a desktop environment-independent system tray gui for it.
-# use whatever program you prefer here.
-# exec --no-startup-id nm-applet
-
 # script to detect another monitors
 exec --no-startup-id ~/.config/i3/monitors.sh
 
 # use mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# exec always the terminal in fullscreen mode (wezterm in this case)
+for_window [class="org.wezfurlong.wezterm"] fullscreen enable
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
@@ -50,20 +46,20 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SIN
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
-# start a terminal
+# start a terminal (wezterm in this case)
 bindsym $mod+Return exec wezterm
 
-# open thunar
+# open the file manager (dolphin in this case)
 bindsym $mod+e exec dolphin 
 
-# open thunderbird
+# open a mail client (thunderbird in this case)
 bindsym $mod+m exec thunderbird
 
 # open a browser (librewolf in this case)
 bindsym $mod+b exec --no-startup-id librewolf
 
 # open discord
-bindsym $mod+d exec webcord 
+bindsym $mod+d exec discord 
 
 # kill focused window
 bindsym $mod+shift+q kill
@@ -137,6 +133,7 @@ bindsym $mod+a focus parent
 gaps inner 6
 gaps outer 1
 
+
 # icons from the workspaces
 set $ws1 " "
 set $ws2 " "
@@ -181,8 +178,8 @@ assign [class="^librewolf"]    $ws1
 assign [class="^kdeconnect.app"]   $ws6
 assign [class="^org.wezfurlong.wezterm"]          $ws2
 assign [class="^Code"]             $ws3
-assign [class="^Thunar"]           $ws4
-assign [class="^WebCord"]          $ws7
+assign [class="^dolphin"]           $ws4
+assign [class="^discord"]          $ws7
 assign [class="^TelegramDesktop"] $ws7
 assign [class="^spotify"]          $ws8
 assign [class="^thunderbird"]      $ws9
