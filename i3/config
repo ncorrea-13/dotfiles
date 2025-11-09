@@ -1,17 +1,37 @@
+# --------------------------
+# Setup Block
+# --------------------------
 # set the command / windows key as mod key
 set $mod mod4
 
 # font for window titles. 
 font pango:monospace 8
 
-# start picom to see the wallpaper with the terminal
+# --------------------------
+# General i3 Block
+# --------------------------
+# kill focused window
+bindsym $mod+shift+q kill
+# reload the configuration file
+bindsym $mod+shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+shift+r restart
+# exit i3 (logs you out of your x session)
+bindsym $mod+shift+e exec i3-msg exit
+# resize mode
+bindsym $mod+r mode "resize"
+
+# --------------------------
+# Daemon and settings Block
+# --------------------------
+# start picom as a compositor with shadows and transparency
 exec_always --no-startup-id picom &
 
 # exec dunst to show notifications
 exec_always --no-startup-id dunst &
 
-# set a theme for the cursor
-exec --no-startup-id xsetroot -cursor_name oreo 
+# set a theme for the cursor (oreo in this case)
+exec --no-startup-id xsetroot -cursor_name oreo
 
 # exec feh to change the wallpaper
 exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/Wallpaper.jpg
@@ -25,16 +45,9 @@ exec --no-startup-id xset b off
 # script to detect another monitors
 exec --no-startup-id ~/.config/i3/monitors.sh
 
-# use mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-# exec always the terminal in fullscreen mode (wezterm in this case)
-for_window [class="org.wezfurlong.wezterm"] fullscreen enable
-
-# move tiling windows via drag & drop by left-clicking into the title bar,
-# or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
-
+# --------------------------
+# Extra keybindings Block
+# --------------------------
 # use pactl to adjust volume in pulseaudio.
 set $refresh_i3status killall -sigusr1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status 
@@ -46,6 +59,10 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SIN
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
+
+# --------------------------
+# Applications Block
+# --------------------------
 # start a terminal (wezterm in this case)
 bindsym $mod+Return exec wezterm
 
@@ -61,10 +78,9 @@ bindsym $mod+b exec --no-startup-id librewolf
 # open discord
 bindsym $mod+d exec discord 
 
-# kill focused window
-bindsym $mod+shift+q kill
-
+# --------------------------
 # Rofi block
+# --------------------------
 # start drun menu on rofi 
 bindsym $mod+space exec rofi -show drun 
 # make screenshots
@@ -79,30 +95,48 @@ bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
 # open wifimenu
 bindsym $mod+shift+w exec --no-startup-id ~/.config/rofi/wifi/wifi
 
-# change focus
-bindsym $mod+j focus down 
-bindsym $mod+k focus up 
-bindsym $mod+l focus right
-bindsym $mod+h focus left
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+left focus left
-bindsym $mod+down focus down
-bindsym $mod+up focus up
-bindsym $mod+right focus right
+# --------------------------
+# Customization Block
+# --------------------------
+# Apps borders
+for_window [class=".*"] border pixel 2.5
+client.focused          #bd93f9 #bd93f9 #bd93f9 #bd93f9
 
-# move focused window
-bindsym $mod+shift+j move down
-bindsym $mod+shift+k move up 
-bindsym $mod+shift+l move right
-bindsym $mod+shift+h move left
+# gaps between windows and around screen
+gaps inner 6
+gaps outer 1
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+shift+left move left
-bindsym $mod+shift+down move down
-bindsym $mod+shift+up move up
-bindsym $mod+shift+right move right
+# --------------------------
+# i3bar Block
+# --------------------------
+bar {
+    font pango: hack nerd font 9
+    i3bar_command i3bar  --transparency
+    position top
+    status_command i3blocks -c ~/.config/i3blocks/config
+    tray_output none
+    colors {
+        background #00000000
+        statusline #f8f8f2
+        separator  #44475a
 
+        focused_workspace  #44475a #44475a #f8f8f2
+        active_workspace   #282a36 #44475a #f8f8f2
+        inactive_workspace #282a36 #282a36 #bfbfbf
+        urgent_workspace   #ff5555 #ff5555 #f8f8f2
+        binding_mode       #ff5555 #ff5555 #f8f8f2
+    }
+}
+
+# --------------------------
+# Window management Block
+# --------------------------
+# use mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
 # split in horizontal orientation
 bindsym $mod+u split h
 
@@ -128,11 +162,6 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
-
-# gaps between windows and around screen
-gaps inner 6
-gaps outer 1
-
 
 # icons from the workspaces
 set $ws1 " "
@@ -173,6 +202,9 @@ bindsym $mod+shift+8 move container to workspace $ws8
 bindsym $mod+shift+9 move container to workspace $ws9
 bindsym $mod+shift+0 move container to workspace $ws10
 
+# exec always the terminal in fullscreen mode (wezterm in this case)
+for_window [class="org.wezfurlong.wezterm"] fullscreen enable
+
 # always open some programs on specified workspace
 assign [class="^librewolf"]    $ws1
 assign [class="^kdeconnect.app"]   $ws6
@@ -185,12 +217,29 @@ assign [class="^spotify"]          $ws8
 assign [class="^thunderbird"]      $ws9
 assign [class="^steam"]      $ws10
 
-# reload the configuration file
-bindsym $mod+shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+shift+r restart
-# exit i3 (logs you out of your x session)
-bindsym $mod+shift+e exec i3-msg exit
+# change focus
+bindsym $mod+j focus down 
+bindsym $mod+k focus up 
+bindsym $mod+l focus right
+bindsym $mod+h focus left
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+left focus left
+bindsym $mod+down focus down
+bindsym $mod+up focus up
+bindsym $mod+right focus right
+
+# move focused window
+bindsym $mod+shift+j move down
+bindsym $mod+shift+k move up 
+bindsym $mod+shift+l move right
+bindsym $mod+shift+h move left
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+shift+left move left
+bindsym $mod+shift+down move down
+bindsym $mod+shift+up move up
+bindsym $mod+shift+right move right
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -212,33 +261,3 @@ mode "resize" {
         bindsym escape mode "default"
         bindsym $mod+r mode "default"
 }
-
-bindsym $mod+r mode "resize"
-
-# start i3blocks to display a workspace bar
-bar {
-    font pango: hack nerd font 9
-    i3bar_command i3bar  --transparency
-    position top
-    status_command i3blocks -c ~/.config/i3blocks/config
-    tray_output none
-    colors {
-        # background #282a36
-        background #00000000 
-        statusline #f8f8f2
-        separator  #44475a
-
-        focused_workspace  #44475a #44475a #f8f8f2
-        active_workspace   #282a36 #44475a #f8f8f2
-        inactive_workspace #282a36 #282a36 #bfbfbf
-        urgent_workspace   #ff5555 #ff5555 #f8f8f2
-        binding_mode       #ff5555 #ff5555 #f8f8f2
-    }
-}
-
-# Apps borders
-for_window [class=".*"] border pixel 2.5
-client.focused          #bd93f9 #bd93f9 #bd93f9 #bd93f9
-# client.focused_inactive #44475a #44475a #282a36 #282a36
-# client.unfocused        #282a36 #282a36 #282a36 #282a36
-# client.urgent           #ff5555 #ff5555 #ff5555 #ff5555
