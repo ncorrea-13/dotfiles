@@ -12,6 +12,7 @@ Welcome to my collection of dotfiles! Here you will find my personal configurati
 - **Fastfetch** - System information tool configuration.
 - **Neovim** - Custom configuration based on LazyVim.
 - **Picom** - Window compositor configuration.
+- **Posting** - API Rest tool.
 - **Rofi** - Application launcher configuration.
 - **Vifm** - Terminal file manager configuration.
 - **WezTerm** - Terminal emulator configuration.
@@ -36,13 +37,13 @@ To install these configurations on your system, follow these steps:
 3. Move the configuration files in the repository to your `~/.config` directory:
 
     ```bash
-    mv * ~/.config
+    mv .config/* ~/.config/
     ```
-    
+
     You could also move only the configuration you want to import
 
     ```bash
-    mv nvim ~/.config
+    mv .config/nvim ~/.config
     ```
 
     **Note**: Ensure that the `~/.config` directory exists before creating symbolic links.
@@ -50,12 +51,12 @@ To install these configurations on your system, follow these steps:
 5. Install the necessary dependencies
 6. Restart applications or your user session for the changes to take effect.
 
-
 ## License
 
 This repository is licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute the configurations as per the terms of this license.
 
 ### License Details
+
 - **MIT License:** Applies to all configurations and files in this repository, except for those explicitly mentioned below.
 - **Apache License 2.0:** Specifically applies to the Neovim configuration files located in the `nvim` directory. Refer to the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) for details.
 
