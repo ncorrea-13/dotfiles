@@ -97,7 +97,7 @@ border_bottom=0
 border_left=0
 
 [time]
-command=TZ=":GMT+3" date '+%H:%M' | awk '{ printf "%s<span color=\"#8be9fd\">%s</span>%s<span color=\"#8be9fd\"> %s</span>\n", $1, $2, $3, $4 }'
+command=date '+%H:%M' | awk '{ printf "%s<span color=\"#8be9fd\">%s</span>%s<span color=\"#8be9fd\"> %s</span>\n", $1, $2, $3, $4 }'
 interval=1
 label=<span color="#8be9fd"> </span>
 border=#8be9fd

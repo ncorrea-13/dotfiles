@@ -23,12 +23,17 @@
     "break",
     {
       "type": "custom",
-      "outputColor": "yellow",
+      "outputColor": "38;5;55",
       "format": "┌────────────── General  Information ────────────┐" // `\u001b` is `\033`, or `\e`
     },
     "break",
     {
       "type": "title",
+      "color": {
+        "user": "38;5;201",
+        "at": "38;5;177",
+        "host": "38;5;201"
+      },
       "format": "                  {6}{7}{8}"
     },
     "break",
@@ -39,56 +44,56 @@
     "break",
     {
       "key": "  󰌢 Machine      ",
-      "keyColor": "blue",
+      "keyColor": "38;5;177",
       "type": "host"
     },
     {
       "key": "  󰍛 CPU          ",
-      "keyColor": "green",
+      "keyColor": "38;5;135",
       "type": "cpu",
       "format": "{1}"
     },
     {
       "key": "  󰍛 GPU          ",
-      "keyColor": "cyan",
+      "keyColor": "38;5;33",
       "type": "gpu",
       "format": "{1} {6} @ {12}"
     },
     {
       "key": "  󰍹 Screen       ",
-      "keyColor": "blue",
+      "keyColor": "38;5;177",
       "type": "display",
       "format": "{1}x{2} {3}Hz"
     },
     {
       "key": "   Disk (/)     ",
-      "keyColor": "green",
+      "keyColor": "38;5;135",
       "type": "disk",
       "folders": "/",
       "format": "{1}: {2} ({3}%)"
     },
     {
       "key": "   Disk (/home) ",
-      "keyColor": "cyan",
+      "keyColor": "38;5;33",
       "type": "disk",
       "folders": "/home",
       "format": "{1}: {2} ({3}%)"
     },
     {
       "key": "   Disk (/HDD)  ",
-      "keyColor": "blue",
+      "keyColor": "38;5;177",
       "type": "disk",
       "folders": "/media/HDD",
       "format": "{1}: {2} ({3}%)"
     },
     {
       "key": "  󰑭 Memory       ",
-      "keyColor": "green",
+      "keyColor": "38;5;135",
       "type": "memory"
     },
     {
       "key": "  󱈑 Battery      ",
-      "keyColor": "cyan",
+      "keyColor": "38;5;33",
       "type": "battery"
     },
     "break",
@@ -99,48 +104,48 @@
     "break",
     {
       "key": "   OS           ",
-      "keyColor": "blue",
+      "keyColor": "38;5;177",
       "type": "os",
       "format": "{2} {8}"
     },
     {
       "key": "   Kernel       ",
-      "keyColor": "green",
+      "keyColor": "38;5;135",
       "type": "kernel"
     },
     {
       "key": "   WM           ",
-      "keyColor": "cyan",
+      "keyColor": "38;5;33",
       "type": "wm"
     },
     {
       "key": "   Shell        ",
-      "keyColor": "blue",
+      "keyColor": "38;5;177",
       "type": "shell"
     },
     {
       "key": "   Terminal     ",
-      "keyColor": "green",
+      "keyColor": "38;5;135",
       "type": "terminal"
     },
     {
       "key": "  󰉼 Theme        ",
-      "keyColor": "cyan",
+      "keyColor": "38;5;33",
       "type": "theme"
     },
     {
       "key": "   Packages     ",
-      "keyColor": "blue",
+      "keyColor": "38;5;177",
       "type": "packages"
     },
     {
       "key": "  󰅐 Uptime       ",
-      "keyColor": "green",
+      "keyColor": "38;5;135",
       "type": "uptime"
     },
     {
       "key": "   Local IP     ",
-      "keyColor": "cyan",
+      "keyColor": "38;5;33",
       "type": "localip",
       "compact": true
     },
