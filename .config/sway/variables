@@ -1,0 +1,44 @@
+# Mod keys
+set $mod Mod4
+set $alt Mod1
+
+# Vim keys
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Fonts
+font pango:JetbrainsMono Nerd Font Bold 12
+
+# Cursor
+set $cursor_theme oreo
+seat * xcursor_theme $cursor_theme 24
+
+# Applications
+set $term wezterm
+set $files dolphin
+set $browser librewolf
+set $menu --no-startup-id rofi -show drun
+
+# Gaps and Borders
+gaps inner 6
+gaps outer 3
+default_border pixel 1
+default_floating_border pixel 1
+
+# Blur, rounded corners, and shadows
+blur disable
+blur_passes 5
+blur_radius 3
+
+corner_radius 10
+
+shadows enable
+shadow_offset 5 5
+shadow_color #111111
+shadow_inactive_color #0000004F
+
+default_dim_inactive 0.3
+for_window [app_id=".*"] opacity 1
+

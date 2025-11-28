@@ -15,7 +15,7 @@ config = {
 	use_fancy_tab_bar = false,
 	tab_bar_at_bottom = true,
 	font_size = 9,
-	line_height = 1.08,
+	line_height = 1,
 	font = wezterm.font("HackNerdFont", { weight = "Bold" }),
 	enable_tab_bar = false,
 	max_fps = 60,
@@ -30,7 +30,6 @@ config = {
 		PATH = os.getenv("PATH"),
 	},
 	enable_kitty_graphics = true,
-
 	background = {
 		{
 			source = {

@@ -1,0 +1,17 @@
+# --------------------------
+# Applications Block
+# --------------------------
+
+bindsym $mod+b exec $browser
+bindsym $mod+e exec $files
+bindsym $mod+d exec flatpak run com.discordapp.Discord
+bindsym $mod+m exec flatpak run org.mozilla.Thunderbird
+bindsym $mod+Return exec $term
+
+assign [app_id="^librewolf"]                1
+assign [app_id="^org.kde.kdeconnect.app"]   6
+assign [app_id="^org.wezfurlong.wezterm"]   2
+assign [app_id="^org.kde.dolphin"]          4
+assign [class="^discord"]                   7
+assign [app_id="^TelegramDesktop"]          7
+assign [app_id="^org.mozilla.Thunderbird"]  9

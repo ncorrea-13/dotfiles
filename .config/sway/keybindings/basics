@@ -1,0 +1,48 @@
+# --------------------------
+# General Sway Block
+# --------------------------
+
+bindsym $mod+Shift+q kill
+bindsym $mod+space exec $menu
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+e exit
+floating_modifier $mod normal
+
+# Monitor control
+bindsym $mod+o exec --no-startup-id ~/.config/rofi/screen/screen
+
+# Music control
+bindsym $mod+n exec --no-startup-id ~/.config/rofi/music/music
+
+# Wifi Menu
+bindsym $mod+shift+w exec --no-startup-id ~/.config/rofi/wifi/wifi
+
+# Lock Screen
+bindsym $mod+c exec --no-startup-id swaylock-script
+
+# Emojis
+bindsym $mod+slash exec smile
+
+# Power Menu
+bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
+
+# Switch to prev/next workspace
+bindsym $mod+comma workspace next
+bindsym $mod+period workspace prev
+
+# Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%-
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_SINK@ toggle
+
+
+# Brightness controls
+bindsym XF86MonBrightnessUp exec light -A +5%
+bindsym XF86MonBrightnessDown exec light -U +5%
+
+# Microphone mute/unmute
+# bindsym F9 exec amixer set Capture toggle
+
+# Screenshots
+bindsym $mod+shift+s exec --no-startup-id ~/.config/rofi/screenshot/screenshot
+bindsym Print exec --no-startup-id ~/.config/rofi/screenshot/screenshot

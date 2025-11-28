@@ -7,7 +7,7 @@ configuration {
   disable-history:	false;
   scroll-method:	0;
   drun-display-format:	"{name}";
-  matching:		"fuzzy";
+  matching:		"normal";
   window-thumbnail:	true;
   display-drun:		"Apps";
   display-window:	"Windows";

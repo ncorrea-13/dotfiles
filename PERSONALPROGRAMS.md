@@ -17,7 +17,7 @@ A little and list of my personal programs, for making these dotfiles work on a f
 
 ## Productivity
 
-- Surf Browser with .applications for Notion and Slack
+- QuteBrowser with .applications for Notion and Slack
 - Wezterm Terminal
 - Zellij Multiplexor
 
