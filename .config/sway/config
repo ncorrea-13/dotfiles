@@ -14,5 +14,3 @@ include ~/.config/sway/keybindings/resizing
 include ~/.config/sway/bar/waybar
 
 include /etc/sway/config.d/*
-
-# exec_always swaybg -i ~/Pictures/Wallpapers/Wallpaper.jpg -m fill

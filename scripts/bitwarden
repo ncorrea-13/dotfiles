@@ -15,9 +15,9 @@ fi
 
 selection=$(
   echo "$items_json" |
-    jq -r '.[] | select(.name != null) | [.name, (.login.username // "-")] | @tsv' |
+    jq -r '.[] | select(.name != null) | [.id, .name, (.login.username // "-")] | @tsv' |
     fzf --ansi --height=50% --reverse --prompt="Seleccioná una entrada: " \
-      --header="NOMBRE\tUSUARIO" |
+      --header="ID\tNOMBRE\tUSUARIO" |
     awk -F'\t' '{print $1}'
 )
 
@@ -29,11 +29,11 @@ fi
 password=$(bw get password "$selection" --session "$BW_SESSION" 2>/dev/null)
 
 if [ -z "$password" ]; then
-  echo "⚠️ No se pudo obtener la contraseña para '$selection'."
+  echo "⚠️ No se pudo obtener la contraseña para el ítem con ID '$selection'."
   exit 1
 fi
 
-echo -n "$password" | xclip -selection clipboard
-notify-send "✅ Contraseña copiada al portapapeles para: $selection"
+echo -n "$password" | wl-copy
+notify-send "✅ Contraseña copiada al portapapeles para el ítem ID: $selection"
 
-(sleep 5 && echo -n "" | xclip -selection clipboard && notify-send "🧹 Portapapeles limpiado.") &
+(sleep 5 && wl-copy <<<"" && notify-send "🧹 Portapapeles limpiado.") &

@@ -22,7 +22,7 @@
     "disk#root",
     "disk#home",
     "backlight",
-    "pulseaudio",
+    "wireplumber",
     "battery",
     "custom/power"
   ],
@@ -134,9 +134,9 @@
     "tooltip-format": "<tt>{calendar}</tt>"
   },
   "clock": {
-    "format": "󰥔 {:%I:%M %p}",
+    "format": "󰥔 {:%H:%M}",
     "tooltip": true,
-    "tooltip-format": false,
+    "tooltip-format": false
   },
   "battery": {
     "interval": 1,
@@ -156,7 +156,7 @@
     "tooltip-format-charging": "{time} until full",
     "tooltip-format-discharging": "{time} remaining"
   },
-  "pulseaudio": {
+  "wireplumber": {
     "format": "  {volume}%",
     "format-muted": " M",
     "tooltip-format": "{desc}"

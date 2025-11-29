@@ -5,19 +5,19 @@ xwayland force
 exec --no-startup-id autotiling
 
 # exec dunst to show notifications
-exec_always --no-startup-id dunst &
+exec_always --no-startup-id dunst
 
 # kdeconnectd
-exec --no-startup-id kdeconnectd &
+exec --no-startup-id kdeconnectd
+
+# sway fader for smooth transitions
+exec_always --no-startup-id sway-fader -d 100ms
 
 # wallpaper
 exec_always --no-startup-id swaybg -i ~/Pictures/Wallpapers/Wallpaper.jpg -m fill
 
 # little script to lock the screen
 exec_always --no-startup-id ~/.config/sway/scripts/lock.sh
-
-# script to detect another monitors
-exec --no-startup-id ~/.config/sway/monitors.sh
 
 input type:keyboard {
     xkb_layout latam
