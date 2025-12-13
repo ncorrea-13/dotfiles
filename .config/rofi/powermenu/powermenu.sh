@@ -66,6 +66,7 @@ run_cmd() {
       systemctl suspend
       ;;
     --logout) loginctl terminate-user "$USER" ;;
+    --lock) swaylock-script ;;
     esac
   fi
 }
@@ -76,7 +77,7 @@ case "$chosen" in
 "$shutdown") run_cmd --shutdown ;;
 "$reboot") run_cmd --reboot ;;
 "$hibernate") run_cmd --hibernate ;;
-"$lock") run_cmd --suspend ;;
+"$lock") run_cmd --lock ;;
 "$suspend") run_cmd --suspend ;;
 "$logout") run_cmd --logout ;;
 esac

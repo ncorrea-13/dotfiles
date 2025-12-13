@@ -22,5 +22,4 @@ swaylock \
   --text-ver-color bb00bbbb \
   --inside-ver-color ffffff22 \
   \
-  --fade-in 0.2
-
+  --fade-in 4

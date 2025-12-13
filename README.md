@@ -4,8 +4,8 @@ Welcome to my collection of dotfiles! Here you will find my personal configurati
 
 ## Contents
 
-- **i3** - Window manager configuration.
-- **i3blocks** - Status bar configuration.
+- **Sway** - Window manager configuration for Wayland.
+- **Waybar** - Status bar configuration for Wayland.
 - **Btop++** - Resource monitor configuration.
 - **Cava** - Audio visualizer configuration.
 - **Dunst** - Notification service configuration.
@@ -17,6 +17,8 @@ Welcome to my collection of dotfiles! Here you will find my personal configurati
 - **Vifm** - Terminal file manager configuration.
 - **WezTerm** - Terminal emulator configuration.
 - **Zellij** - Terminal multiplexer configuration.
+
+There are also configs for i3 and i3blocks, but these are currently unmantained since I no longer use Xorg
 
 ## Installation
 
@@ -48,8 +50,8 @@ To install these configurations on your system, follow these steps:
 
     **Note**: Ensure that the `~/.config` directory exists before creating symbolic links.
 
-5. Install the necessary dependencies
-6. Restart applications or your user session for the changes to take effect.
+4. Install the necessary dependencies
+5. Restart applications or your user session for the changes to take effect.
 
 ## License
 

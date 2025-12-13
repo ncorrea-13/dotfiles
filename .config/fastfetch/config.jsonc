@@ -60,31 +60,31 @@
       "format": "{1} {6} @ {12}"
     },
     {
-      "key": "  󰍹 Screen       ",
-      "keyColor": "38;5;177",
-      "type": "display",
-      "format": "{1}x{2} {3}Hz"
-    },
-    {
       "key": "   Disk (/)     ",
-      "keyColor": "38;5;135",
+      "keyColor": "38;5;177",
       "type": "disk",
       "folders": "/",
       "format": "{1}: {2} ({3}%)"
     },
     {
-      "key": "   Disk (/home) ",
-      "keyColor": "38;5;33",
+      "key": "   Disk (home)  ",
+      "keyColor": "38;5;135",
       "type": "disk",
       "folders": "/home",
       "format": "{1}: {2} ({3}%)"
     },
     {
-      "key": "   Disk (/HDD)  ",
-      "keyColor": "38;5;177",
+      "key": "   Disk (HDD)   ",
+      "keyColor": "38;5;33",
       "type": "disk",
       "folders": "/media/HDD",
       "format": "{1}: {2} ({3}%)"
+    },
+    {
+      "key": "  󰍹 Screen       ",
+      "keyColor": "38;5;177",
+      "type": "display",
+      "format": "{1}x{2} {3}Hz"
     },
     {
       "key": "  󰑭 Memory       ",
