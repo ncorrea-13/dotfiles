@@ -136,6 +136,7 @@
     {
       "key": "   Packages     ",
       "keyColor": "38;5;177",
+      "format": "{1} (Total)",
       "type": "packages"
     },
     {

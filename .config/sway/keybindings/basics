@@ -26,15 +26,17 @@ bindsym $mod+slash exec smile
 # Power Menu
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
 
+# Tab management
+bindsym $mod+tab exec --no-startup-id ~/.config/sway/scripts/sway-tab.sh
+
 # Switch to prev/next workspace
-bindsym $mod+comma workspace next
-bindsym $mod+period workspace prev
+bindsym $mod+comma workspace prev
+bindsym $mod+period workspace next
 
 # Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%-
 bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_SINK@ toggle
-
 
 # Brightness controls
 bindsym XF86MonBrightnessUp exec light -A +5%

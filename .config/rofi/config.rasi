@@ -1,5 +1,5 @@
 configuration {
-  modi:			"window,drun,filebrowser";
+  modi:			"drun,filebrowser";
   sidebar-mode:		true;
   show-icons: false;
   sort:			true;
@@ -10,7 +10,6 @@ configuration {
   matching:		"normal";
   window-thumbnail:	true;
   display-drun:		"Apps";
-  display-window:	"Windows";
   display-filebrowser:	"Files";
 
 filebrowser {
