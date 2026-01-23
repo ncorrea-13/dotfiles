@@ -4,15 +4,15 @@ A little and list of my personal programs, for making these dotfiles work on a f
 
 ---
 
-## Window manager (X11)
+## Window manager (Wayland)
 
 - Dunst
-- I3wm
-- I3blocks
-- I3lock
-- Picom
 - Rofi
+- SwayFx
+- Swaylock
+- Waybar
 
+> **Note:** Previously used i3wm with i3blocks-color and i3lock-color on X11. That configuration is currently deprecated.
 ---
 
 ## Productivity
@@ -25,18 +25,18 @@ A little and list of my personal programs, for making these dotfiles work on a f
 
 ## Development
 
-- Neovim (LazyVim) as code editor
-- Dbeaber as database client
-- Lazygit as Git client
-- Lazydocker as Podman client
-- Posting as an API client
+- Neovim (LazyVim) as code editor via terminal (TUI)
+- Dbeaber as a general database client
+- Lazygit as a git client via terminal (TUI)
+- Lazydocker as a container client like Docker or Podman via terminal (TUI)
+- Posting as an API rest client via terminal (TUI)
 
 ---
 
 ## Systems and Hacking
 
 - Qemu as a virtual machines manager
-- Kali Linux VM for penetration testing
+- Kali Linux VM for penetration testing with all their tools
 - Windows 10 LTS VM for applications testing and compatibilty
 
 ---
@@ -46,12 +46,12 @@ A little and list of my personal programs, for making these dotfiles work on a f
 - Autocpu-freq
 - Bluetuith
 - Btop
-- Bw CLI + Bitwarden Script
-- Discordo + Discord Downloader Script
+- Bw CLI + Bitwarden Script using FZF
+- Discordo + Discord Downloader script for betterdiscord
 - Fastfetch
 - Lsd
-- Nchat for Whatsapp and Telegram
-- Ncspot
+- Nchat as a Whatsapp and Telegram client
+- Ncspot as a spotify client
 - Tldr
 - Vifm
 - Vim
@@ -62,7 +62,9 @@ A little and list of my personal programs, for making these dotfiles work on a f
 ## Others
 
 - Dolphin
+- Firefox
 - KDE Connect
 - LibreWolf
 - Thunderbird
 - Zathura
+
