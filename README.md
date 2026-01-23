@@ -2,23 +2,7 @@
 
 Welcome to my collection of dotfiles! Here you will find my personal configurations for essential Linux tools.
 
-## Contents
-
-- **Sway** - Window manager configuration for Wayland.
-- **Waybar** - Status bar configuration for Wayland.
-- **Btop++** - Resource monitor configuration.
-- **Cava** - Audio visualizer configuration.
-- **Dunst** - Notification service configuration.
-- **Fastfetch** - System information tool configuration.
-- **Neovim** - Custom configuration based on LazyVim.
-- **Picom** - Window compositor configuration.
-- **Posting** - API Rest tool.
-- **Rofi** - Application launcher configuration.
-- **Vifm** - Terminal file manager configuration.
-- **WezTerm** - Terminal emulator configuration.
-- **Zellij** - Terminal multiplexer configuration.
-
-There are also configs for i3 and i3blocks, but these are currently unmantained since I no longer use Xorg
+> **Note:** It is thought to use Wayland with Sway. There are also configs for i3 and i3blocks, but these are currently unmantained since I no longer use Xorg
 
 ## Installation
 
@@ -52,6 +36,12 @@ To install these configurations on your system, follow these steps:
 
 4. Install the necessary dependencies
 5. Restart applications or your user session for the changes to take effect.
+
+## Screenshots
+
+![[[screenshots/Sway/3-Zellij.png]]](https://github.com/ncorrea-13/dotfiles/blob/main/screenshots/Sway/3-Zellij.png)
+
+![[]](https://github.com/ncorrea-13/dotfiles/blob/main/screenshots/Sway/4-Browsers.png)
 
 ## License
 
