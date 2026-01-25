@@ -34,7 +34,7 @@
         "at": "38;5;177",
         "host": "38;5;201"
       },
-      "format": "                  {6}{7}{8}"
+      "format": "              {6}{7}{8}"
     },
     "break",
     {
@@ -45,7 +45,8 @@
     {
       "key": "  󰌢 Machine      ",
       "keyColor": "38;5;177",
-      "type": "host"
+      "type": "host",
+      "format": "{1}"
     },
     {
       "key": "  󰍛 CPU          ",
@@ -67,17 +68,17 @@
       "format": "{1}: {2} ({3}%)"
     },
     {
-      "key": "   Disk (home)  ",
+      "key": "   Disk (/boot) ",
       "keyColor": "38;5;135",
       "type": "disk",
-      "folders": "/home",
+      "folders": "/boot",
       "format": "{1}: {2} ({3}%)"
     },
     {
-      "key": "   Disk (HDD)   ",
+      "key": "   Disk (/home) ",
       "keyColor": "38;5;33",
       "type": "disk",
-      "folders": "/media/HDD",
+      "folders": "/home",
       "format": "{1}: {2} ({3}%)"
     },
     {

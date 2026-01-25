@@ -1,3 +1,7 @@
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+exec /usr/libexec/xdg-desktop-portal-wlr
+
 bar {
     swaybar_command waybar
 }

@@ -23,6 +23,7 @@
     "disk#home",
     "backlight",
     "wireplumber",
+    "pulseaudio",
     "battery",
     "custom/power"
   ],
@@ -156,8 +157,8 @@
     "tooltip-format-charging": "{time} until full",
     "tooltip-format-discharging": "{time} remaining"
   },
-  "wireplumber": {
-    "format": "  {volume}%",
+  "pulseaudio": {
+    "format": "  {volume}%",
     "format-muted": " M",
     "tooltip-format": "{desc}"
   },
