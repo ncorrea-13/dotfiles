@@ -17,6 +17,7 @@ A little and list of my personal programs, for making these dotfiles work on a f
 
 ## Productivity
 
+- Obsidian for note taking and learning
 - QuteBrowser with .applications for Notion and Slack
 - Wezterm Terminal
 - Zellij Multiplexor
@@ -30,6 +31,7 @@ A little and list of my personal programs, for making these dotfiles work on a f
 - Lazygit as a git client via terminal (TUI)
 - Lazydocker as a container client like Docker or Podman via terminal (TUI)
 - Posting as an API rest client via terminal (TUI)
+- Vim as a simple text editor
 
 ---
 
@@ -43,7 +45,6 @@ A little and list of my personal programs, for making these dotfiles work on a f
 
 ## Personal TUI applications
 
-- Autocpu-freq
 - Bluetuith
 - Btop
 - Bw CLI + Bitwarden Script using FZF
@@ -54,7 +55,6 @@ A little and list of my personal programs, for making these dotfiles work on a f
 - Ncspot as a spotify client
 - Tldr
 - Vifm
-- Vim
 - Yewtube + Mpv
 
 ---
