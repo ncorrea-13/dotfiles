@@ -1,6 +1,9 @@
 # Startup Applications
 xwayland force
 
+# This is for default apps
+exec_always XDG_MENU_PREFIX=plasma- kbuildsycoca6
+
 # autotiling
 exec --no-startup-id autotiling
 

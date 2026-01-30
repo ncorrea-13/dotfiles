@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 windows=$(swaymsg -t get_tree | jq -r '
   def find_windows(ws):

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 discord_url="https://discord.com/api/download/stable?platform=linux&format=deb"
 discord_deb="discord.deb"

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 cp dotfiles.sh ~/Projects/things/dotfiles/scripts/
 cp -r sway ~/Projects/things/dotfiles/.config/
 cp -r waybar ~/Projects/things/dotfiles/.config/
