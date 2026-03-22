@@ -13,3 +13,4 @@ cp -r nvim ~/Projects/things/dotfiles/.config/
 cp -r rofi ~/Projects/things/dotfiles/.config/
 cp -r vifm ~/Projects/things/dotfiles/.config/
 cp -r posting ~/Projects/things/dotfiles/.config/
+cp -r mpv ~/Projects/things/dotfiles/.config/

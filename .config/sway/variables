@@ -18,7 +18,7 @@ seat * xcursor_theme $cursor_theme 24
 # Applications
 set $term wezterm
 set $files dolphin
-set $browser librewolf
+set $browser mullvad-browser
 set $menu --no-startup-id rofi -show drun
 
 # Gaps and Borders

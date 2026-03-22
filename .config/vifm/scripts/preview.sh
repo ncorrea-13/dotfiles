@@ -1,31 +1,19 @@
 #!/usr/bin/env bash
-# Preview script para vifm con soporte para batcat + chafa
-# - Si estás en Zellij: usa chafa (ASCII art)
-# - Si no: podrías extender a ueberzugpp/inline images
 
 file="$1"
 mimetype=$(file --mime-type -Lb "$file")
 
-# Detectar si estamos en Zellij
-in_zellij=false
-if [ -n "$ZELLIJ_SESSION_NAME" ] || [ -n "$ZELLIJ" ]; then
-  in_zellij=true
-fi
-
 case "$mimetype" in
-# Archivos de texto
 text/* | application/json | application/xml)
   batcat --style=plain --color=always --wrap=never --pager=never "$file"
   ;;
 
-# Imágenes
 image/*)
-  cols=$(tput cols)
-  rows=$(tput lines)
-  chafa -f symbols -s ${cols}x${rows} "$file"
+  cols="$(tput cols)*2"
+  rows="$(tput lines)*2"
+  chafa -f symbols -s "${cols}x${rows}" "$file"
   ;;
 
-# PDFs
 application/pdf)
   if command -v pdftoppm >/dev/null; then
     tmp="/tmp/vifm-pdf-${RANDOM}"
@@ -37,12 +25,10 @@ application/pdf)
   fi
   ;;
 
-# Archivos comprimidos
 application/zip | application/x-tar | application/x-bzip2 | application/x-gzip | application/x-7z-compressed)
   atool -l "$file"
   ;;
 
-# Audio / video → mostrar metadatos
 audio/*)
   exiftool "$file" 2>/dev/null || mediainfo "$file" 2>/dev/null || echo "Archivo multimedia"
   ;;
