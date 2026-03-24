@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 cp dotfiles.sh ~/Projects/things/dotfiles/scripts/
+cp topgrade.toml ~/Projects/things/dotfiles/.config/
 cp -r sway ~/Projects/things/dotfiles/.config/
 cp -r waybar ~/Projects/things/dotfiles/.config/
 cp -r dunst ~/Projects/things/dotfiles/.config/

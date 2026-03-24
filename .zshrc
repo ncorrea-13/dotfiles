@@ -39,6 +39,7 @@ export TAVILY_API_KEY=$(cat ~/.tavily_env)
 alias ls='lsd'
 alias cat='batcat'
 alias cd='z'
+alias up='topgrade'
 alias ncspot='flatpak run io.github.hrkfdn.ncspot'
 alias pomodoro='tomatoshell -f -t 45.00 -d 15.00 -n 4'
 
