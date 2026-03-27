@@ -17,7 +17,7 @@ seat * xcursor_theme $cursor_theme 24
 
 # Applications
 set $term wezterm
-set $files dolphin
+set $files thunar
 set $browser mullvad-browser
 set $menu --no-startup-id rofi -show drun
 

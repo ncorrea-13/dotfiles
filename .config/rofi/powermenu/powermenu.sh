@@ -57,9 +57,9 @@ run_cmd() {
   selected="$(confirm_exit)"
   if [[ "$selected" == "$yes" ]]; then
     case "$1" in
-    --shutdown) systemctl poweroff ;;
-    --reboot) systemctl reboot ;;
-    --hibernate) systemctl hibernate ;;
+    --shutdown) loginctl poweroff ;;
+    --reboot) loginctl reboot ;;
+    --hibernate) loginctl hibernate ;;
     --suspend)
       command -v mpc &>/dev/null && mpc -q pause
       command -v amixer &>/dev/null && amixer set Master mute

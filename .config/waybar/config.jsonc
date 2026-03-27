@@ -22,7 +22,6 @@
     "disk#root",
     "disk#home",
     "backlight",
-    "wireplumber",
     "pulseaudio",
     "battery",
     "custom/power"
@@ -132,10 +131,12 @@
   "clock#date": {
     "format": "󰸗 {:%a %b %d}",
     "tooltip": true,
+    "timezone": "America/Argentina/Buenos_Aires",
     "tooltip-format": "<tt>{calendar}</tt>"
   },
   "clock": {
     "format": "󰥔 {:%H:%M}",
+    "timezone": "America/Argentina/Buenos_Aires",
     "tooltip": true,
     "tooltip-format": false
   },

@@ -32,12 +32,12 @@ else
 fi
 
 # Connection Status
-state=$(cat /sys/class/net/wl*/operstate)
+current_ssid=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2)
 
-if [ "$state" = "up" ]; then
-  status=$(nmcli | grep "^wlp" | sed 's/\ connected\ to/Connected to/' | cut -d ':' -f2)
+if [ -n "$current_ssid" ]; then
+  wifi_display_status="Connected to: $current_ssid"
 else
-  status="Disconnected"
+  wifi_display_status="Disconnected"
 fi
 
 # ┌─┐┌─┐┬ ┬┌─┐┬─┐
@@ -119,7 +119,7 @@ options="$powertoggle\nConnections\nConnect Manually"
 
 rofiwifi=$(printf "$options" | rofi -config $rofiprompt -dmenu -i -hover-select -p "Wifi
 Powered: $power
-Status: $status")
+Status: $wifi_display_status")
 
 case $rofiwifi in
 $powertoggle)
