@@ -54,4 +54,6 @@ This repository is licensed under the [MIT License](https://opensource.org/licen
 
 Please ensure compliance with both licenses when using and distributing this repository.
 
-For more information, refer to the `LICENSE` file included in the repository root.
+For more information, refer to the [LICENSE](LICENSE) file included in the repository root.
+
+*Mendoza, Argentina — Nicolás Correa ([ncorrea-13](https://github.com/ncorrea-13))*
