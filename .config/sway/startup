@@ -7,6 +7,9 @@ exec --no-startup-id autotiling
 # exec dunst to show notifications
 exec_always --no-startup-id dunst
 
+# syncthing for server sync
+exec syncthing --no-browser
+
 # polkit for fingerprint
 exec --no-startup-id /usr/libexec/polkit-mate-authentication-agent-1
 # kdeconnectd
