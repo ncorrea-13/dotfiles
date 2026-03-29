@@ -2,38 +2,33 @@
 
 A little and list of my personal programs, for making these dotfiles work on a fresh installation.
 
----
-
 ## Window manager (Wayland)
 
 - Dunst
 - Rofi
 - SwayFx
-- Swaylock
+- Sway-fader
+- Swaylock-effects
 - Waybar
 
-> **Note:** Previously used i3wm with i3blocks-color and i3lock-color on X11. That configuration is currently deprecated.
----
+> **Note:** Previously used i3wm with i3blocks-color and i3lock-color on X11. That configuration is currently deprecated but you could try it on X11 or Xlibre
 
 ## Productivity
 
-- Obsidian for note taking and learning
-- QuteBrowser with .applications for Notion and Slack
+- Obsidian
+- Onlyoffice
 - Wezterm Terminal
 - Zellij Multiplexor
 
----
-
 ## Development
 
-- Neovim (LazyVim) as code editor via terminal (TUI)
-- Dbeaber as a general database client
-- Lazygit as a git client via terminal (TUI)
-- Lazydocker as a container client like Docker or Podman via terminal (TUI)
-- Posting as an API rest client via terminal (TUI)
-- Vim as a simple text editor
-
----
+- Neovim (LazyVim)
+- Dbeaber
+- Lazygit
+- Lazymake
+- Lazydocker and Podman
+- Posting
+- Vim
 
 ## Systems and Hacking
 
@@ -41,30 +36,28 @@ A little and list of my personal programs, for making these dotfiles work on a f
 - Kali Linux VM for penetration testing with all their tools
 - Windows 10 LTS VM for applications testing and compatibilty
 
----
-
 ## Personal TUI applications
 
-- Bluetuith
+- Autocpu-freq
+- Bluetui
 - Btop
 - Bw CLI + Bitwarden Script using FZF
-- Discordo + Discord Downloader script for betterdiscord
+- Discordo
 - Fastfetch
 - Lsd
-- Nchat as a Whatsapp and Telegram client
-- Ncspot as a spotify client
+- Nchat
+- Ncspot
 - Tldr
-- Vifm
-- Yewtube + Mpv
-
----
+- Yazi
+- Ytsurf + Mpv
 
 ## Others
 
-- Dolphin
 - Firefox
-- KDE Connect
-- LibreWolf
+- Greetd
+- LocalSend
+- Mullvad Browser
+- Syncthing
+- Thunar
 - Thunderbird
 - Zathura
-
