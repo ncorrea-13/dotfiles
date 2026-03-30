@@ -43,6 +43,10 @@ To install these configurations on your system, follow these steps:
 
 ![](https://github.com/ncorrea-13/dotfiles/blob/main/screenshots/Sway/4-Browsers.png)
 
+## Systemd-Free
+
+These configurations are 100% compatible with systemd-free distributions, as they do not rely on systemctl, loginctl, or other systemd-specific tools for session or service management.
+
 ## License
 
 - **Configs:** [MIT License](https://opensource.org/licenses/MIT)
