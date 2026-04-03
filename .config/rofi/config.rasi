@@ -20,15 +20,6 @@ filebrowser {
 
 @theme "/dev/null"
 
-* {
-  bg:		#0C0F09;
-  fg:		#05E289;
-  bgAlt: #1B1E25;
-  button:		#05E289;
-  background-color:	@bg;
-  text-color:		@fg;
-}
-
 @import "./Themes/style.rasi"
 
 mainbox { children: [ mode-switcher, inputbar, listview ]; }
