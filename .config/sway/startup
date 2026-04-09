@@ -12,8 +12,6 @@ exec syncthing --no-browser
 
 # polkit for fingerprint
 exec --no-startup-id /usr/libexec/polkit-mate-authentication-agent-1
-# kdeconnectd
-exec --no-startup-id kdeconnectd
 
 # sway fader for smooth transitions
 exec_always --no-startup-id sway-fader -d 100ms
