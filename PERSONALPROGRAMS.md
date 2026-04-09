@@ -17,6 +17,7 @@ A little and list of my personal programs, for making these dotfiles work on a f
 
 - Obsidian
 - Onlyoffice
+- Tomatoshell
 - Wezterm Terminal
 - Zellij Multiplexor
 
@@ -39,17 +40,24 @@ A little and list of my personal programs, for making these dotfiles work on a f
 ## Personal TUI applications
 
 - Autocpu-freq
+- Basalt
+- Batcat
 - Bluetui
 - Btop
 - Bw CLI + Bitwarden Script using FZF
 - Discordo
 - Fastfetch
+- Gdu
 - Lsd
 - Nchat
 - Ncspot
+- Nmtui-go
+- Pulsemixer
+- Topgrade
 - Tldr
 - Yazi
 - Ytsurf + Mpv
+- Zoxide
 
 ## Others
 
