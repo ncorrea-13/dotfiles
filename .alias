@@ -10,15 +10,20 @@ alias up='topgrade'
 alias bw="flatpak run --command=bw com.bitwarden.desktop"
 alias ncspot='flatpak run io.github.hrkfdn.ncspot'
 
+# nchat
+alias telegram='nchat -d ~/.config/nchat-telegram'
+alias signal='nchat -d ~/.config/nchat-signal'
+alias whatsapp='nchat -d ~/.config/nchat-whatsapp'
+
 # Utils
 alias pomodoro='tomatoshell -f -t 45.00 -d 15.00 -n 4'
 alias health='echo "\e[1;34m--- CPU Status ---\e[0m" && grep MHz /proc/cpuinfo | head -n 4 && echo "\e[1;33m--- Temp ---\e[0m" && sensors | grep "Package id 0" && echo "\e[1;32m--- Battery ---\e[0m" && sudo tlp-stat -b | grep -E "Percentage|status|cycle_count"'
 alias bw-auth='export BW_SESSION=$(bw unlock --raw)'
 
 # open-rc
-alias rcs='sudo rc-service'
+alias rcs='sudo rc-status'
 alias rcu='sudo rc-update'
-alias rclist='rc-update show -v'
+alias rclist='sudo rc-update show -v'
 alias rccrash='rc-status --crashed'
 
 # Print services
