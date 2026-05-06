@@ -10,6 +10,7 @@ floating_modifier $mod normal
 
 # Monitor control
 bindsym XF86Display exec --no-startup-id ~/.config/rofi/screen/screen
+bindsym $mod+shift+p exec --no-startup-id ~/.config/rofi/screen/screen
 
 # Music control
 bindsym $mod+n exec --no-startup-id ~/.config/rofi/music/music

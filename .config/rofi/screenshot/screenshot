@@ -43,16 +43,16 @@ saveopt=$(printf "$option" | rofi -config $roficonfig -dmenu -i)
 case $rofi in
 "$area")
   if [ "$saveopt" = "$copy" ]; then
-    notify-send -i $icon --urgency low 'Select Area'
+    # notify-send -i $icon --urgency low 'Select Area'
     grim -g "$(slurp)" - | wl-copy && notify-send -i $icon --urgency low 'Screenshot copied' || notify-send -i $icon 'failed to take screenshot'
   elif [ "$saveopt" = "$save" ]; then
-    notify-send -i $icon --urgency low 'Select Area'
+    # notify-send -i $icon --urgency low 'Select Area'
     grim -g "$(slurp)" "$file" && notify-send -i "$icon" --urgency low 'Screenshot Taken' || notify-send -i "$icon" 'failed to take screenshot'
   fi
   ;;
 "$cwin")
   if [ "$saveopt" = "$copy" ]; then
-    notify-send -i $icon --urgency low 'Select Window'
+    #    notify-send -i $icon --urgency low 'Select Window'
     swaymsg -t get_tree | jq -r '..|try(.nodes[])?|select(.type == "con" and .visible == true and .focused == true) | "grim -g \"\(.rect.x),\(.rect.y) \(.rect.width)x\(.rect.height)\" - | wl-copy"' | bash && notify-send -i $icon --urgency low 'Screenshot copied' || notify-send -i $icon 'failed to take screenshot'
   elif [ "$saveopt" = "$save" ]; then
     maim -u -m 5 -i "$(xdotool getactivewindow)" $file && notify-send -i $icon --urgency low 'Screenshot Taken' || notify-send -i $icon 'failed to take screenshot'
@@ -60,10 +60,10 @@ case $rofi in
   ;;
 "$full")
   if [ "$saveopt" = "$copy" ]; then
-    sleep 2
+    # sleep 2
     grim - | wl-copy && notify-send -i $icon --urgency low 'Screenshot copied' || notify-send -i $icon 'failed to take screenshot'
   elif [ "$saveopt" = "$save" ]; then
-    sleep 2
+    # sleep 2
     grim "$file" && notify-send -i $icon --urgency low 'Screenshot Taken' || notify-send -i $icon 'failed to take screenshot'
   fi
   ;;
