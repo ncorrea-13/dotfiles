@@ -23,6 +23,7 @@ alias bw-auth='export BW_SESSION=$(bw unlock --raw)'
 # open-rc
 alias rcs='sudo rc-status'
 alias rcu='sudo rc-update'
+alias rcsv='sudo rc-service'
 alias rclist='sudo rc-update show -v'
 alias rccrash='rc-status --crashed'
 
@@ -34,6 +35,14 @@ alias cups-stat='rc-service cups status'
 # Virt services
 alias vm-on='sudo rc-service libvirtd start && sudo rc-service virtlogd start'
 alias vm-off='sudo rc-service libvirtd stop && sudo rc-service virtlogd stop'
+
+# Black arch VM
+alias arch-on='virsh --connect qemu:///system start archlinux'
+alias arch-off='virsh --connect qemu:///system shutdown archlinux'
+alias arch-ssh='ssh arch@192.168.122.207' # Cambiá IP_DE_LA_VM por la real
+alias arch-status='virsh --connect qemu:///system list --all'
+
+alias arch-work='virsh --connect qemu:///system start archlinux && echo "Esperando a que la VM responda..." && until nc -z 192.168.122.207 22; do sleep 1; done && ssh arch@192.168.122.207'
 
 # Podman socket
 alias pod-on='sudo rc-service podman-service start'
