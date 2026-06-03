@@ -1,5 +1,11 @@
 # alias
 
+# rc
+rc() {
+    local ADMIN_PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    doas env PATH="$ADMIN_PATH" "$@"
+}
+
 # Binary
 alias ls='lsd'
 alias cat='batcat'
@@ -21,29 +27,31 @@ alias health='echo "\e[1;34m--- CPU Status ---\e[0m" && grep MHz /proc/cpuinfo |
 alias bw-auth='export BW_SESSION=$(bw unlock --raw)'
 
 # open-rc
-alias rcs='sudo rc-status'
-alias rcu='sudo rc-update'
-alias rcsv='sudo rc-service'
-alias rclist='sudo rc-update show -v'
+alias rcs='rc rc-status'
+alias rcu='rc rc-update'
+alias rcsv='rc rc-service'
+alias rclist='rc rc-update show -v'
 alias rccrash='rc-status --crashed'
 
 # Print services
-alias cups-on='sudo rc-service cups start && sudo rc-service cups-browsed start'
-alias cups-off='sudo rc-service cups stop && sudo rc-service cups-browsed stop'
+alias cups-on='rc rc-service cups start && rc rc-service cups-browsed start'
+alias cups-off='rc rc-service cups stop && rc rc-service cups-browsed stop'
 alias cups-stat='rc-service cups status'
 
 # Virt services
-alias vm-on='sudo rc-service libvirtd start && sudo rc-service virtlogd start'
-alias vm-off='sudo rc-service libvirtd stop && sudo rc-service virtlogd stop'
+alias vm-on='rc rc-service libvirtd start && rc rc-service virtlogd start'
+alias vm-off='rc rc-service libvirtd stop && rc rc-service virtlogd stop'
 
 # Black arch VM
 alias arch-on='virsh --connect qemu:///system start archlinux'
 alias arch-off='virsh --connect qemu:///system shutdown archlinux'
-alias arch-ssh='ssh arch@192.168.122.207' # Cambiá IP_DE_LA_VM por la real
+alias arch-ssh='ssh arch-vm'
 alias arch-status='virsh --connect qemu:///system list --all'
 
 alias arch-work='virsh --connect qemu:///system start archlinux && echo "Esperando a que la VM responda..." && until nc -z 192.168.122.207 22; do sleep 1; done && ssh arch@192.168.122.207'
 
 # Podman socket
-alias pod-on='sudo rc-service podman-service start'
-alias pod-off='sudo rc-service podman-service stop'
+alias pod-on='rc rc-service podman-service start'
+alias pod-off='rc rc-service podman-service stop'
+
+alias ls-tui='localsend-rs tui --alias "Devuan Pc"'
