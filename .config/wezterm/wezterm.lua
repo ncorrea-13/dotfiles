@@ -17,7 +17,6 @@ config.enable_tab_bar = false
 config.max_fps = 60
 config.use_resize_increments = false
 config.enable_kitty_graphics = true
-
 config.font_size = 9
 config.line_height = 1.0
 config.font = wezterm.font("HackNerdFont", { weight = "Bold" })
@@ -28,8 +27,17 @@ config.window_padding = {
 	right = 0,
 	top = 0,
 }
-
-config.default_prog = { os.getenv("HOME") .. "/.cargo/bin/zellij" }
+config.keys = {
+	{ key = "h", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTabRelative(-1) },
+	{ key = "l", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTabRelative(1) },
+	{ key = "n", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
+	{ key = "x", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = false }) },
+	{ key = "1", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTab(0) },
+	{ key = "2", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTab(1) },
+	{ key = "3", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTab(2) },
+	{ key = "4", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTab(3) },
+}
+--config.default_prog = { os.getenv("HOME") .. "/.local/bin/zellij" }
 
 config.background = {
 	{
