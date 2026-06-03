@@ -36,17 +36,16 @@ reload() {
 
 case $rofi in
 $Laptop)
-  swaymsg output "$screen1" enable
+  swaymsg output "$screen1" enable res 1366x768 pos 0 0
   swaymsg output "$screen2" disable
   ;;
 $Monitor)
-
-  swaymsg output "$screen2" enable
+  swaymsg output "$screen2" enable res 1920x1080 pos 0 0
   swaymsg output "$screen1" disable
   ;;
 
 $Dualscreen)
-  swaymsg output "$screen1" enable
-  swaymsg output "$screen2" enable
+  swaymsg output "$screen1" enable res 1366x768 pos 0 0
+  swaymsg output "$screen2" enable res 1920x1080 pos 1366 0
   ;;
 esac
