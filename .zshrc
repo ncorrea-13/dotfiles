@@ -1,15 +1,10 @@
 # envs
-export PYENV_ROOT="$HOME/.pyenv"
 export GOBIN="$HOME/.local/bin"
-path=($HOME/.local/bin $PYENV_ROOT/bin $path)
+path=($HOME/.local/bin $HOME/.cargo/bin  /home/linuxbrew/.linuxbrew/bin $path)
 export DOCKER_HOST=unix:///run/podman-service/podman.sock
 export TAVILY_API_KEY=$(cat ~/.tavily_env)
-[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
 # inits
-eval "$($HOME/.local/bin/mise activate zsh)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 eval "$(zoxide init zsh)"
 eval $(thefuck --alias)
 
@@ -31,6 +26,4 @@ source ~/.p10k.zsh
 typeset -U path
 
 # fastfetch
-if [[ -n zellij ]]; then
-	fastfetch
-fi
+fastfetch

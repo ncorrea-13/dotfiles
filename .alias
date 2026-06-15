@@ -12,14 +12,13 @@ alias cat='batcat'
 alias cd='z'
 alias up='topgrade'
 
-# flatpak
-alias bw="flatpak run --command=bw com.bitwarden.desktop"
-alias ncspot='flatpak run io.github.hrkfdn.ncspot'
-
 # nchat
 alias telegram='nchat -d ~/.config/nchat-telegram'
 alias signal='nchat -d ~/.config/nchat-signal'
 alias whatsapp='nchat -d ~/.config/nchat-whatsapp'
+
+# concord
+alias concord='ALSA_PLUGIN_DIR="/usr/lib/x86_64-linux-gnu/alsa-lib" concord'
 
 # Utils
 alias pomodoro='tomatoshell -f -t 45.00 -d 15.00 -n 4'
