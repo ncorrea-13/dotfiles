@@ -6,6 +6,9 @@ rc() {
     doas env PATH="$ADMIN_PATH" "$@"
 }
 
+# flatpaks
+alias ncspot='flatpak run io.github.hrkfdn.ncspot'
+
 # Binary
 alias ls='lsd'
 alias cat='batcat'
@@ -16,6 +19,7 @@ alias up='topgrade'
 alias telegram='nchat -d ~/.config/nchat-telegram'
 alias signal='nchat -d ~/.config/nchat-signal'
 alias whatsapp='nchat -d ~/.config/nchat-whatsapp'
+alias whatsapp-work='nchat -d ~/.config/nchat-work'
 
 # concord
 alias concord='ALSA_PLUGIN_DIR="/usr/lib/x86_64-linux-gnu/alsa-lib" concord'
@@ -35,7 +39,7 @@ alias rccrash='rc-status --crashed'
 # Print services
 alias cups-on='rc rc-service cups start && rc rc-service cups-browsed start'
 alias cups-off='rc rc-service cups stop && rc rc-service cups-browsed stop'
-alias cups-stat='rc-service cups status'
+alias cups-stat='rc rc-service cups status'
 
 # Virt services
 alias vm-on='rc rc-service libvirtd start && rc rc-service virtlogd start'
@@ -52,5 +56,3 @@ alias arch-work='virsh --connect qemu:///system start archlinux && echo "Esperan
 # Podman socket
 alias pod-on='rc rc-service podman-service start'
 alias pod-off='rc rc-service podman-service stop'
-
-alias ls-tui='localsend-rs tui --alias "Devuan Pc"'

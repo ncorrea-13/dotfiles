@@ -1,10 +1,11 @@
 # envs
 export GOBIN="$HOME/.local/bin"
-path=($HOME/.local/bin $HOME/.cargo/bin  /home/linuxbrew/.linuxbrew/bin $path)
+path=($HOME/.local/bin $HOME/.cargo/bin $path)
 export DOCKER_HOST=unix:///run/podman-service/podman.sock
 export TAVILY_API_KEY=$(cat ~/.tavily_env)
 
 # inits
+eval "$(mise activate zsh --shims)"
 eval "$(zoxide init zsh)"
 eval $(thefuck --alias)
 
@@ -27,3 +28,6 @@ typeset -U path
 
 # fastfetch
 fastfetch
+
+# Kore Package Manager Autocompletions
+fpath=($HOME/.local/share/zsh/site-functions $fpath)
