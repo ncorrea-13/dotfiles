@@ -19,7 +19,7 @@ seat * xcursor_theme $cursor_theme 24
 set $term wezterm
 set $files thunar
 set $browser mullvad-browser
-set $menu --no-startup-id rofi -show drun
+set $menu  rofi -show drun
 
 # Gaps and Borders
 gaps inner 6
