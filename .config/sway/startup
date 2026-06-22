@@ -1,5 +1,5 @@
 # Startup Applications
-xwayland lazy
+xwayland enable
 
 # autotiling
 exec  autotiling
