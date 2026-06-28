@@ -6,10 +6,7 @@ rc() {
     doas env PATH="$ADMIN_PATH" "$@"
 }
 
-# flatpaks
-alias ncspot='flatpak run io.github.hrkfdn.ncspot'
-
-# Binary
+# Powered core utils 
 alias ls='lsd'
 alias cat='batcat'
 alias cd='z'
@@ -22,11 +19,11 @@ alias whatsapp='nchat -d ~/.config/nchat-whatsapp'
 alias whatsapp-work='nchat -d ~/.config/nchat-work'
 
 # concord
-alias concord='ALSA_PLUGIN_DIR="/usr/lib/x86_64-linux-gnu/alsa-lib" concord'
+alias concord='ALSA_PLUGIN_DIR="/usr/lib/x86_64-linux-gnu/alsa-lib" \concord'
 
 # Utils
 alias pomodoro='tomatoshell -f -t 45.00 -d 15.00 -n 4'
-alias health='echo "\e[1;34m--- CPU Status ---\e[0m" && grep MHz /proc/cpuinfo | head -n 4 && echo "\e[1;33m--- Temp ---\e[0m" && sensors | grep "Package id 0" && echo "\e[1;32m--- Battery ---\e[0m" && sudo tlp-stat -b | grep -E "Percentage|status|cycle_count"'
+alias health='echo -e "\e[1;34m--- CPU Status ---\e[0m" && grep MHz /proc/cpuinfo | head -n 4 && echo -e "\e[1;33m--- Temp ---\e[0m" && sensors | grep "Package id 0" && echo -e "\e[1;32m--- Battery ---\e[0m" && rc tlp-stat -b | grep -E "Percentage|status|cycle_count"'
 alias bw-auth='export BW_SESSION=$(bw unlock --raw)'
 
 # open-rc
@@ -51,7 +48,7 @@ alias arch-off='virsh --connect qemu:///system shutdown archlinux'
 alias arch-ssh='ssh arch-vm'
 alias arch-status='virsh --connect qemu:///system list --all'
 
-alias arch-work='virsh --connect qemu:///system start archlinux && echo "Esperando a que la VM responda..." && until nc -z 192.168.122.207 22; do sleep 1; done && ssh arch@192.168.122.207'
+alias arch-work='virsh --connect qemu:///system start archlinux && echo "Esperando a que la VM responda..." && until [ -n "$(virsh --connect qemu:///system domifaddr archlinux | grep -oE "192\.168\.[0-9]+\.[0-9]+")" ]; do sleep 1; done && ssh arch-vm'
 
 # Podman socket
 alias pod-on='rc rc-service podman-service start'

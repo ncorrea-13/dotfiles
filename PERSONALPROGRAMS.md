@@ -5,67 +5,84 @@ A little and list of my personal programs, for making these dotfiles work on a f
 ## Window manager (Wayland)
 
 - Dunst
-- Rofi
+- Rofi-wayland
 - SwayFx
 - Sway-fader
-- Swaylock-effects
+- Rustlock
 - Waybar
 
 > **Note:** Previously used i3wm with i3blocks-color and i3lock-color on X11. That configuration is currently deprecated but you could try it on X11 or Xlibre
 
-## Productivity
-
-- Obsidian
-- Onlyoffice
-- Tomatoshell
-- Wezterm Terminal
-- Zellij Multiplexor
-
 ## Development
 
-- Neovim (LazyVim)
-- Dbeaber
+- DBeaver
 - Lazygit
 - Lazymake
 - Lazydocker and Podman
+- Neovim (LazyVim)
 - Posting
 - Vim
+- Zellij Multiplexer
 
-## Systems and Hacking
+## Productivity
+
+- Basalt + Ekphos + Obsidian
+- Bw CLI + Bitwarden Script using FZF
+- Jocalsend + LocalSend
+- Librewolf
+- Mullvad Browser
+- Onlyoffice
+- Tennis
+- Tomatoshell
+- Wezterm Terminal
+- Zathura
+
+## Hacking
 
 - Qemu as a virtual machines manager
-- Kali Linux VM for penetration testing with all their tools
+- Blackarch VM for penetration testing with all their tools
 - Windows 10 LTS VM for applications testing and compatibilty
 
-## Personal TUI applications
+## Entertainment
+
+- Concord
+- Discord + bdcli through discordDownloader script
+- Freetube
+- Hayase
+- Ncspot
+- Yt-dlp + Ytsurf + Mpv
+
+## System Management
 
 - Autocpu-freq
-- Basalt
-- Batcat
-- Bluetui
 - Btop
-- Bw CLI + Bitwarden Script using FZF
-- Discordo
-- Fastfetch
+- Doas
 - Gdu
-- Lsd
-- Nchat
-- Ncspot
-- Nmtui-go
-- Pulsemixer
-- Topgrade
-- Tldr
-- Yazi
-- Ytsurf + Mpv
-- Zoxide
-
-## Others
-
-- Firefox
 - Greetd
-- LocalSend
-- Mullvad Browser
+- OpenRC trhough alias
 - Syncthing
 - Thunar
-- Thunderbird
-- Zathura
+- Try
+- Topgrade
+- Yazi
+
+## Package managament
+
+- Eget
+- Flatpak
+- Kore Package manager
+- Gup
+- Mise
+- Pipx
+- Pnpm
+
+## Personal CLI and TUI applications
+
+- Batcat
+- Bluetui
+- Fastfetch
+- Lsd
+- Nchat
+- Nmrs-tui
+- Tldr
+- Zoxide
