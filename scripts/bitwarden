@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
+BW_CMD="bw"
+#BW_CMD="flatpak run --command=bw com.bitwarden.desktop"
+
 if [ -z "$BW_SESSION" ]; then
   echo "❌ No hay sesión activa de Bitwarden."
   echo "Iniciá sesión con: bw login o bw unlock"
   exit 1
 fi
 
-items_json=$(bw list items --session "$BW_SESSION")
+items_json=$($BW_CMD list items --session "$BW_SESSION")
 
 if [ -z "$items_json" ] || [ "$items_json" = "[]" ]; then
   echo "⚠️ No se encontraron ítems en Bitwarden."
@@ -26,7 +29,7 @@ if [ -z "$selection" ]; then
   exit 0
 fi
 
-password=$(bw get password "$selection" --session "$BW_SESSION" 2>/dev/null)
+password=$($BW_CMD get password "$selection" --session "$BW_SESSION" 2>/dev/null)
 
 if [ -z "$password" ]; then
   echo "⚠️ No se pudo obtener la contraseña para el ítem con ID '$selection'."

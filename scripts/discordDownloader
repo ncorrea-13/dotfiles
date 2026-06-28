@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DISCORD_URL="https://discord.com/api/download/stable?platform=linux&format=deb"
+DISCORD_DEB="/tmp/discord_install_$$.deb"
+
+if [[ "$EUID" -ne 0 ]]; then
+  echo "Ejecutá el script como root: sudo $0" >&2
+  exit 1
+fi
+
+REAL_USER="${SUDO_USER:-${DOAS_USER:-}}"
+if [[ -z "$REAL_USER" ]]; then
+  echo "No se pudo determinar el usuario real. Usá sudo en vez de su." >&2
+  exit 1
+fi
+
+echo "Descargando Discord en /tmp..."
+wget -q --show-progress -O "$DISCORD_DEB" "$DISCORD_URL" || {
+  echo "Fallo al descargar Discord." >&2
+  exit 1
+}
+
+echo "Instalando Discord..."
+dpkg -i "$DISCORD_DEB" || apt install -f -y
+
+echo "Limpiando /tmp..."
+rm -f "$DISCORD_DEB"
+
+get_display_env() {
+  local user="$1"
+  local uid
+  uid=$(id -u "$user")
+  local xdg_runtime="/run/user/$uid"
+
+  local user_pid
+  user_pid=$(pgrep -u "$user" -n 2>/dev/null || true)
+
+  if [[ -n "$user_pid" ]]; then
+    local env_file="/proc/$user_pid/environ"
+    WAYLAND_DISPLAY=$(tr '\0' '\n' <"$env_file" 2>/dev/null | grep ^WAYLAND_DISPLAY= | cut -d= -f2 || true)
+    DISPLAY=$(tr '\0' '\n' <"$env_file" 2>/dev/null | grep ^DISPLAY= | cut -d= -f2 || true)
+    XAUTHORITY=$(tr '\0' '\n' <"$env_file" 2>/dev/null | grep ^XAUTHORITY= | cut -d= -f2 || true)
+  fi
+
+  XDG_RUNTIME_DIR="$xdg_runtime"
+}
+
+get_display_env "$REAL_USER"
+
+echo "Iniciando Discord como '$REAL_USER'..."
+su - "$REAL_USER" -c "
+    export XDG_RUNTIME_DIR='$XDG_RUNTIME_DIR'
+    export WAYLAND_DISPLAY='$WAYLAND_DISPLAY'
+    export DISPLAY='$DISPLAY'
+    export XAUTHORITY='$XAUTHORITY'
+    discord --enable-features=UseOzonePlatform --ozone-platform=wayland
+" &
+
+echo "Esperando a que Discord cree su directorio de versión..."
+sleep 10
+
+echo "Instalando BetterDiscord..."
+REAL_HOME=$(getent passwd "$REAL_USER" | cut -d: -f6)
+su - "$REAL_USER" -c "$REAL_HOME/.local/bin/bdcli install" || {
+  echo "Fallo al instalar BetterDiscord." >&2
+  exit 1
+}

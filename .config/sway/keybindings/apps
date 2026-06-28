@@ -4,7 +4,7 @@
 
 bindsym $mod+b exec $browser
 bindsym $mod+e exec $files
-bindsym $mod+d exec flatpak run com.discordapp.Discord
+bindsym $mod+d exec discord --enable-features=UseOzonePlatform --ozone-platform=wayland
 bindsym $mod+m exec librewolf
 bindsym $mod+Return exec $term
 
@@ -12,10 +12,7 @@ assign [class="^Mullvad Browser"]                   1
 assign [app_id="^librewolf"]                        1
 assign [app_id="^org.wezfurlong.wezterm"]           2
 assign [app_id="^virt-manager"]                     3
-assign [app_id="^org.kde.dolphin"]                  4
 assign [app_id="thunar"]                            4
 assign [class="^ONLYOFFICE"]                        5
-assign [app_id="^org.kde.kdeconnect.app"]           6
-assign [app_id="^com.discordapp.Discord"]           7
-assign [app_id="^org.mozilla.Thunderbird"]          9
+assign [app_id="^discord"]                          7
 assign [class="^steam"]                             10

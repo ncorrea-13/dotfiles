@@ -1,0 +1,22 @@
+[global]
+target = "~/.local/bin"
+upgrade_only = true
+
+["jesseduffield/lazydocker"]
+
+["jesseduffield/lazygit"]
+
+["rshelekhov/lazymake"]
+
+["hrkfdn/ncspot"]
+
+["gurgeous/tennis"]
+
+["yt-dlp/yt-dlp"]
+asset_filters = ["yt-dlp_linux", "^aarch64", "^armv7l", "^musl", "^zip"]
+
+["chojs23/concord"]
+
+["erikjuhani/basalt"]
+
+["zyedidia/eget"]

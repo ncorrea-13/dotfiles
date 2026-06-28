@@ -127,6 +127,7 @@ sudo_command = "doas"
 # "Python Environment" = "~/dev/.env/bin/pip install -i https://pypi.python.org/simple -U --upgrade-strategy eager jupyter"
 # "Custom command using interactive shell (unix)" = "-i vim_upgrade"
 "Kore Package Manager" = "~/.local/bin/kpm -u"
+"Eget binaries" = "~/.local/bin/eget --download-all"
 
 [python]
 # enable_pip_review = true                         ###disabled by default
