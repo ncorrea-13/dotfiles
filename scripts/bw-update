@@ -1,0 +1,14 @@
+#!/bin/bash
+LATEST=$(curl -s https://api.github.com/repos/bitwarden/clients/releases |
+  grep '"tag_name"' |
+  grep '"cli-v' |
+  head -1 |
+  sed 's/.*"cli-v\([^"]*\)".*/\1/')
+
+echo "Instalando bw v$LATEST..."
+curl -Lo /tmp/bw.zip \
+  "https://github.com/bitwarden/clients/releases/download/cli-v${LATEST}/bw-linux-${LATEST}.zip"
+unzip -o /tmp/bw.zip -d ~/.local/bin/
+chmod +x ~/.local/bin/bw
+rm /tmp/bw.zip
+echo "Listo: $(bw --version)"
