@@ -6,6 +6,11 @@ rc() {
     doas env PATH="$ADMIN_PATH" "$@"
 }
 
+fuck() {
+    eval "$(thefuck --alias)"
+    fuck "$@"
+}
+
 # Powered core utils 
 alias ls='lsd'
 alias cat='batcat'
