@@ -28,8 +28,9 @@ set $menu  rofi -show drun
 set $bluetui_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=110 --config initial_rows=32 start --always-new-process --class bluetui -- ~/.cargo/bin/bluetui
 set $nmrstui_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=110 --config initial_rows=32 start --always-new-process --class nmrs-tui -- ~/.cargo/bin/nmrs-tui
 set $btop_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=140 --config initial_rows=40 start --always-new-process --class btop -- btop
-set $topgrade_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=120 --config initial_rows=36 start --always-new-process --class topgrade -- bash -c '~/.local/bin/topgrade; exec bash'
 set $screentui_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=60 --config initial_rows=15 start --always-new-process --class screen-tui -- ~/.config/sway/scripts/screen-tui.sh
+set $ncspot_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=100 --config initial_rows=32 start --always-new-process --class ncspot -- ~/.local/bin/ncspot
+set $topgrade_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=120 --config initial_rows=36 start --always-new-process --class topgrade -- bash -c '~/.local/bin/topgrade; exec bash'
 set $applauncher_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=70 --config initial_rows=20 start --always-new-process --class app-launcher -- ~/.config/sway/scripts/app-launcher.sh
 set $powermenu_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=50 --config initial_rows=14 start --always-new-process --class powermenu -- ~/.config/sway/scripts/powermenu.sh
 set $screenshottui_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=50 --config initial_rows=14 start --always-new-process --class screenshot-tui -- ~/.config/sway/scripts/screenshot-tui.sh
@@ -60,7 +61,7 @@ for_window [app_id="^bluetui$"] floating enable, move position center, border pi
 for_window [app_id="^nmrs-tui$"] floating enable, move position center, border pixel 1
 for_window [app_id="^btop$"] floating enable, move position center, border pixel 1
 for_window [app_id="^ncspot$"] floating enable, move position center, border pixel 1, move to scratchpad, scratchpad show
-for_window [app_id="^topgrade$"] floating enable, move position center, border pixel 1
+for_window [app_id="^topgrade$"] floating enable, move position center, border pixel 1, move to scratchpad, scratchpad show
 for_window [app_id="^screen-tui$"] floating enable, move position center, border pixel 1
 for_window [app_id="^app-launcher$"] floating enable, move position center, border pixel 1
 for_window [app_id="^powermenu$"] floating enable, move position center, border pixel 1
