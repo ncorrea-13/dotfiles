@@ -47,19 +47,21 @@
 #clock,
 #wireplumber,
 #backlight,
-#custom-logo,
-#custom-power,
-#custom-wifi,
-#custom-bluetooth,
 #custom-music,
-#custom-update {
+#idle_inhibitor,
+#custom-power {
   min-width: 12px;
   margin: 7.5px;
 }
 
-#idle_inhibitor {
-  min-width: 12px;
-  margin: 3.5px;
+#network,
+#custom-logo,
+#bluetooth {
+  margin: 7px;
+}
+
+#custom-update {
+  margin: 5.5px;
 }
 
 tooltip {
