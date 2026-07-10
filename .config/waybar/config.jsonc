@@ -5,21 +5,15 @@
   "width": 1300,
   "margin-top": 5,
   "margin-bottom": -5,
-  "modules-left": [
-    "custom/logo",
-    "custom/music",
-    "idle_inhibitor",
-    "sway/workspaces",
-    "sway/scratchpad",
-  ],
+  "modules-left": ["custom/logo", "sway/workspaces", "sway/scratchpad"],
   "modules-center": ["clock#date", "clock"],
   "modules-right": [
     "cpu",
     "memory",
     "backlight",
-    "custom/update",
     "network",
     "bluetooth",
+    "idle_inhibitor",
     "pulseaudio",
     "battery",
     "custom/power",
@@ -32,18 +26,6 @@
   },
   "custom/separator": {
     "format": "|",
-  },
-  "custom/music": {
-    "format": "\uf001",
-    "tooltip": true,
-    "tooltip-format": "ncspot",
-    "on-click": "~/.config/sway/scripts/ncspot-toggle.sh",
-  },
-  "custom/update": {
-    "format": "\uf021",
-    "tooltip": true,
-    "tooltip-format": "topgrade",
-    "on-click": "wezterm --config initial_cols=120 --config initial_rows=36 start --always-new-process --class topgrade -- bash -c '~/.local/bin/topgrade; notify-send \"Topgrade\" \"Actualización finalizada\"; exec bash'",
   },
   "idle_inhibitor": {
     "format": "{icon}",
