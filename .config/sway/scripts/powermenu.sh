@@ -29,7 +29,7 @@ case "$choice" in
   confirm "Suspend" || exit 0
   command -v mpc &>/dev/null && mpc -q pause
   command -v amixer &>/dev/null && amixer set Master mute
-  systemctl suspend
+  loginctl suspend
   ;;
 "$logout") confirm "Logout" && loginctl terminate-user "$USER" ;;
 "$lock") rustlock-script ;;
