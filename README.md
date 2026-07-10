@@ -1,5 +1,7 @@
 # My personal linux's dotfiles
 
+*[Leer en español](README.es.md)*
+
 Welcome to my collection of dotfiles! Here you will find my personal configurations for essential Linux tools.
 
 > **Note:** It is thought to use Wayland with Sway. There are also configs for i3 and i3blocks, but these are currently unmantained since I no longer use Xorg
@@ -34,8 +36,14 @@ To install these configurations on your system, follow these steps:
 
     **Note**: Ensure that the `~/.config` directory exists before moving the directories.
 
-4. Install the necessary dependencies
+4. Install the necessary dependencies. See [docs/PERSONALPROGRAMS.md](docs/PERSONALPROGRAMS.md) for the full list of programs this setup relies on.
 5. Restart applications or your user session for the changes to take effect.
+
+## Documentation
+
+- [docs/KEYBINDINGS.md](docs/KEYBINDINGS.md) — full reference of every keybinding (Sway, Wezterm, Zellij, Neovim) and every Zsh alias/function.
+- [docs/SCRIPTS.md](docs/SCRIPTS.md) — what every script in `.config/sway/scripts/` and `scripts/` does and what it depends on.
+- [docs/PERSONALPROGRAMS.md](docs/PERSONALPROGRAMS.md) — the list of personal programs used to make this setup work on a fresh install.
 
 ## Screenshots
 
