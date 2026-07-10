@@ -7,48 +7,58 @@
   "margin-bottom": -5,
   "modules-left": [
     "custom/logo",
+    "custom/music",
     "sway/workspaces",
     "hyprland/workspaces",
     "niri/workspaces",
-    "sway/scratchpad"
+    "sway/scratchpad",
   ],
-  "modules-center": [
-    "clock#date",
-    "clock"
-  ],
+  "modules-center": ["clock#date", "clock"],
   "modules-right": [
+    "custom/wifi",
+    "custom/bluetooth",
     "cpu",
     "memory",
-    "disk#root",
-    "disk#home",
     "backlight",
+    "custom/update",
     "pulseaudio",
     "battery",
-    "custom/power"
+    "idle_inhibitor",
+    "custom/power",
   ],
   "custom/logo": {
     "format": "",
-    "tooltip": false
+    "tooltip": true,
+    "tooltip-format": "btop",
+    "on-click": "wezterm --config initial_cols=140 --config initial_rows=40 start --always-new-process --class btop -- btop",
   },
   "custom/separator": {
-    "format": "|"
+    "format": "|",
   },
-  "disk#root": {
-    "interval": 60,
-    "path": "/",
-    "format": "󰋊 Root {percentage_used}%",
-    "tooltip-format": "{used}/{total}"
+  "custom/music": {
+    "format": "\uf001",
+    "tooltip": true,
+    "tooltip-format": "ncspot",
+    "on-click": "~/.config/sway/scripts/ncspot-toggle.sh",
   },
-  "disk#home": {
-    "interval": 60,
-    "path": "/home",
-    "format": "Home {percentage_used}%",
-    "tooltip-format": "{used}/{total}"
+  "custom/update": {
+    "format": "\uf021",
+    "tooltip": true,
+    "tooltip-format": "topgrade",
+    "on-click": "wezterm --config initial_cols=120 --config initial_rows=36 start --always-new-process --class topgrade -- bash -c '~/.local/bin/topgrade; notify-send \"Topgrade\" \"Actualización finalizada\"; exec bash'",
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "tooltip": true,
+    "format-icons": {
+      "activated": "\uf0f4",
+      "deactivated": "\uf0f4",
+    },
   },
   "cpu": {
     "interval": 1,
     "format": " {usage}%",
-    "tooltip-format": "{usage}%"
+    "tooltip-format": "{usage}%",
   },
   "sway/workspaces": {
     "on-click": "activate",
@@ -64,15 +74,15 @@
       "8": "VIII",
       "9": "IX",
       "10": "X",
-      "focused": "󱓻"
+      "focused": "󱓻",
     },
     "persistent-workspaces": {
       "1": [],
       "2": [],
       "3": [],
       "4": [],
-      "5": []
-    }
+      "5": [],
+    },
   },
   "hyprland/workspaces": {
     "on-click": "activate",
@@ -88,15 +98,15 @@
       "7": "7",
       "8": "8",
       "9": "9",
-      "active": "󱓻"
+      "active": "󱓻",
     },
     "persistent-workspaces": {
       "1": [],
       "2": [],
       "3": [],
       "4": [],
-      "5": []
-    }
+      "5": [],
+    },
   },
   "niri/workspaces": {
     "on-click": "activate",
@@ -112,40 +122,40 @@
       "8": "VIII",
       "9": "IX",
       "10": "X",
-      "focused": "󱓻"
+      "focused": "󱓻",
     },
     "persistent-workspaces": {
       "1": [],
       "2": [],
       "3": [],
       "4": [],
-      "5": []
-    }
+      "5": [],
+    },
   },
   "sway/scratchpad": {
     "format": " {count}",
     "show-empty": false,
     "tooltip": true,
-    "tooltip-format": "{app}: {title}"
+    "tooltip-format": "{app}: {title}",
   },
   "clock#date": {
     "format": "󰸗 {:%a %b %d}",
     "tooltip": true,
     "timezone": "America/Argentina/Buenos_Aires",
-    "tooltip-format": "<tt>{calendar}</tt>"
+    "tooltip-format": "<tt>{calendar}</tt>",
   },
   "clock": {
     "format": "󰥔 {:%H:%M}",
     "timezone": "America/Argentina/Buenos_Aires",
     "tooltip": true,
-    "tooltip-format": false
+    "tooltip-format": false,
   },
   "battery": {
     "interval": 1,
     "states": {
       "good": 80,
       "warning": 30,
-      "critical": 20
+      "critical": 20,
     },
     "format": " {capacity}%",
     "format-charging": " {capacity}%",
@@ -156,27 +166,40 @@
     "format-discharging-critical": "  {capacity}% (critical!!)",
     "tooltip-format": "{time} remaining",
     "tooltip-format-charging": "{time} until full",
-    "tooltip-format-discharging": "{time} remaining"
+    "tooltip-format-discharging": "{time} remaining",
   },
   "pulseaudio": {
     "format": "  {volume}%",
     "format-muted": " M",
-    "tooltip-format": "{desc}"
+    "tooltip-format": "{desc}",
   },
   "backlight": {
     "device": "intel_backlight",
     "scroll-step": 5,
     "format": " {percent}%",
-    "tooltip": false
+    "tooltip": false,
   },
   "memory": {
     "interval": 1,
     "format": " {}%",
-    "tooltip-format": "{used}/{total} GiB"
+    "tooltip-format": "{used}/{total} GiB",
   },
   "custom/power": {
     "format": "󰤆",
     "tooltip": false,
-    "on-click": "swaymsg exec ~/.config/rofi/powermenu/powermenu.sh"
-  }
+    // "on-click": "swaymsg exec ~/.config/rofi/powermenu/powermenu.sh",
+    "on-click": "wezterm --config initial_cols=50 --config initial_rows=14 start --always-new-process --class powermenu -- ~/.config/sway/scripts/powermenu.sh",
+  },
+  "custom/wifi": {
+    "format": "󰤨",
+    "tooltip": true,
+    "tooltip-format": "Wi-Fi (nmrs-tui)",
+    "on-click": "wezterm --config initial_cols=110 --config initial_rows=32 start --always-new-process --class nmrs-tui -- ~/.cargo/bin/nmrs-tui",
+  },
+  "custom/bluetooth": {
+    "format": "󰂯",
+    "tooltip": true,
+    "tooltip-format": "Bluetooth (bluetui)",
+    "on-click": "wezterm --config initial_cols=110 --config initial_rows=32 start --always-new-process --class bluetui -- ~/.cargo/bin/bluetui",
+  },
 }

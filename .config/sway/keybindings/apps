@@ -2,10 +2,9 @@
 # Applications Block
 # --------------------------
 
-bindsym $mod+b exec $browser
 bindsym $mod+e exec $files
-bindsym $mod+d exec discord --enable-features=UseOzonePlatform --ozone-platform=wayland
-bindsym $mod+m exec librewolf
+bindsym $mod+d exec $discord
+bindsym $mod+n exec $librewolf
 bindsym $mod+Return exec $term
 
 assign [class="^Mullvad Browser"]                   1

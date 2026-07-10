@@ -3,41 +3,33 @@
 # --------------------------
 
 bindsym $mod+Shift+q kill
-bindsym $mod+space exec $menu
+# bindsym $mod+space exec $menu
+bindsym $mod+space exec $applauncher_cmd
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+e exit
 floating_modifier $mod normal
 
-# Monitor control
-bindsym XF86Display exec  ~/.config/rofi/screen/screen
-bindsym $mod+shift+p exec  ~/.config/rofi/screen/screen
-
-# Music control
-bindsym $mod+n exec ~/.config/rofi/music/music
-
-# Wifi Menu
-bindsym $mod+shift+w exec  ~/.config/rofi/wifi/wifi
-
 # Lock Screen
-bindsym $mod+c exec  rustlock-script
+bindsym $alt+ctrl+l exec $lock
 
 # Emojis
 bindsym $mod+slash exec smile
 
 # Power Menu
-bindsym $mod+p exec  ~/.config/rofi/powermenu/powermenu.sh
+# bindsym $mod+p exec ~/.config/rofi/powermenu/powermenu.sh
+bindsym $mod+p exec $powermenu_cmd
 
 # Tab management
-bindsym $mod+tab exec  ~/.config/sway/scripts/sway-tab.sh
+bindsym $mod+tab exec ~/.config/sway/scripts/sway-tab.sh
 
 # Switch to prev/next workspace
 bindsym $mod+comma workspace prev
 bindsym $mod+period workspace next
 
 # Audio controls
-bindsym XF86AudioRaiseVolume exec  wpctl set-volume @DEFAULT_SINK@ 5%+
-bindsym XF86AudioLowerVolume exec  wpctl set-volume @DEFAULT_SINK@ 5%-
-bindsym XF86AudioMute exec  wpctl set-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle
 
 # Brightness controls
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
@@ -47,5 +39,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Screenshots
-bindsym $mod+shift+s exec  ~/.config/rofi/screenshot/screenshot
-bindsym Print exec  ~/.config/rofi/screenshot/screenshot
+# bindsym $mod+s exec ~/.config/rofi/screenshot/screenshot
+# bindsym Print exec ~/.config/rofi/screenshot/screenshot
+bindsym $mod+s exec $screenshottui_cmd
+bindsym Print exec $screenshottui_cmd

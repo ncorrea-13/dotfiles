@@ -42,16 +42,24 @@
 
 #scratchpad,
 #cpu,
-#disk,
 #memory,
 #battery,
 #clock,
 #wireplumber,
 #backlight,
 #custom-logo,
-#custom-power {
+#custom-power,
+#custom-wifi,
+#custom-bluetooth,
+#custom-music,
+#custom-update {
   min-width: 12px;
-  margin: 0 7.5px;
+  margin: 7.5px;
+}
+
+#idle_inhibitor {
+  min-width: 12px;
+  margin: 3.5px;
 }
 
 tooltip {
@@ -60,10 +68,6 @@ tooltip {
 
 .hidden {
   opacity: 0;
-}
-
-#custom-power {
-  margin-left: 15px;
 }
 
 #custom-separator {

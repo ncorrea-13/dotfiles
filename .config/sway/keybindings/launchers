@@ -1,0 +1,22 @@
+# --------------------------
+# Launchers Block (floating TUI utilities, wezterm)
+# --------------------------
+
+# Monitor control
+bindsym XF86Display exec $screentui_cmd
+bindsym $mod+shift+p exec $screentui_cmd
+
+# Music control (kept alive: toggles to/from the scratchpad instead of relaunching)
+bindsym $mod+m exec ~/.config/sway/scripts/ncspot-toggle.sh
+
+# Wifi Menu
+bindsym $mod+w exec $nmrstui_cmd
+
+# Bluetooth Menu
+bindsym $mod+b exec $bluetui_cmd
+
+# System update
+bindsym $mod+u exec $topgrade_cmd
+
+# System monitor
+bindsym $mod+t exec $btop_cmd

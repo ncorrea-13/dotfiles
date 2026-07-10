@@ -6,6 +6,7 @@ include ~/.config/sway/startup
 
 include ~/.config/sway/keybindings/basics
 include ~/.config/sway/keybindings/apps
+include ~/.config/sway/keybindings/launchers
 include ~/.config/sway/keybindings/movement
 include ~/.config/sway/keybindings/workspaces
 include ~/.config/sway/keybindings/scratchpad

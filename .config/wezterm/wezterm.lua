@@ -42,21 +42,11 @@ config.keys = {
 config.background = {
 	{
 		source = {
-			File = os.getenv("HOME") .. "/.config/wezterm/dark-desert.jpg",
-		},
-		hsb = {
-			hue = 1.0,
-			saturation = 1.02,
-			brightness = 0.25,
-		},
-	},
-	{
-		source = {
 			Color = "#000000",
 		},
 		width = "100%",
 		height = "100%",
-		opacity = 0.85,
+		opacity = 0.75,
 	},
 }
 
