@@ -5,6 +5,8 @@
 bindsym $mod+e exec $files
 bindsym $mod+d exec $discord
 bindsym $mod+n exec $librewolf
+bindsym $mod+o exec $notes
+bindsym $mod+y exec $youtube
 bindsym $mod+Return exec $term
 
 assign [class="^Mullvad Browser"]                   1

@@ -26,4 +26,6 @@ choice=$(printf '%s\n' "$entries" | cut -f1 | sort |
 exec_line=$(printf '%s\n' "$entries" | awk -F'\t' -v n="$choice" '$1 == n { print $2; exit }')
 clean_exec=$(echo "$exec_line" | sed -E 's/%[fFuUick]//g')
 
-setsid -f bash -c "$clean_exec" >/dev/null 2>&1
+setsid nohup bash -c "$clean_exec" </dev/null >>/tmp/app-launcher-debug.log 2>&1 &
+disown
+sleep 0.1

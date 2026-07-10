@@ -16,11 +16,10 @@ bindsym $alt+ctrl+l exec $lock
 bindsym $mod+slash exec smile
 
 # Power Menu
-# bindsym $mod+p exec ~/.config/rofi/powermenu/powermenu.sh
 bindsym $mod+p exec $powermenu_cmd
 
 # Tab management
-bindsym $mod+tab exec ~/.config/sway/scripts/sway-tab.sh
+bindsym $mod+tab exec $swaytab_cmd
 
 # Switch to prev/next workspace
 bindsym $mod+comma workspace prev
@@ -39,7 +38,5 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Screenshots
-# bindsym $mod+s exec ~/.config/rofi/screenshot/screenshot
-# bindsym Print exec ~/.config/rofi/screenshot/screenshot
 bindsym $mod+s exec $screenshottui_cmd
 bindsym Print exec $screenshottui_cmd

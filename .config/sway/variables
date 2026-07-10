@@ -21,6 +21,8 @@ set $files thunar
 set $browser mullvad-browser
 set $librewolf librewolf
 set $discord discord --enable-features=UseOzonePlatform --ozone-platform=wayland
+set $notes ~/.local/bin/obsidian
+set $youtube ~/.local/bin/freetube
 set $lock rustlock-script
 set $menu  rofi -show drun
 
@@ -34,6 +36,16 @@ set $topgrade_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config
 set $applauncher_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=70 --config initial_rows=20 start --always-new-process --class app-launcher -- ~/.config/sway/scripts/app-launcher.sh
 set $powermenu_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=50 --config initial_rows=14 start --always-new-process --class powermenu -- ~/.config/sway/scripts/powermenu.sh
 set $screenshottui_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=50 --config initial_rows=14 start --always-new-process --class screenshot-tui -- ~/.config/sway/scripts/screenshot-tui.sh
+set $clipboardtui_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=24 start --always-new-process --class clipboard-tui -- ~/.config/sway/scripts/clipboard-tui.sh
+set $bitwarden_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=28 start --always-new-process --class bitwarden -- ~/.local/bin/bitwarden-tui
+set $ytsurf_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=100 --config initial_rows=32 start --always-new-process --class ytsurf -- ~/.local/bin/ytsurf
+set $nchatpicker_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=50 --config initial_rows=14 start --always-new-process --class nchat-picker -- ~/.config/sway/scripts/nchat-picker.sh
+set $concord_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=110 --config initial_rows=34 start --always-new-process --class concord -- env ALSA_PLUGIN_DIR=/usr/lib/x86_64-linux-gnu/alsa-lib ~/.local/bin/concord
+set $ekphos_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=28 start --always-new-process --class ekphos -- ~/.cargo/bin/ekphos
+set $jocalsend_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=28 start --always-new-process --class jocalsend -- ~/.cargo/bin/jocalsend
+set $autocpufreq_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=100 --config initial_rows=30 start --always-new-process --class auto-cpufreq -- auto-cpufreq --stats
+set $keybindshelp_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=110 --config initial_rows=32 start --always-new-process --class keybinds-help -- ~/.config/sway/scripts/keybinds-tui.sh
+set $swaytab_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config font_size=13 --config initial_cols=70 --config initial_rows=20 start --always-new-process --class sway-tab -- ~/.config/sway/scripts/sway-tab.sh
 
 # Gaps and Borders
 gaps inner 6
@@ -66,4 +78,15 @@ for_window [app_id="^screen-tui$"] floating enable, move position center, border
 for_window [app_id="^app-launcher$"] floating enable, move position center, border pixel 1
 for_window [app_id="^powermenu$"] floating enable, move position center, border pixel 1
 for_window [app_id="^screenshot-tui$"] floating enable, move position center, border pixel 1
+for_window [app_id="^clipboard-tui$"] floating enable, move position center, border pixel 1
+for_window [app_id="^bitwarden$"] floating enable, move position center, border pixel 1, move to scratchpad, scratchpad show
+for_window [app_id="^ytsurf$"] floating enable, move position center, border pixel 1
+for_window [app_id="^nchat$"] floating enable, move position center, border pixel 1, move to scratchpad, scratchpad show
+for_window [app_id="^nchat-picker$"] floating enable, move position center, border pixel 1
+for_window [app_id="^concord$"] floating enable, move position center, border pixel 1, move to scratchpad, scratchpad show
+for_window [app_id="^ekphos$"] floating enable, move position center, border pixel 1
+for_window [app_id="^jocalsend$"] floating enable, move position center, border pixel 1
+for_window [app_id="^auto-cpufreq$"] floating enable, move position center, border pixel 1
+for_window [app_id="^keybinds-help$"] floating enable, move position center, border pixel 1
+for_window [app_id="^sway-tab$"] floating enable, move position center, border pixel 1
 

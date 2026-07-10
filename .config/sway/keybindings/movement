@@ -21,8 +21,8 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 
-bindsym $mod+Shift+s layout stacking
-bindsym $mod+Shift+w layout tabbed
+bindsym $mod+alt+s layout stacking
+bindsym $mod+alt+w layout tabbed
 bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+a focus parent
