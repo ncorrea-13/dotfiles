@@ -46,10 +46,11 @@ To install these configurations on your system, follow these steps:
 - [docs/PERSONALPROGRAMS.md](docs/PERSONALPROGRAMS.md) — the list of personal programs used to make this setup work on a fresh install.
 
 ## Screenshots
-
-![[screenshots/Sway/3-Zellij.png]](https://github.com/ncorrea-13/dotfiles/blob/main/screenshots/Sway/3-Zellij.png)
-
-![](https://github.com/ncorrea-13/dotfiles/blob/main/screenshots/Sway/4-Browsers.png)
+![[screenshots/Devuan/Apps_1.png]](https://github.com/ncorrea-13/dotfiles/blob/main/screenshots/Devuan/Apps_1.png)
+![[screenshots/Devuan/Apps_2.png]](https://github.com/ncorrea-13/dotfiles/blob/main/screenshots/Devuan/Apps_2.png)
+![[screenshots/Devuan/Apps_3.png]](https://github.com/ncorrea-13/dotfiles/blob/main/screenshots/Devuan/Apps_3.png)
+![[screenshots/Devuan/Apps_4.png]](https://github.com/ncorrea-13/dotfiles/blob/main/screenshots/Devuan/Apps_4.png)
+![[screenshots/Devuan/Rustlock.png]](https://github.com/ncorrea-13/dotfiles/blob/main/screenshots/Devuan/Rustlock.jpg)
 
 ## Systemd-Free
 
