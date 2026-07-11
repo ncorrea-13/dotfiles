@@ -30,7 +30,6 @@ A list of every program these dotfiles reference, for setting them up on a fresh
 - [cliphist](https://github.com/sentriz/cliphist) — clipboard history
 - [grim](https://sr.ht/~emersion/grim/) + [slurp](https://github.com/emersion/slurp) — screenshots
 - [wf-recorder](https://github.com/ammen99/wf-recorder) — screen recording
-- [maim](https://github.com/naelstrof/maim) + [xdotool](https://github.com/jordansissel/xdotool) — window-capture fallback in `screenshot-tui.sh`
 
 ### Audio, brightness & power
 

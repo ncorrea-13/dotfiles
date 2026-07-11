@@ -54,7 +54,7 @@ existe una ventana con ese `app_id` en el árbol de Sway: si es así, solo la mu
 
 Herramienta de capturas y grabación de pantalla con `fzf` para elegir captura de área/ventana/pantalla completa, y luego copiar al portapapeles o guardar en archivo
 (`~/Pictures/Screenshots`); o iniciar/detener una grabación de pantalla (`~/Videos/Screencasts`) vía `wf-recorder`. Mientras se está grabando, al presionar el atajo de nuevo, la detiene. Envía una notificación de escritorio al terminar.
-**Depende de:** `fzf`, `grim`, `slurp`, `wf-recorder`, `maim` + `xdotool`, `notify-send`, `wl-copy`.
+**Depende de:** `fzf`, `grim`, `slurp`, `wf-recorder`, `notify-send`, `wl-copy`.
 
 ### `screen-tui.sh`
 

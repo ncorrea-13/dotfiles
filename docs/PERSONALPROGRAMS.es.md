@@ -1,6 +1,6 @@
 # Programas Personales
 
-*[Read in English](PERSONALPROGRAMS.md)*
+_[Read in English](PERSONALPROGRAMS.md)_
 
 Lista de todos los programas que referencian estos dotfiles, para poder instalarlos en una máquina nueva. Dividida en dos:
 
@@ -30,7 +30,6 @@ Lista de todos los programas que referencian estos dotfiles, para poder instalar
 - [cliphist](https://github.com/sentriz/cliphist) — historial de portapapeles
 - [grim](https://sr.ht/~emersion/grim/) + [slurp](https://github.com/emersion/slurp) — capturas de pantalla
 - [wf-recorder](https://github.com/ammen99/wf-recorder) — grabación de pantalla
-- [maim](https://github.com/naelstrof/maim) + [xdotool](https://github.com/jordansissel/xdotool) — alternativa para captura de ventana en `screenshot-tui.sh`
 
 ### Audio, brillo y energía
 

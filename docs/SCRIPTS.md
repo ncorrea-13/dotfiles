@@ -50,7 +50,7 @@ Helper behind every "kept alive" launcher. Given an `app_id` and a command, it c
 ### `screenshot-tui.sh`
 
 Screenshot & screen-recording tool. `fzf` menu to pick area/window/fullscreen capture, then copy-to-clipboard or save-to-file (`~/Pictures/Screenshots`); or start/stop a screen recording (`~/Videos/Screencasts`) via `wf-recorder`. Pressing the shortcut again while recording stops it. Sends a desktop notification on completion.
-**Depends on:** `fzf`, `grim`, `slurp`, `wf-recorder`, `maim` + `xdotool`, `notify-send`, `wl-copy`.
+**Depends on:** `fzf`, `grim`, `slurp`, `wf-recorder`, `notify-send`, `wl-copy`.
 
 ### `screen-tui.sh`
 

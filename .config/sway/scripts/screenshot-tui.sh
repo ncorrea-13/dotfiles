@@ -19,6 +19,11 @@ pick() {
   fzf --prompt="$1 > " --layout=reverse --border --color="$fzf_colors"
 }
 
+hide_console() {
+  swaymsg '[app_id="screenshot-tui"] move scratchpad' >/dev/null
+  sleep 0.1
+}
+
 if pgrep -x wf-recorder >/dev/null; then
   pkill -INT -x wf-recorder
   notify-send -i "$icon" --urgency low 'Recording saved'
@@ -40,6 +45,7 @@ if [ "$mode" = "$rec" ]; then
     setsid -f wf-recorder -g "$region" -f "$video" >/dev/null 2>&1
     ;;
   "$cwin")
+    hide_console
     region=$(swaymsg -t get_tree | jq -r '..|try(.nodes[])?|select(.type == "con" and .visible == true and .focused == true) | "\(.rect.x),\(.rect.y) \(.rect.width)x\(.rect.height)"')
     [ -z "$region" ] && exit 0
     setsid -f wf-recorder -g "$region" -f "$video" >/dev/null 2>&1
@@ -58,20 +64,27 @@ dest=$(printf '%s\n%s\n' "$save" "$copy" | pick "Destination")
 
 case "$mode" in
 "$area")
+  region="$(slurp)"
+  [ -z "$region" ] && exit 0
+  hide_console
   if [ "$dest" = "$copy" ]; then
-    grim -g "$(slurp)" - | wl-copy && notify-send -i "$icon" --urgency low 'Screenshot copied' || notify-send -i "$icon" 'failed to take screenshot'
+    grim -g "$region" - | wl-copy && notify-send -i "$icon" --urgency low 'Screenshot copied' || notify-send -i "$icon" 'failed to take screenshot'
   else
-    grim -g "$(slurp)" "$file" && notify-send -i "$icon" --urgency low 'Screenshot Taken' || notify-send -i "$icon" 'failed to take screenshot'
+    grim -g "$region" "$file" && notify-send -i "$icon" --urgency low 'Screenshot Taken' || notify-send -i "$icon" 'failed to take screenshot'
   fi
   ;;
 "$cwin")
+  hide_console
+  region=$(swaymsg -t get_tree | jq -r '..|try(.nodes[])?|select(.type == "con" and .visible == true and .focused == true) | "\(.rect.x),\(.rect.y) \(.rect.width)x\(.rect.height)"')
+  [ -z "$region" ] && exit 0
   if [ "$dest" = "$copy" ]; then
-    swaymsg -t get_tree | jq -r '..|try(.nodes[])?|select(.type == "con" and .visible == true and .focused == true) | "grim -g \"\(.rect.x),\(.rect.y) \(.rect.width)x\(.rect.height)\" - | wl-copy"' | bash && notify-send -i "$icon" --urgency low 'Screenshot copied' || notify-send -i "$icon" 'failed to take screenshot'
+    grim -g "$region" - | wl-copy && notify-send -i "$icon" --urgency low 'Screenshot copied' || notify-send -i "$icon" 'failed to take screenshot'
   else
-    maim -u -m 5 -i "$(xdotool getactivewindow)" "$file" && notify-send -i "$icon" --urgency low 'Screenshot Taken' || notify-send -i "$icon" 'failed to take screenshot'
+    grim -g "$region" "$file" && notify-send -i "$icon" --urgency low 'Screenshot Taken' || notify-send -i "$icon" 'failed to take screenshot'
   fi
   ;;
 "$full")
+  hide_console
   if [ "$dest" = "$copy" ]; then
     grim - | wl-copy && notify-send -i "$icon" --urgency low 'Screenshot copied' || notify-send -i "$icon" 'failed to take screenshot'
   else
