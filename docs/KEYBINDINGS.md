@@ -4,7 +4,7 @@ _[Leer en español](KEYBINDINGS.es.md)_
 
 This document covers every keyboard shortcut and shell alias defined in this dotfiles repository: **Sway** (window manager), **Wezterm** (terminal emulator), **Zellij** (terminal multiplexer), and the **Zsh** aliases/functions in `.alias`.
 
-> **`$mod+c`** shows a live, searchable list, generated straight from the Sway config (`.config/sway/scripts/keybinds-tui.sh`). It parses `variables` and every file in `keybindings/`, so it's never out of date.
+> **`$mod+shift+c`** shows a live, searchable list, generated straight from the Sway config (`.config/sway/scripts/keybinds-tui.sh`). It parses `variables` and every file in `keybindings/`, so it's never out of date.
 
 ---
 
@@ -83,6 +83,7 @@ These all open a small floating Wezterm popup (via `wezterm/tui-popup.lua`) runn
 | `$mod+Shift+b`                 | Bitwarden                                      | ✅          |
 | `$mod+u`                       | Topgrade                                       | ✅          |
 | `$mod+t`                       | Btop                                           |             |
+| `$mod+c`                       | iKahl                                          |             |
 | `$mod+Shift+y`                 | YouTube (`ytsurf`)                             |             |
 | `$mod+Shift+n`                 | Nchat (Telegram/Signal/WhatsApp)               |             |
 | `$mod+Shift+d`                 | Discord (Concord)                              | ✅          |

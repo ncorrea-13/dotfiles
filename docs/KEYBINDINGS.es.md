@@ -4,7 +4,7 @@ _[Read in English](KEYBINDINGS.md)_
 
 Este documento cubre todos los atajos de teclado y alias de shell definidos en este repositorio de dotfiles: Sway, Wezterm, Zellij y los alias y funciones de Zsh en `.alias`.
 
-> **`$mod+c`** muestra lista en vivo y con búsqueda, generada directamente desde la config de Sway (`.config/sway/scripts/keybinds-tui.sh`). Parsea `variables` y cada archivo de `keybindings/`, así que nunca queda desactualizada.
+> **`$mod+shift+c`** muestra lista en vivo y con búsqueda, generada directamente desde la config de Sway (`.config/sway/scripts/keybinds-tui.sh`). Parsea `variables` y cada archivo de `keybindings/`, así que nunca queda desactualizada.
 
 ---
 
@@ -81,16 +81,17 @@ muestra/oculta la instancia que ya está corriendo en lugar de relanzarla.
 
 | Atajo                          | Acción                                           | ¿Se mantiene vivo? |
 | ------------------------------ | ------------------------------------------------ | ------------------ |
-| `$mod+m`                       | Spotify (Ncspot)                                 | ✅                  |
+| `$mod+m`                       | Spotify (Ncspot)                                 | ✅                 |
 | `$mod+w`                       | Wi-Fi (`nmrs-tui`)                               |                    |
 | `$mod+b`                       | Bluetooth (`bluetui`)                            |                    |
 | `$mod+v`                       | Portapapeles (`clipboard-tui.sh` con `cliphist`) |                    |
-| `$mod+Shift+b`                 | Bitwarden                                        | ✅                  |
-| `$mod+u`                       | Topgrade                                         | ✅                  |
+| `$mod+Shift+b`                 | Bitwarden                                        | ✅                 |
+| `$mod+u`                       | Topgrade                                         | ✅                 |
 | `$mod+t`                       | Btop                                             |                    |
+| `$mod+c`                       | iKahl                                            |                    |
 | `$mod+Shift+y`                 | YouTube (`ytsurf`)                               |                    |
 | `$mod+Shift+n`                 | Nchat (Telegram/Signal/WhatsApp)                 |                    |
-| `$mod+Shift+d`                 | Discord (Concord)                                | ✅                  |
+| `$mod+Shift+d`                 | Discord (Concord)                                | ✅                 |
 | `$mod+Shift+o`                 | Ekphos                                           |                    |
 | `$mod+Shift+t`                 | Localsend (LocalSend)                            |                    |
 | `$mod+Shift+f`                 | Auto-cpufreq                                     |                    |
