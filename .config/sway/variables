@@ -27,6 +27,7 @@ set $lock rustlock-script
 set $menu  rofi -show drun
 
 # Floating TUI launchers
+set $callendar wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=110 --config initial_rows=32 start --always-new-process --class ikhal -- /bin/ikhal
 set $bluetui_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=110 --config initial_rows=32 start --always-new-process --class bluetui -- ~/.cargo/bin/bluetui
 set $nmrstui_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=110 --config initial_rows=32 start --always-new-process --class nmrs-tui -- ~/.cargo/bin/nmrs-tui
 set $btop_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=140 --config initial_rows=40 start --always-new-process --class btop -- btop
@@ -45,8 +46,7 @@ set $ekphos_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config i
 set $jocalsend_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=28 start --always-new-process --class jocalsend -- ~/.cargo/bin/jocalsend
 set $autocpufreq_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=100 --config initial_rows=30 start --always-new-process --class auto-cpufreq -- auto-cpufreq --stats
 set $keybindshelp_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=110 --config initial_rows=32 start --always-new-process --class keybinds-help -- ~/.config/sway/scripts/keybinds-tui.sh
-set $swaytab_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config font_size=13 --config initial_cols=70 --config initial_rows=20 start --always-new-process --class sway-tab -- ~/.config/sway/scripts/sway-tab.sh
-
+set $swaytab_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=70 --config initial_rows=20 start --always-new-process --class sway-tab -- ~/.config/sway/scripts/sway-tab.sh
 # Gaps and Borders
 gaps inner 6
 gaps outer 3
@@ -72,6 +72,7 @@ for_window [app_id=".*"] opacity 1
 for_window [app_id="^bluetui$"] floating enable, move position center, border pixel 1
 for_window [app_id="^nmrs-tui$"] floating enable, move position center, border pixel 1
 for_window [app_id="^btop$"] floating enable, move position center, border pixel 1
+for_window [app_id="^ikhal$"] floating enable, move position center, border pixel 1
 for_window [app_id="^ncspot$"] floating enable, move position center, border pixel 1, move to scratchpad, scratchpad show
 for_window [app_id="^topgrade$"] floating enable, move position center, border pixel 1, move to scratchpad, scratchpad show
 for_window [app_id="^screen-tui$"] floating enable, move position center, border pixel 1

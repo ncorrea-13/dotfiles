@@ -75,12 +75,14 @@
     "tooltip": true,
     "timezone": "America/Argentina/Buenos_Aires",
     "tooltip-format": "<tt>{calendar}</tt>",
+    "on-click": "wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=110 --config initial_rows=32 start --always-new-process --class ikhal -- /bin/ikhal",
   },
   "clock": {
     "format": "󰥔 {:%H:%M}",
     "timezone": "America/Argentina/Buenos_Aires",
     "tooltip": true,
     "tooltip-format": false,
+    "on-click": "wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=110 --config initial_rows=32 start --always-new-process --class ikhal -- /bin/ikhal",
   },
   "battery": {
     "interval": 1,

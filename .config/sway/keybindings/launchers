@@ -18,6 +18,9 @@ bindsym $mod+b exec $bluetui_cmd
 # Clipboard history
 bindsym $mod+v exec $clipboardtui_cmd
 
+# Calendar
+bindsym $mod+c exec $callendar
+
 # Bitwarden (kept alive)
 bindsym $mod+Shift+b exec ~/.config/sway/scripts/scratchpad-toggle.sh bitwarden $bitwarden_cmd
 
@@ -46,4 +49,4 @@ bindsym $mod+Shift+t exec $jocalsend_cmd
 bindsym $mod+Shift+f exec $autocpufreq_cmd
 
 # Keybindings cheatsheet
-bindsym $mod+c exec $keybindshelp_cmd
+bindsym $mod+shift+c exec $keybindshelp_cmd
