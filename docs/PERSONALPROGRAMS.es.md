@@ -89,7 +89,7 @@ Lista de todos los programas que referencian estos dotfiles, para poder instalar
 ### Productividad
 
 - [Obsidian](https://obsidian.md) + [Ekphos](https://github.com/hanebox/ekphos) (terminal, inspirado en Obsidian) + [Basalt](https://github.com/erikjuhani/basalt) (TUI, inspirado en Obsidian)
-- [Bitwarden CLI](https://bitwarden.com/help/cli/) + `bitwarden-tui` (el front-end en `fzf` de este repo, ver [SCRIPTS.es.md](SCRIPTS.es.md))
+- [Bitwarden CLI](https://bitwarden.com/help/cli/) + [bw-tui](https://github.com/ncorrea-13/bw-tui)
 - [ONLYOFFICE](https://www.onlyoffice.com)
 - [Zathura](https://pwmt.org/projects/zathura/) — visor de PDF
 - [tomatoshell](https://github.com/LytixDev/tomatoshell) — temporizador Pomodoro

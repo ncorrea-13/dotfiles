@@ -89,7 +89,7 @@ A list of every program these dotfiles reference, for setting them up on a fresh
 ### Productivity
 
 - [Obsidian](https://obsidian.md) + [Ekphos](https://github.com/hanebox/ekphos) (terminal, Obsidian-inspired) + [Basalt](https://github.com/erikjuhani/basalt) (TUI, Obsidian-inspired)
-- [Bitwarden CLI](https://bitwarden.com/help/cli/) + `bitwarden-tui` (this repo's `fzf` front-end, see [SCRIPTS.md](SCRIPTS.md))
+- [Bitwarden CLI](https://bitwarden.com/help/cli/) + [bw-tui](https://github.com/ncorrea-13/bw-tui)
 - [ONLYOFFICE](https://www.onlyoffice.com)
 - [Zathura](https://pwmt.org/projects/zathura/) — PDF viewer
 - [tomatoshell](https://github.com/LytixDev/tomatoshell) — Pomodoro timer

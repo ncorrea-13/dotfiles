@@ -68,10 +68,9 @@ Window switcher. Walks the Sway tree into a flat list of `[workspace] app_id` fo
 
 ## `scripts/` (installation & maintenance)
 
-### `bitwarden-tui`
+### `bw-tui`
 
-Bitwarden CLI password picker. Caches an unlock session in `~/.cache/bw_session` for 20 minutes, self-expiring it via a scheduled `swaymsg exec sleep`; lets you pick a vault item with `fzf`, copies its password to the clipboard, and proactively scrubs the password from both the live clipboard and the `cliphist` history after a 9-second window.
-**Depends on:** `bw`, `fzf`, `jq`, `wl-copy`, `cliphist`, `notify-send`.
+Bitwarden CLI password picker. It was migrated to it's own project ([bw-tui](https://github.com/ncorrea-13/bw-tui))
 
 ### `bw-update`
 
