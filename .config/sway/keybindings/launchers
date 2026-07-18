@@ -42,8 +42,11 @@ bindsym $mod+Shift+d exec ~/.config/sway/scripts/scratchpad-toggle.sh concord $c
 # ekphos (obsidian-related)
 bindsym $mod+Shift+o exec $ekphos_cmd
 
-# jocalsend (localsend-alike
+# jocalsend (localsend-alike)
 bindsym $mod+Shift+t exec $jocalsend_cmd
+
+# weather
+bindsym $mod+Shift+w exec $weather_cmd
 
 # auto-cpufreq stats
 bindsym $mod+Shift+f exec $autocpufreq_cmd

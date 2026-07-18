@@ -38,7 +38,7 @@ set $applauncher_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --con
 set $powermenu_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=50 --config initial_rows=14 start --always-new-process --class powermenu -- ~/.config/sway/scripts/powermenu.sh
 set $screenshottui_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=50 --config initial_rows=14 start --always-new-process --class screenshot-tui -- ~/.config/sway/scripts/screenshot-tui.sh
 set $clipboardtui_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=24 start --always-new-process --class clipboard-tui -- ~/.config/sway/scripts/clipboard-tui.sh
-set $bitwarden_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=28 start --always-new-process --class bitwarden -- ~/.local/bin/bitwarden-tui
+set $bitwarden_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=28 start --always-new-process --class bitwarden -- ~/.local/bin/bw-tui
 set $ytsurf_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=100 --config initial_rows=32 start --always-new-process --class ytsurf -- ~/.local/bin/ytsurf
 set $nchatpicker_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=50 --config initial_rows=14 start --always-new-process --class nchat-picker -- ~/.config/sway/scripts/nchat-picker.sh
 set $concord_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=110 --config initial_rows=34 start --always-new-process --class concord -- env ALSA_PLUGIN_DIR=/usr/lib/x86_64-linux-gnu/alsa-lib ~/.local/bin/concord
@@ -47,6 +47,8 @@ set $jocalsend_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --confi
 set $autocpufreq_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=100 --config initial_rows=30 start --always-new-process --class auto-cpufreq -- auto-cpufreq --stats
 set $keybindshelp_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=110 --config initial_rows=32 start --always-new-process --class keybinds-help -- ~/.config/sway/scripts/keybinds-tui.sh
 set $swaytab_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=70 --config initial_rows=20 start --always-new-process --class sway-tab -- ~/.config/sway/scripts/sway-tab.sh
+set $weather_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=70 --config initial_rows=35 start --always-new-process --class weather -- ~/.local/share/go/bin/weather
+
 # Gaps and Borders
 gaps inner 6
 gaps outer 3
@@ -90,4 +92,5 @@ for_window [app_id="^jocalsend$"] floating enable, move position center, border 
 for_window [app_id="^auto-cpufreq$"] floating enable, move position center, border pixel 1
 for_window [app_id="^keybinds-help$"] floating enable, move position center, border pixel 1
 for_window [app_id="^sway-tab$"] floating enable, move position center, border pixel 1
+for_window [app_id="^weather$"] floating enable, move position center, border pixel 1, move to scratchpad, scratchpad show
 

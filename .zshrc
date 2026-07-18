@@ -1,5 +1,7 @@
 # envs
-export GOBIN="$HOME/.local/bin"
+export GOPATH="$HOME/.local/share/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$PATH:$GOBIN"
 export DOCKER_HOST=unix:///run/podman-service/podman.sock
 export TAVILY_API_KEY=$(cat ~/.tavily_env)
 
@@ -34,3 +36,6 @@ esac
 
 # alias
 source ~/.alias
+
+# atuin
+source ~/.atuin_init.zsh

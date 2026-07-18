@@ -37,7 +37,7 @@ config.keys = {
 	{ key = "3", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTab(2) },
 	{ key = "4", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTab(3) },
 }
---config.default_prog = { os.getenv("HOME") .. "/.local/bin/zellij" }
+config.default_prog = { os.getenv("HOME") .. "/.local/bin/zellij" }
 
 config.background = {
 	{
