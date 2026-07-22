@@ -19,4 +19,6 @@ asset_filters = ["yt-dlp_linux", "^aarch64", "^armv7l", "^musl", "^zip"]
 
 ["erikjuhani/basalt"]
 
+["jorgerojas26/lazysql"]
+
 ["zyedidia/eget"]

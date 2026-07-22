@@ -3,6 +3,8 @@
 cp ~/.zshrc ~/Projects/things/dotfiles/
 cp ~/.alias ~/Projects/things/dotfiles/
 cp ~/.eget.toml ~/Projects/things/dotfiles/
+cp ~/.claude/CLAUDE.md ~/Projects/things/dotfiles/.claude/CLAUDE.md
+cp ~/.claude/settings.json ~/Projects/things/dotfiles/.claude/settings.json
 cp ~/.config/topgrade.toml ~/Projects/things/dotfiles/.config/
 cp -r ~/.config/sway ~/Projects/things/dotfiles/.config/
 cp -r ~/.config/waybar ~/Projects/things/dotfiles/.config/

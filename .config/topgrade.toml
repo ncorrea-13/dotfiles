@@ -128,6 +128,7 @@ sudo_command = "doas"
 "Kore Package Manager" = "~/.local/bin/kpm -u"
 "Eget binaries" = "~/.local/bin/eget --download-all"
 "Bitwarden cli" = "~/.local/bin/bw-update"
+"Mason" = "~/.local/share/mise/shims/nvim -c MasonUpdate"
 
 [python]
 # enable_pip_review = true                         ###disabled by default
