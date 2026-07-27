@@ -71,11 +71,11 @@ fijos al abrirlas, así que siempre abren en el mismo lugar:
 | 9         | FreeTube, Hayase, Stremio, mpv    |
 | 10        | Steam, Heroic Games Launcher      |
 
-### Lanzadores — utilidades TUI flotantes (`keybindings/launchers`)
+### Lanzadores - utilidades TUI flotantes (`keybindings/launchers`)
 
 Todos estos abren un pequeño popup flotante de Wezterm (vía
 `wezterm/tui-popup.lua`) corriendo una herramienta TUI específica. Algunos
-se mantienen "vivos" — en vez de cerrarse, se mandan al **scratchpad** vía
+se mantienen "vivos" - en vez de cerrarse, se mandan al **scratchpad** vía
 `scratchpad-toggle.sh`, así que volver a presionar el atajo simplemente
 muestra/oculta la instancia que ya está corriendo en lugar de relanzarla.
 
@@ -282,7 +282,7 @@ Se cargan desde `.zshrc`. El shell es Zsh con `oh-my-zsh` + `powerlevel10k`.
 | `ls`  | `ls`        | [`lsd`](https://github.com/lsd-rs/lsd)                |
 | `cat` | `cat`       | [`batcat`](https://github.com/sharkdp/bat)            |
 | `cd`  | `cd`        | [`zoxide`](https://github.com/ajeetdsouza/zoxide)     |
-| `up`  | —           | [`topgrade`](https://github.com/topgrade-rs/topgrade) |
+| `up`  | -           | [`topgrade`](https://github.com/topgrade-rs/topgrade) |
 
 ### Mensajería (nchat)
 
@@ -309,9 +309,9 @@ con `rc` + `rc-service`/`rc-update`/`rc-status`:
 
 | Alias                                | Propósito                                                                  |
 | ------------------------------------ | -------------------------------------------------------------------------- |
-| `rcs`                                | `rc-status` — muestra el estado de los servicios                           |
-| `rcu`                                | `rc-update` — gestiona la habilitación de servicios                        |
-| `rcsv`                               | `rc-service` — inicia/detiene/reinicia un servicio                         |
+| `rcs`                                | `rc-status` - muestra el estado de los servicios                           |
+| `rcu`                                | `rc-update` - gestiona la habilitación de servicios                        |
+| `rcsv`                               | `rc-service` - inicia/detiene/reinicia un servicio                         |
 | `rclist`                             | Lista todos los servicios y sus runlevels, en modo verbose                 |
 | `rccrash`                            | Lista los servicios que crashearon                                         |
 | `cups-on` / `cups-off` / `cups-stat` | Inicia/detiene/verifica el stack de impresión (`cups`, `cups-browsed`)     |

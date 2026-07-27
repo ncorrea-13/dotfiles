@@ -4,8 +4,8 @@ _[Leer en español](SCRIPTS.es.md)_
 
 This repo ships two kinds of shell scripts:
 
-- **`.config/sway/scripts/`** — interactive tools wired to Sway/Waybar keybindings. Most are `fzf` pickers, several are launched inside a small floating Wezterm popup (see [KEYBINDINGS.md](KEYBINDINGS.md) for the exact shortcuts and popup profile).
-- **`scripts/`** — standalone installation/maintenance scripts and the lock screen wrappers. These are expected to live on `$PATH` (e.g. symlinked into `~/.local/bin`) under their own name, since `variables` and other scripts
+- **`.config/sway/scripts/`** - interactive tools wired to Sway/Waybar keybindings. Most are `fzf` pickers, several are launched inside a small floating Wezterm popup (see [KEYBINDINGS.md](KEYBINDINGS.md) for the exact shortcuts and popup profile).
+- **`scripts/`** - standalone installation/maintenance scripts and the lock screen wrappers. These are expected to live on `$PATH` (e.g. symlinked into `~/.local/bin`) under their own name, since `variables` and other scripts
   call them by bare name (`rustlock-script`, etc.).
 
 ---
@@ -97,7 +97,7 @@ Lock-screen wrapper around `rustlock`, pre-configured with this setup's color sc
 
 ## Legacy (unmaintained, X11 only)
 
-Kept for reference only, same as in [PERSONALPROGRAMS.md](PERSONALPROGRAMS.md#legacy-unmaintained-x11-only) — not wired to anything in the current Wayland/Sway setup.
+Kept for reference only, same as in [PERSONALPROGRAMS.md](PERSONALPROGRAMS.md#legacy-unmaintained-x11-only) - not wired to anything in the current Wayland/Sway setup.
 
 ### `swaylock-script`
 

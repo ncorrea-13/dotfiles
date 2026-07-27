@@ -43,7 +43,7 @@ Vim-style directional keys are also mapped: `$left`=`h`, `$down`=`j`, `$up`=`k`,
 | `XF86MonBrightnessUp`   | Brightness +5%                                                   |
 | `XF86MonBrightnessDown` | Brightness −5%                                                   |
 
-The `floating_modifier` is also `$mod` — hold `$mod` and drag any window with the mouse to move it while floating.
+The `floating_modifier` is also `$mod` - hold `$mod` and drag any window with the mouse to move it while floating.
 
 ### Applications (`keybindings/apps`)
 
@@ -70,9 +70,9 @@ Sway also auto-assigns known apps to fixed workspaces on launch, so things alway
 | 9         | FreeTube, Hayase, Stremio, mpv    |
 | 10        | Steam, Heroic Games Launcher      |
 
-### Launchers — floating TUI utilities (`keybindings/launchers`)
+### Launchers - floating TUI utilities (`keybindings/launchers`)
 
-These all open a small floating Wezterm popup (via `wezterm/tui-popup.lua`) running a specific TUI tool. Some are "kept alive" — instead of closing, they get pushed to the **scratchpad** via `scratchpad-toggle.sh` so re-pressing the shortcut just shows/hides the already-running instance instead of relaunching it.
+These all open a small floating Wezterm popup (via `wezterm/tui-popup.lua`) running a specific TUI tool. Some are "kept alive" - instead of closing, they get pushed to the **scratchpad** via `scratchpad-toggle.sh` so re-pressing the shortcut just shows/hides the already-running instance instead of relaunching it.
 
 | Keybinding                     | Action                                         | Kept alive? |
 | ------------------------------ | ---------------------------------------------- | ----------- |
@@ -266,7 +266,7 @@ Sourced from `.zshrc`. Shell is Zsh with `oh-my-zsh` + `powerlevel10k`.
 
 | Name       | Purpose                                                                                                      |
 | ---------- | ------------------------------------------------------------------------------------------------------------ |
-| `rc <cmd>` | Run `<cmd>` as root (via `doas`) with a clean, predictable `PATH` — this system's `sudo`-equivalent wrapper. |
+| `rc <cmd>` | Run `<cmd>` as root (via `doas`) with a clean, predictable `PATH` - this system's `sudo`-equivalent wrapper. |
 | `fuck`     | Lazily loads and runs [`thefuck`](https://github.com/nvbn/thefuck), only on the first invocation.            |
 
 ### Core utility replacements
@@ -276,7 +276,7 @@ Sourced from `.zshrc`. Shell is Zsh with `oh-my-zsh` + `powerlevel10k`.
 | `ls`  | `ls`     | [`lsd`](https://github.com/lsd-rs/lsd)                |
 | `cat` | `cat`    | [`batcat`](https://github.com/sharkdp/bat)            |
 | `cd`  | `cd`     | [`zoxide`](https://github.com/ajeetdsouza/zoxide)     |
-| `up`  | —        | [`topgrade`](https://github.com/topgrade-rs/topgrade) |
+| `up`  | -        | [`topgrade`](https://github.com/topgrade-rs/topgrade) |
 
 ### Messaging (nchat)
 
@@ -302,9 +302,9 @@ This system runs OpenRC (systemd-free), so services are managed through `rc` + `
 
 | Alias                                | Purpose                                                              |
 | ------------------------------------ | -------------------------------------------------------------------- |
-| `rcs`                                | `rc-status` — show service status                                    |
-| `rcu`                                | `rc-update` — manage service enablement                              |
-| `rcsv`                               | `rc-service` — start/stop/restart a service                          |
+| `rcs`                                | `rc-status` - show service status                                    |
+| `rcu`                                | `rc-update` - manage service enablement                              |
+| `rcsv`                               | `rc-service` - start/stop/restart a service                          |
 | `rclist`                             | List all services and their runlevels, verbose                       |
 | `rccrash`                            | List crashed services                                                |
 | `cups-on` / `cups-off` / `cups-stat` | Start/stop/check the printing stack (`cups`, `cups-browsed`)         |

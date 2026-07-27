@@ -4,8 +4,8 @@ _[Read in English](SCRIPTS.md)_
 
 Este repositorio incluye dos tipos de scripts de shell:
 
-- **`.config/sway/scripts/`** — herramientas interactivas conectadas a atajos de Sway/Waybar. La mayoría son selectores con `fzf`, y varias se lanzan dentro de un popup flotante de Wezterm (ver [KEYBINDINGS.es.md](KEYBINDINGS.es.md) para los atajos exactos y el perfil del popup).
-- **`scripts/`** — scripts independientes de instalación/mantenimiento y los wrappers de la pantalla de bloqueo. Se espera que estén disponibles en el `$PATH` (por ejemplo, enlazados simbólicamente a `~/.local/bin`) con su propio nombre, ya que `variables` y otros scripts los llaman por nombre directo (`rustlock-script`, etc.).
+- **`.config/sway/scripts/`** - herramientas interactivas conectadas a atajos de Sway/Waybar. La mayoría son selectores con `fzf`, y varias se lanzan dentro de un popup flotante de Wezterm (ver [KEYBINDINGS.es.md](KEYBINDINGS.es.md) para los atajos exactos y el perfil del popup).
+- **`scripts/`** - scripts independientes de instalación/mantenimiento y los wrappers de la pantalla de bloqueo. Se espera que estén disponibles en el `$PATH` (por ejemplo, enlazados simbólicamente a `~/.local/bin`) con su propio nombre, ya que `variables` y otros scripts los llaman por nombre directo (`rustlock-script`, etc.).
 
 ---
 

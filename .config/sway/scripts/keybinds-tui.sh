@@ -143,4 +143,4 @@ in_resize && /^\}/ {
 END {
   printf "\n"
 }
-' "$vars_file" "${kb_files[@]}" | less -R -P "Sway Keybindings — / buscar, q salir"
+' "$vars_file" "${kb_files[@]}" | less -R -P "Sway Keybindings - / buscar, q salir"
