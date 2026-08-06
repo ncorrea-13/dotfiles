@@ -17,8 +17,8 @@ config.enable_tab_bar = false
 config.max_fps = 60
 config.use_resize_increments = false
 config.enable_kitty_graphics = true
-config.font_size = 9
-config.line_height = 1.0
+config.font_size = 8
+config.line_height = 1
 config.font = wezterm.font("HackNerdFont", { weight = "Bold" })
 
 config.window_padding = {
