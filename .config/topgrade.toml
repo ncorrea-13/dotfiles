@@ -21,7 +21,7 @@
 sudo_command = "doas"
 
 # Disable specific steps - same options as the command line flag
-# disable = ["system", "emacs"]
+disable = ["vim"]
 
 # Ignore failures for these steps
 # ignore_failures = ["powershell"]
@@ -128,7 +128,9 @@ sudo_command = "doas"
 "Kore Package Manager" = "~/.local/bin/kpm -u"
 "Eget binaries" = "~/.local/bin/eget --download-all"
 "Bitwarden cli" = "~/.local/bin/bw-update"
-"Mason" = "~/.local/share/mise/shims/nvim -c MasonUpdate"
+"Mason" = "~/.local/share/mise/shims/nvim --headless -c 'MasonUpdate' +'qa!'"
+"Neovim Plugins (Lazy)" = "~/.local/share/mise/shims/nvim --headless -c 'Lazy! sync | qa'"
+"Vim Plugins" = "python ~/.vim_runtime/update_plugins.py"
 
 [python]
 # enable_pip_review = true                         ###disabled by default
