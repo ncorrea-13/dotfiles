@@ -27,16 +27,19 @@ bindsym $mod+Shift+b exec ~/.config/sway/scripts/scratchpad-toggle.sh bitwarden 
 # System update (kept alive)
 bindsym $mod+u exec ~/.config/sway/scripts/scratchpad-toggle.sh topgrade $topgrade_cmd
 
+# Volume control
+bindsym $mod+Shift+w exec $volume_cmd
+
 # System monitor
 bindsym $mod+t exec $btop_cmd
 
 # YouTube TUI
 bindsym $mod+Shift+y exec $ytsurf_cmd
 
-# Nchat (kept alive)
+# Nhat (kept alive)
 bindsym $mod+Shift+n exec $nchatpicker_cmd
 
-# concord (kept alive)
+# Discrod TUI (kept alive)
 bindsym $mod+Shift+d exec ~/.config/sway/scripts/scratchpad-toggle.sh concord $concord_cmd
 
 # ekphos (obsidian-related)
@@ -45,7 +48,7 @@ bindsym $mod+Shift+o exec $ekphos_cmd
 # jocalsend (localsend-alike)
 bindsym $mod+Shift+t exec $jocalsend_cmd
 
-# weather
+# Weather
 bindsym $mod+Shift+w exec $weather_cmd
 
 # auto-cpufreq stats
