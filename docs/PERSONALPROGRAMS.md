@@ -34,6 +34,7 @@ A list of every program these dotfiles reference, for setting them up on a fresh
 ### Audio, brightness & power
 
 - [WirePlumber](https://gitlab.freedesktop.org/pipewire/wireplumber) (`wpctl`) + [PipeWire](https://pipewire.org) (`pactl`)
+- [WireMix](https://github.com/tsowell/wiremix)
 - [brightnessctl](https://github.com/Hummer12007/brightnessctl)
 - [auto-cpufreq](https://github.com/AdnanHodzic/auto-cpufreq)
 

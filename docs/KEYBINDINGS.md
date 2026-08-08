@@ -80,17 +80,18 @@ These all open a small floating Wezterm popup (via `wezterm/tui-popup.lua`) runn
 | `$mod+w`                       | Wi-Fi (`nmrs-tui`)                             |             |
 | `$mod+b`                       | Bluetooth (`bluetui`)                          |             |
 | `$mod+v`                       | Clipboard (`clipboard-tui.sh` with `cliphist`) |             |
-| `$mod+Shift+b`                 | Bitwarden                                      | ✅          |
-| `$mod+u`                       | Topgrade                                       | ✅          |
 | `$mod+t`                       | Btop                                           |             |
 | `$mod+c`                       | iKahl                                          |             |
+| `$mod+u`                       | Topgrade                                       | ✅          |
+| `$mod+c`                       | Keybindings                                    |             |
+| `$mod+Shift+v`                 | Wiremixer                                      |             |
+| `$mod+Shift+b`                 | Bitwarden                                      | ✅          |
 | `$mod+Shift+y`                 | YouTube (`ytsurf`)                             |             |
 | `$mod+Shift+n`                 | Nchat (Telegram/Signal/WhatsApp)               |             |
 | `$mod+Shift+d`                 | Discord (Concord)                              | ✅          |
 | `$mod+Shift+o`                 | Ekphos                                         |             |
 | `$mod+Shift+t`                 | Localsend (LocalSend)                          |             |
 | `$mod+Shift+f`                 | Auto-cpufreq                                   |             |
-| `$mod+c`                       | Keybindings                                    |             |
 | `XF86Display` / `$mod+Shift+p` | Monitor control                                |             |
 
 ### Movement & layout (`keybindings/movement`)

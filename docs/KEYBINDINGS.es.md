@@ -85,10 +85,11 @@ muestra/oculta la instancia que ya está corriendo en lugar de relanzarla.
 | `$mod+w`                       | Wi-Fi (`nmrs-tui`)                               |                    |
 | `$mod+b`                       | Bluetooth (`bluetui`)                            |                    |
 | `$mod+v`                       | Portapapeles (`clipboard-tui.sh` con `cliphist`) |                    |
-| `$mod+Shift+b`                 | Bitwarden                                        | ✅                 |
 | `$mod+u`                       | Topgrade                                         | ✅                 |
 | `$mod+t`                       | Btop                                             |                    |
 | `$mod+c`                       | iKahl                                            |                    |
+| `$mod+Shift+v`                 | Wiremixer                                        |                    |
+| `$mod+Shift+b`                 | Bitwarden                                        | ✅                 |
 | `$mod+Shift+y`                 | YouTube (`ytsurf`)                               |                    |
 | `$mod+Shift+n`                 | Nchat (Telegram/Signal/WhatsApp)                 |                    |
 | `$mod+Shift+d`                 | Discord (Concord)                                | ✅                 |
