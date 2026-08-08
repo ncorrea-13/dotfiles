@@ -68,10 +68,6 @@ Window switcher. Walks the Sway tree into a flat list of `[workspace] app_id` fo
 
 ## `scripts/` (installation & maintenance)
 
-### `bw-tui`
-
-Bitwarden CLI password picker. It was migrated to it's own project ([bw-tui](https://github.com/ncorrea-13/bw-tui))
-
 ### `bw-update`
 
 One-shot updater for the Bitwarden CLI binary itself: fetches the latest `cli-v*` tag from the `bitwarden/clients` GitHub releases API, downloads the matching Linux zip, and installs `bw` into `~/.local/bin`.

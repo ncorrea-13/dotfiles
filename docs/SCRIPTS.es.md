@@ -67,10 +67,6 @@ Selector de ventanas. Recorre el árbol de Sway armando una lista plana de `[wor
 
 ## `scripts/` (instalación y mantenimiento)
 
-### `bw-tui`
-
-Selector de contraseñas de la CLI de Bitwarden. Ha migrado a su propio proyecto ([bw-tui](https://github.com/ncorrea-13/bw-tui))
-
 ### `bw-update`
 
 Actualizador puntual para el binario de la CLI de Bitwarden: obtiene el último tag `cli-v*` desde la API de releases de GitHub de `bitwarden/clients`, descarga el zip de Linux correspondiente, e instala `bw` en `~/.local/bin`.
