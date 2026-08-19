@@ -1,0 +1,212 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+CONFIG_FILE="${APPIMAGE_MANAGER_CONF:-$HOME/.config/appimage-manager/apps.json}"
+INSTALL_DIR="${APPIMAGE_MANAGER_APPS:-$HOME/.local/share/appimage-manager}"
+BIN_DIR="${APPIMAGE_MANAGER_BIN:-$HOME/.local/bin}"
+DESKTOP_DIR="$HOME/.local/share/applications"
+
+die() {
+  echo "error: $*" >&2
+  exit 1
+}
+
+[[ -f "$CONFIG_FILE" ]] || die "config not found: $CONFIG_FILE"
+command -v eget >/dev/null 2>&1 || die "eget not in PATH"
+command -v jq >/dev/null 2>&1 || die "jq not in PATH (apt install jq / pacman -S jq)"
+
+jq empty "$CONFIG_FILE" 2>/dev/null || die "$CONFIG_FILE is not valid JSON"
+
+mkdir -p "$INSTALL_DIR" "$BIN_DIR" "$DESKTOP_DIR"
+
+find_entry() {
+  local name="$1"
+  jq -c --arg n "$name" '.apps[] | select(.name == $n)' "$CONFIG_FILE"
+}
+
+try_previous_releases() {
+  local name="$1" repo="$2" asset_pattern="$3" prerelease="$4" app_dir="$5"
+
+  local tags
+  tags="$(curl -sSL "https://api.github.com/repos/$repo/releases" | jq -r '.[].tag_name' 2>/dev/null | head -10)"
+
+  if [[ -z "$tags" ]]; then
+    echo "    couldn't list previous releases for $repo (rate limit or network)" >&2
+    return 1
+  fi
+
+  local tag
+  while IFS= read -r tag; do
+    [[ -z "$tag" ]] || echo "    trying tag $tag..."
+    if timeout 15 eget "$repo" --tag "$tag" --asset "$asset_pattern" --asset "^.deb" --asset "^.tar.gz" --asset "^.zip" --to "$app_dir" --download-only </dev/null 2>/dev/null; then
+      echo "    found in $tag"
+      return 0
+    fi
+  done <<<"$tags"
+
+  return 1
+}
+
+install_one() {
+  local name="$1"
+  local entry
+  entry="$(find_entry "$name")"
+  [[ -n "$entry" ]] || die "'$name' not found in $CONFIG_FILE"
+
+  local repo asset_pattern asset_exclude prerelease category
+  repo="$(jq -r '.repo' <<<"$entry")"
+  asset_pattern="$(jq -r '.asset_pattern // empty' <<<"$entry")"
+  asset_exclude="$(jq -r '.asset_exclude // empty' <<<"$entry")"
+  prerelease="$(jq -r '.prerelease' <<<"$entry")"
+  category="$(jq -r '.category' <<<"$entry")"
+
+  if [[ -z "$asset_pattern" ]]; then
+    case "$(uname -m)" in
+    x86_64) asset_pattern="amd64" ;;
+    aarch64) asset_pattern="arm64" ;;
+    armv7l) asset_pattern="armv7l" ;;
+    *) asset_pattern="AppImage" ;;
+    esac
+    echo "    (no asset_pattern in config, inferred by arch: $asset_pattern — set it manually if ambiguous)"
+  fi
+
+  local app_dir="$INSTALL_DIR/$name"
+  mkdir -p "$app_dir"
+
+  local eget_args=(--asset "$asset_pattern" --to "$app_dir" --download-only --upgrade-only)
+  [[ -n "$asset_exclude" ]] && eget_args+=(--asset "^$asset_exclude")
+  [[ "$prerelease" == "true" ]] && eget_args+=(--pre-release)
+
+  echo "==> Installing/updating $name from $repo"
+
+  local err_file
+  err_file="$(mktemp)"
+  if ! timeout 60 eget "$repo" "${eget_args[@]}" </dev/tty 2>"$err_file"; then
+    local err_msg
+    err_msg="$(cat "$err_file")"
+    rm -f "$err_file"
+
+    if [[ "$err_msg" == *"asset"*"not found"* ]]; then
+      echo "    asset not in latest release, searching previous releases..."
+      if ! try_previous_releases "$name" "$repo" "$asset_pattern" "$prerelease" "$app_dir"; then
+        echo "    warning: '$asset_pattern' not found in recent releases of $repo, skipping $name" >&2
+        return 0
+      fi
+    else
+      echo "    warning: $err_msg" >&2
+      echo "    skipping $name" >&2
+      return 0
+    fi
+  else
+    rm -f "$err_file"
+  fi
+
+  local appimage
+  appimage="$(find "$app_dir" -maxdepth 1 -type f -printf '%T@ %p\n' | sort -n | tail -1 | cut -d' ' -f2-)"
+  [[ -n "$appimage" ]] || die "no file found after download in $app_dir"
+
+  local current_target=""
+  [[ -L "$BIN_DIR/$name" ]] && current_target="$(readlink -f "$BIN_DIR/$name")"
+
+  if [[ "$current_target" == "$(readlink -f "$appimage")" ]]; then
+    echo "    already up to date, leaving symlink and .desktop untouched"
+    return 0
+  fi
+
+  chmod +x "$appimage"
+  ln -sf "$appimage" "$BIN_DIR/$name"
+  echo "    symlink: $BIN_DIR/$name -> $appimage"
+
+  local desktop_file="$DESKTOP_DIR/$name.desktop"
+  cat >"$desktop_file" <<EOF
+[Desktop Entry]
+Name=${name^}
+Exec=$BIN_DIR/$name --no-sandbox %u
+Icon=$name
+Type=Application
+Categories=${category};
+Terminal=false
+EOF
+  echo "    desktop: $desktop_file"
+}
+
+remove_one() {
+  local name="$1"
+  local entry
+  entry="$(find_entry "$name")"
+  [[ -n "$entry" ]] || die "'$name' not found in $CONFIG_FILE"
+
+  rm -f "$BIN_DIR/$name"
+  rm -f "$DESKTOP_DIR/$name.desktop"
+  rm -rf "${INSTALL_DIR:?}/$name"
+
+  echo "==> $name removed (symlink, .desktop and app dir deleted)"
+}
+
+show_help() {
+  local prog
+  prog="$(basename "$0")"
+  cat <<EOF
+appimage-manager - minimal AppImage manager via eget, driven by a JSON config
+
+Usage:
+  $prog install <name>   install/update one app from config
+  $prog install all      install/update all apps
+  $prog remove  <name>   uninstall (symlink + appdir + .desktop)
+  $prog list             list tracked apps (installed or not)
+  $prog help             show this help
+
+Env vars:
+  APPIMAGE_MANAGER_CONF   config path (default: ~/.config/appimage-manager/apps.json)
+  APPIMAGE_MANAGER_APPS   install dir  (default: ~/.local/share/appimage-manager)
+  APPIMAGE_MANAGER_BIN    bin dir      (default: ~/.local/bin)
+
+Requires: eget, jq
+EOF
+}
+
+list_apps() {
+  echo "Tracked apps in $CONFIG_FILE:"
+  jq -r '.apps[] | [.name, .repo, .prerelease] | @tsv' "$CONFIG_FILE" |
+    while IFS=$'\t' read -r name repo prerelease; do
+      local status="not installed"
+      [[ -L "$BIN_DIR/$name" ]] && status="installed -> $(readlink -f "$BIN_DIR/$name")"
+      local pre=""
+      [[ "$prerelease" == "true" ]] && pre=" [pre-release]"
+      printf "  %-12s %-35s %s%s\n" "$name" "$repo" "$status" "$pre"
+    done
+}
+
+cmd="${1:-}"
+shift || true
+
+case "$cmd" in
+install)
+  target="${1:-}"
+  [[ -n "$target" ]] || die "usage: $0 install <name|all>"
+  if [[ "$target" == "all" ]]; then
+    mapfile -t all_names < <(jq -r '.apps[].name' "$CONFIG_FILE")
+    for n in "${all_names[@]}"; do
+      install_one "$n" || echo "    (continuing with remaining apps)" >&2
+    done
+  else
+    install_one "$target"
+  fi
+  ;;
+remove)
+  target="${1:-}"
+  [[ -n "$target" ]] || die "usage: $0 remove <name>"
+  remove_one "$target"
+  ;;
+list)
+  list_apps
+  ;;
+help | -h | --help)
+  show_help
+  ;;
+*)
+  show_help >&2
+  exit 1
+  ;;
+esac

@@ -125,12 +125,12 @@ disable = ["vim"]
 [commands]
 # "Python Environment" = "~/dev/.env/bin/pip install -i https://pypi.python.org/simple -U --upgrade-strategy eager jupyter"
 # "Custom command using interactive shell (unix)" = "-i vim_upgrade"
-"Kore Package Manager" = "~/.local/bin/kpm -u"
 "Eget binaries" = "~/.local/bin/eget --download-all"
 "Bitwarden cli" = "~/.local/bin/bw-update"
 "Mason" = "~/.local/share/mise/shims/nvim --headless -c 'MasonUpdate' +'qa!'"
 "Neovim Plugins (Lazy)" = "~/.local/share/mise/shims/nvim --headless -c 'Lazy! sync | qa'"
 "Vim Plugins" = "python ~/.vim_runtime/update_plugins.py"
+"Eget - Appimage" = "~/.local/bin/appimage-manager install all"
 
 [python]
 # enable_pip_review = true                         ###disabled by default
@@ -255,7 +255,7 @@ disable = ["vim"]
 
 
 [git]
- 
+
 # How many repos to pull or fetch at max in parallel
 # max_concurrency = 5
 
