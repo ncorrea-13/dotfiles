@@ -28,7 +28,7 @@ bindsym $mod+Shift+b exec ~/.config/sway/scripts/scratchpad-toggle.sh bitwarden 
 bindsym $mod+u exec ~/.config/sway/scripts/scratchpad-toggle.sh topgrade $topgrade_cmd
 
 # Volume control
-bindsym $mod+Shift+w exec $volume_cmd
+bindsym $mod+Shift+v exec $volume_cmd
 
 # System monitor
 bindsym $mod+t exec $btop_cmd

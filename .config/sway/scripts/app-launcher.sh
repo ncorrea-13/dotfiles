@@ -16,7 +16,11 @@ entries=$(awk -F= '
       print name "\t" execl
     }
   }
-' ~/.local/share/applications/*.desktop /usr/local/share/applications/*.desktop /usr/share/applications/*.desktop 2>/dev/null)
+' ~/.local/share/applications/*.desktop \
+  ~/.local/share/applications/flatpak-applications/*.desktop \
+  /usr/local/share/applications/*.desktop \
+  /usr/share/applications/*.desktop \
+  /var/lib/flatpak/exports/share/applications/*.desktop 2>/dev/null)
 
 choice=$(printf '%s\n' "$entries" | cut -f1 | sort |
   fzf --prompt=' ' --layout=reverse --border --color="$fzf_colors")
