@@ -1,56 +1,89 @@
-# My personal Linux dotfiles
+<div align="center">
+
+# dotfiles
+
+**Personal Linux config for a Devuan + OpenRC + Sway workstation**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Shell](https://img.shields.io/badge/Shell-Zsh-89e051?logo=gnubash&logoColor=white)](https://www.zsh.org)
+[![WM](https://img.shields.io/badge/WM-Sway-1793D1?logo=wayland&logoColor=white)](https://swaywm.org)
+[![Editor](https://img.shields.io/badge/Editor-Neovim%20%2F%20LazyVim-57A143?logo=neovim&logoColor=white)](https://www.lazyvim.org)
+
+</div>
+
+---
+
+Collection of dotfiles for a Wayland/Sway session on Devuan with OpenRC. Symlinked straight into `$HOME` and `$HOME/.config` by `scripts/install.sh` on a fresh machine. There was a previous Xorg + i3 setup; it's archived and deprecated in `archive/`.
 
 _[Leer en español](README.es.md)_
 
-This repository has my collection of dotfiles, the ones I use on my Devuan with OpenRC work environment.
+## Stack
 
-> **Note:** This config uses Wayland with Sway. There was a previous version for Xorg with i3, but it is now archived and deprecated.
+| Layer | Tech |
+| --- | --- |
+| Init system | OpenRC (Devuan) |
+| Compositor / WM | Sway (Wayland) |
+| Shell | Zsh |
+| Terminal | WezTerm |
+| Editor | Neovim + LazyVim |
+| Multiplexer | Zellij |
+| File manager | Yazi (archived: vifm) |
+| Bar / notifications | Waybar, dunst |
+| Package fetch | eget (`.eget.toml`) |
+| Lock screen | rustlock-script |
 
-## Installation
+## Quick Start
 
-1. Clone the repository:
+```bash
+git clone git@github.com:ncorrea-13/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+./scripts/install.sh        # prompts before symlinking, backs up existing files
+# or skip the prompt:
+./scripts/install.sh -y
+```
 
-   ```bash
-   git clone https://github.com/ncorrea-13/dotfiles.git ~/dotfiles
-   cd ~/dotfiles
-   ```
+`install.sh` symlinks every dir under `.config/` plus `.zshrc`, `.alias`, `.eget.toml`, `.start-sway.sh` into `$HOME` (existing files get moved to `*.bak-<timestamp>`). It only wires up config, install the actual programs first, see [docs/PERSONALPROGRAMS.md](docs/PERSONALPROGRAMS.md). Restart the session after.
 
-2. Move the config files to your `~/.config` directory:
+## Project Structure
 
-   ```bash
-   mv .config/* ~/.config/
-   ```
-
-   You can also move only the config you want to import:
-
-   ```bash
-   mv .config/nvim ~/.config/
-   ```
-
-3. Install the needed dependencies. See [docs/PERSONALPROGRAMS.md](docs/PERSONALPROGRAMS.md).
-4. Restart your session so the changes take effect.
+```
+.config/          # symlink targets: sway, nvim, wezterm, zellij, waybar, dunst, btop, ...
+scripts/
+├── install.sh          # symlinks configs into $HOME
+├── dotfiles.sh          # repo helper
+├── appimage-manager     # manages personal AppImage programs
+├── bw-update             # Bitwarden CLI update helper
+├── discordDownloader
+└── rustlock-script
+docs/              # KEYBINDINGS, SCRIPTS, PERSONALPROGRAMS (+ .es variants)
+archive/           # deprecated Xorg/i3 setup, kept for reference
+screenshots/        # Devuan desktop screenshots
+.zshrc, .alias, .eget.toml, .start-sway.sh   # dotfiles symlinked to $HOME root
+```
 
 ## Documentation
 
-- [docs/KEYBINDINGS.md](docs/KEYBINDINGS.md) - full reference of every keybinding and every Zsh alias/function.
-- [docs/SCRIPTS.md](docs/SCRIPTS.md) - what every script in `.config/sway/scripts/` and `scripts/` does, and what it depends on.
-- [docs/PERSONALPROGRAMS.md](docs/PERSONALPROGRAMS.md) - the list of personal programs used so this config works on a fresh install.
+| Document | Content |
+| --- | --- |
+| [docs/KEYBINDINGS.md](docs/KEYBINDINGS.md) | Every keybinding and every Zsh alias/function |
+| [docs/SCRIPTS.md](docs/SCRIPTS.md) | What each script in `.config/sway/scripts/` and `scripts/` does |
+| [docs/PERSONALPROGRAMS.md](docs/PERSONALPROGRAMS.md) | Personal programs needed for a fresh install |
 
 ## Screenshots
 
-![[screenshots/Devuan/Apps_1.png]](https://github.com/ncorrea-13/dotfiles/blob/main/screenshots/Devuan/Apps_1.png)
-![[screenshots/Devuan/Apps_2.png]](https://github.com/ncorrea-13/dotfiles/blob/main/screenshots/Devuan/Apps_2.png)
-![[screenshots/Devuan/Apps_3.png]](https://github.com/ncorrea-13/dotfiles/blob/main/screenshots/Devuan/Apps_3.png)
-![[screenshots/Devuan/Apps_4.png]](https://github.com/ncorrea-13/dotfiles/blob/main/screenshots/Devuan/Apps_4.png)
-![[screenshots/Devuan/Rustlock.png]](https://github.com/ncorrea-13/dotfiles/blob/main/screenshots/Devuan/Rustlock.jpg)
+![Apps 1](screenshots/Devuan/Apps_1.png)
+![Apps 2](screenshots/Devuan/Apps_2.png)
+![Apps 3](screenshots/Devuan/Apps_3.png)
+![Apps 4](screenshots/Devuan/Apps_4.png)
+![Rustlock](screenshots/Devuan/Rustlock.jpg)
 
 ## License
 
 - **Configs:** [MIT License](https://opensource.org/licenses/MIT)
-- **Lazyvim:** [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)
+- **LazyVim:** [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)
 
-Please make sure to comply with both licenses when using and distributing this repository.
+Comply with both when using or redistributing this repo. Full text in [LICENSE](LICENSE).
 
-For more information, check the [LICENSE](LICENSE) file included in the root of the repository.
+---
 
 _Mendoza, Argentina - Nicolás Correa ([ncorrea-13](https://github.com/ncorrea-13))_
