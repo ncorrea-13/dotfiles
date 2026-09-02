@@ -6,7 +6,11 @@ MASON_PACKAGES="$HOME/.local/share/nvim/mason/packages"
 REGISTRY_JSON="$HOME/.local/share/nvim/mason/registries/github/mason-org/mason-registry/registry.json"
 
 echo "Updating Mason registry..."
-"$NVIM" --headless -c "lua require('mason-registry').update(function() vim.cmd('qall') end)" 2>/dev/null
+timeout 30 "$NVIM" --headless -c "lua require('mason-registry').update(function() vim.cmd('qall') end)" 2>/dev/null
+if [ $? -eq 124 ]; then
+  echo "Registry update timed out, aborting."
+  exit 1
+fi
 
 to_update=()
 
@@ -39,11 +43,13 @@ echo ""
 echo "Updating ${#to_update[@]} package(s): ${to_update[*]}"
 
 for pkg_name in "${to_update[@]}"; do
+  echo ""
   echo "-> $pkg_name"
-  timeout 120 "$NVIM" --headless -c "lua require('mason-registry').get_package('$pkg_name'):install():once('closed', function() vim.cmd('qall') end)" 2>/dev/null
+  timeout 120 "$NVIM" --headless -c "lua local pkg = require('mason-registry').get_package('$pkg_name'); local handle = pkg:install(); handle:on('stdout', vim.schedule_wrap(function(chunk) io.write(chunk) end)); handle:on('stderr', vim.schedule_wrap(function(chunk) io.write(chunk) end)); handle:once('closed', function() vim.cmd('qall') end)"
   if [ $? -eq 124 ]; then
     echo "   timeout updating $pkg_name, skipped"
   fi
 done
 
+echo ""
 echo "Mason: update complete."
