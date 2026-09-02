@@ -19,19 +19,37 @@ choice=$(printf '%s\n%s\n%s\n' "$notebook" "$monitor" "$dual" |
 
 [ -z "$choice" ] && exit 0
 
+transform="normal"
+if [ "$choice" = "$monitor" ] || [ "$choice" = "$dual" ]; then
+  horizontal=$' Horizontal'
+  vertical=$' Vertical'
+  orientation=$(printf '%s\n%s\n' "$horizontal" "$vertical" |
+    fzf --prompt="Orientación > " --layout=reverse --border --color="$fzf_colors")
+  [ "$orientation" = "$vertical" ] && transform="270"
+fi
+
 case "$choice" in
 "$notebook")
   swaymsg output "$laptop_output" enable res 1366x768 pos 0 0
   swaymsg output "$external_output" disable
   ;;
 "$monitor")
-  swaymsg output "$external_output" enable res 1920x1080 pos 0 0
+  swaymsg output "$external_output" enable res 1920x1080 pos 0 0 transform "$transform"
   swaymsg output "$laptop_output" disable
   ;;
 "$dual")
   swaymsg output "$laptop_output" enable res 1366x768 pos 0 0
-  swaymsg output "$external_output" enable res 1920x1080 pos 1366 0
+  swaymsg output "$external_output" enable res 1920x1080 pos 1366 0 transform "$transform"
   ;;
 esac
+
+killall -q waybar
+if [ "$choice" = "$dual" ] && [ "$transform" = "270" ]; then
+  tmp_config=$(mktemp --suffix=.jsonc)
+  sed "1a\\  \"output\": [\"$laptop_output\"]," ~/.config/waybar/config.jsonc >"$tmp_config"
+  setsid waybar -c "$tmp_config" -s ~/.config/waybar/style.css >/dev/null 2>&1 &
+else
+  setsid waybar >/dev/null 2>&1 &
+fi
 
 notify-send "Pantallas" "Configuración aplicada: $choice"
