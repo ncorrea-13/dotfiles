@@ -80,9 +80,11 @@ install_one() {
 
   echo "==> Installing/updating $name from $repo"
 
-  local err_file
+  local err_file eget_stdin
   err_file="$(mktemp)"
-  if ! timeout 60 eget "$repo" "${eget_args[@]}" </dev/tty 2>"$err_file"; then
+  eget_stdin="/dev/null"
+  [[ -t 0 ]] && eget_stdin="/dev/tty"
+  if ! timeout 60 eget "$repo" "${eget_args[@]}" <"$eget_stdin" 2>"$err_file"; then
     local err_msg
     err_msg="$(cat "$err_file")"
     rm -f "$err_file"
@@ -105,6 +107,7 @@ install_one() {
   local appimage
   appimage="$(find "$app_dir" -maxdepth 1 -type f -printf '%T@ %p\n' | sort -n | tail -1 | cut -d' ' -f2-)"
   [[ -n "$appimage" ]] || die "no file found after download in $app_dir"
+  chmod +x "$appimage"
 
   local current_target=""
   [[ -L "$BIN_DIR/$name" ]] && current_target="$(readlink -f "$BIN_DIR/$name")"
@@ -114,7 +117,6 @@ install_one() {
     return 0
   fi
 
-  chmod +x "$appimage"
   ln -sf "$appimage" "$BIN_DIR/$name"
   echo "    symlink: $BIN_DIR/$name -> $appimage"
 
