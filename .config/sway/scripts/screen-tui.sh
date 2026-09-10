@@ -13,11 +13,14 @@ fi
 notebook=$' Notebook'
 monitor=$' Monitor'
 dual=$' Dualscreen'
+mirror=$' Mirror'
 
-choice=$(printf '%s\n%s\n%s\n' "$notebook" "$monitor" "$dual" |
+choice=$(printf '%s\n%s\n%s\n%s\n' "$notebook" "$monitor" "$dual" "$mirror" |
   fzf --prompt="Pantalla > " --layout=reverse --border --color="$fzf_colors")
 
 [ -z "$choice" ] && exit 0
+
+killall -q wl-mirror
 
 transform="normal"
 if [ "$choice" = "$monitor" ] || [ "$choice" = "$dual" ]; then
@@ -40,6 +43,11 @@ case "$choice" in
 "$dual")
   swaymsg output "$laptop_output" enable res 1366x768 pos 0 0
   swaymsg output "$external_output" enable res 1920x1080 pos 1366 0 transform "$transform"
+  ;;
+"$mirror")
+  swaymsg output "$laptop_output" enable res 1366x768 pos 0 0
+  swaymsg output "$external_output" enable res 1920x1080 pos 1366 0
+  setsid wl-mirror --fullscreen-output "$external_output" "$laptop_output" >/dev/null 2>&1 &
   ;;
 esac
 
