@@ -1,0 +1,38 @@
+@theme "/dev/null"
+
+* {
+  bg:      #0b0712;
+  bg-sel:  #24283b;
+  fg:      #cdd6f4;
+  accent:  #7aa2f7;
+  hl:      #bd93f9;
+  pointer: #f7768e;
+  background-color: @bg;
+  text-color:       @fg;
+  font: "FiraCode Nerd Font 12";
+}
+
+window {
+  fullscreen: true;
+  background-color: #0b0712A0;
+  children: [ dummy, mainbox, dummy ];
+}
+dummy { background-color: transparent; }
+
+mainbox {
+  expand: false;
+  children: [ message, listview ];
+  spacing: 10px;
+  border: 1px;
+  border-color: @accent;
+  border-radius: 8px;
+  padding: 12px;
+}
+message  { border: 0 0 1px 0; border-color: @accent; padding: 0 0 8px 0; }
+textbox  { text-color: @accent; }
+
+listview { fixed-height: true; scrollbar: false; }
+
+element          { padding: 4px 8px; border-radius: 4px; }
+element selected { background-color: @bg-sel; }
+element-text     { background-color: inherit; text-color: inherit; highlight: bold #bd93f9; }
