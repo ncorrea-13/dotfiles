@@ -1,14 +1,20 @@
 #!/bin/bash
-LATEST=$(curl -s https://api.github.com/repos/bitwarden/clients/releases |
-  grep '"tag_name"' |
-  grep '"cli-v' |
-  head -1 |
-  sed 's/.*"cli-v\([^"]*\)".*/\1/')
+set -euo pipefail
 
-echo "Instalando bw v$LATEST..."
-curl -Lo /tmp/bw.zip \
+LATEST=$(curl -fs https://api.github.com/repos/bitwarden/clients/releases |
+  jq -r '[.[] | select(.tag_name | startswith("cli-v"))][0].tag_name | ltrimstr("cli-v")')
+CURRENT=$(bw --version 2>/dev/null || true)
+
+[[ "$LATEST" == "$CURRENT" ]] && {
+  echo "bw $CURRENT ya está al día"
+  exit 0
+}
+
+echo "Instalando bw v$LATEST (actual: ${CURRENT:-ninguna})..."
+TMP=$(mktemp -d)
+trap 'rm -rf "$TMP"' EXIT
+curl -fLo "$TMP/bw.zip" \
   "https://github.com/bitwarden/clients/releases/download/cli-v${LATEST}/bw-linux-${LATEST}.zip"
-unzip -o /tmp/bw.zip -d ~/.local/bin/
+unzip -o "$TMP/bw.zip" -d ~/.local/bin/
 chmod +x ~/.local/bin/bw
-rm /tmp/bw.zip
 echo "Listo: $(bw --version)"
