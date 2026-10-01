@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-fzf_colors="fg:#cdd6f4,bg:#0b0712,hl:#7aa2f7,fg+:#cdd6f4,bg+:#24283b,hl+:#bd93f9,info:#e0af68,prompt:#7aa2f7,pointer:#f7768e,marker:#9ece6a,spinner:#7dcfff,border:#7aa2f7"
+source ~/.config/sway/scripts/menu.sh
 
 laptop_output="eDP-1"
 external_output=$(swaymsg -t get_outputs | jq -r '.[].name' | grep -v -x "$laptop_output" | head -n 1)
 
 if [ -z "$external_output" ]; then
-  notify-send "Pantallas" "No hay un segundo monitor conectado"
+  notify-send "Displays" "No external monitor connected"
   exit 0
 fi
 
@@ -16,7 +16,7 @@ dual=$' Dualscreen'
 mirror=$' Mirror'
 
 choice=$(printf '%s\n%s\n%s\n%s\n' "$notebook" "$monitor" "$dual" "$mirror" |
-  fzf --prompt="Pantalla > " --layout=reverse --border --color="$fzf_colors")
+  MENU_WIDTH=380 menu -mesg "Display")
 
 [ -z "$choice" ] && exit 0
 
@@ -27,7 +27,7 @@ if [ "$choice" = "$monitor" ] || [ "$choice" = "$dual" ]; then
   horizontal=$' Horizontal'
   vertical=$' Vertical'
   orientation=$(printf '%s\n%s\n' "$horizontal" "$vertical" |
-    fzf --prompt="Orientación > " --layout=reverse --border --color="$fzf_colors")
+    MENU_WIDTH=380 menu -mesg "Orientation")
   [ "$orientation" = "$vertical" ] && transform="270"
 fi
 
@@ -60,4 +60,4 @@ else
   setsid waybar >/dev/null 2>&1 &
 fi
 
-notify-send "Pantallas" "Configuración aplicada: $choice"
+notify-send "Displays" "Applied: $choice"
