@@ -6,7 +6,7 @@ icon=~/.config/sway/scripts/camera.png
 file="$screenshotdir/$(date '+%y%m%d-%H%M-%S').png"
 mkdir -p "$screenshotdir" "$recordingdir"
 
-fzf_colors="fg:#cdd6f4,bg:#0b0712,hl:#7aa2f7,fg+:#cdd6f4,bg+:#24283b,hl+:#bd93f9,info:#e0af68,prompt:#7aa2f7,pointer:#f7768e,marker:#9ece6a,spinner:#7dcfff,border:#7aa2f7"
+source ~/.config/sway/scripts/menu.sh
 
 area=$'\uf125 Area'
 cwin=$'\uf2d0 Window'
@@ -16,11 +16,10 @@ save=$'\uf0c7 Save'
 rec=$'\uf03d Record'
 
 pick() {
-  fzf --prompt="$1 > " --layout=reverse --border --color="$fzf_colors"
+  MENU_WIDTH=380 menu -mesg "$1"
 }
 
 hide_console() {
-  swaymsg '[app_id="screenshot-tui"] move scratchpad' >/dev/null
   sleep 0.1
 }
 

@@ -36,7 +36,7 @@ set $ncspot_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config i
 set $topgrade_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=120 --config initial_rows=36 start --always-new-process --class topgrade -- bash -c '~/.local/bin/topgrade; exec sleep 5'
 set $applauncher_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=70 --config initial_rows=20 start --always-new-process --class app-launcher -- ~/.config/sway/scripts/app-launcher.sh
 set $powermenu_cmd ~/.config/sway/scripts/powermenu.sh
-set $screenshottui_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=50 --config initial_rows=14 start --always-new-process --class screenshot-tui -- ~/.config/sway/scripts/screenshot-tui.sh
+set $screenshottui_cmd ~/.config/sway/scripts/screenshot-tui.sh
 set $clipboardtui_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=24 start --always-new-process --class clipboard-tui -- ~/.config/sway/scripts/clipboard-tui.sh
 set $bitwarden_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=28 start --always-new-process --class bitwarden -- ~/.local/bin/bw-tui
 set $ytsurf_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=100 --config initial_rows=32 start --always-new-process --class ytsurf -- ~/.local/bin/ytsurf
@@ -79,7 +79,6 @@ for_window [app_id="^ikhal$"] floating enable, move position center, border pixe
 for_window [app_id="^ncspot$"] floating enable, move position center, border pixel 1, move to scratchpad, scratchpad show
 for_window [app_id="^topgrade$"] floating enable, move position center, border pixel 1, move to scratchpad, scratchpad show
 for_window [app_id="^app-launcher$"] floating enable, move position center, border pixel 1
-for_window [app_id="^screenshot-tui$"] floating enable, move position center, border pixel 1
 for_window [app_id="^clipboard-tui$"] floating enable, move position center, border pixel 1
 for_window [app_id="^bitwarden$"] floating enable, move position center, border pixel 1, move to scratchpad, scratchpad show
 for_window [app_id="^ytsurf$"] floating enable, move position center, border pixel 1
