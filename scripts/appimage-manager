@@ -26,10 +26,10 @@ find_entry() {
 }
 
 try_previous_releases() {
-  local name="$1" repo="$2" asset_pattern="$3" prerelease="$4" app_dir="$5"
+  local name="$1" repo="$2" asset_pattern="$3" prerelease="$4" app_dir="$5" asset_exclude="${6:-}"
 
   local tags
-  tags="$(curl -sSL "https://api.github.com/repos/$repo/releases" | jq -r '.[].tag_name' 2>/dev/null | head -10)"
+  tags="$(curl -sSL ${GITHUB_TOKEN:+-H "Authorization: Bearer $GITHUB_TOKEN"} "https://api.github.com/repos/$repo/releases" | jq -r '.[].tag_name' 2>/dev/null | head -10)"
 
   if [[ -z "$tags" ]]; then
     echo "    couldn't list previous releases for $repo (rate limit or network)" >&2
@@ -39,7 +39,9 @@ try_previous_releases() {
   local tag
   while IFS= read -r tag; do
     [[ -z "$tag" ]] || echo "    trying tag $tag..."
-    if timeout 15 eget "$repo" --tag "$tag" --asset "$asset_pattern" --asset "^.deb" --asset "^.tar.gz" --asset "^.zip" --to "$app_dir" --download-only </dev/null 2>/dev/null; then
+    local args=(--tag "$tag" --asset "$asset_pattern" --to "$app_dir" --download-only --upgrade-only)
+    [[ -n "$asset_exclude" ]] && args+=(--asset "^$asset_exclude")
+    if timeout 120 eget "$repo" "${args[@]}" </dev/null 2>/dev/null; then
       echo "    found in $tag"
       return 0
     fi
@@ -91,7 +93,7 @@ install_one() {
 
     if [[ "$err_msg" == *"asset"*"not found"* ]]; then
       echo "    asset not in latest release, searching previous releases..."
-      if ! try_previous_releases "$name" "$repo" "$asset_pattern" "$prerelease" "$app_dir"; then
+      if ! try_previous_releases "$name" "$repo" "$asset_pattern" "$prerelease" "$app_dir" "$asset_exclude"; then
         echo "    warning: '$asset_pattern' not found in recent releases of $repo, skipping $name" >&2
         return 0
       fi
