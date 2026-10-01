@@ -46,7 +46,7 @@ set $ekphos_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config i
 set $jocalsend_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=28 start --always-new-process --class jocalsend -- ~/.cargo/bin/jocalsend
 set $autocpufreq_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=100 --config initial_rows=30 start --always-new-process --class auto-cpufreq -- auto-cpufreq --stats
 set $keybindshelp_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=110 --config initial_rows=32 start --always-new-process --class keybinds-help -- ~/.config/sway/scripts/keybinds-tui.sh
-set $swaytab_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=70 --config initial_rows=20 start --always-new-process --class sway-tab -- ~/.config/sway/scripts/sway-tab.sh
+set $swaytab_cmd ~/.config/sway/scripts/sway-tab.sh
 set $weather_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=70 --config initial_rows=35 start --always-new-process --class weather -- ~/.local/share/go/bin/weathertui
 set $volume_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=80 --config initial_rows=30 start --always-new-process --class weather -- ~/.cargo/bin/wiremix
 
@@ -92,6 +92,5 @@ for_window [app_id="^ekphos$"] floating enable, move position center, border pix
 for_window [app_id="^jocalsend$"] floating enable, move position center, border pixel 1
 for_window [app_id="^auto-cpufreq$"] floating enable, move position center, border pixel 1
 for_window [app_id="^keybinds-help$"] floating enable, move position center, border pixel 1
-for_window [app_id="^sway-tab$"] floating enable, move position center, border pixel 1
 for_window [app_id="^weather$"] floating enable, move position center, border pixel 1, move to scratchpad, scratchpad show
 
