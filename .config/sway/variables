@@ -40,7 +40,7 @@ set $screenshottui_cmd ~/.config/sway/scripts/screenshot-tui.sh
 set $clipboardtui_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=24 start --always-new-process --class clipboard-tui -- ~/.config/sway/scripts/clipboard-tui.sh
 set $bitwarden_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=28 start --always-new-process --class bitwarden -- ~/.local/bin/bw-tui
 set $ytsurf_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=100 --config initial_rows=32 start --always-new-process --class ytsurf -- ~/.local/bin/ytsurf
-set $nchatpicker_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=50 --config initial_rows=14 start --always-new-process --class nchat-picker -- ~/.config/sway/scripts/nchat-picker.sh
+set $nchatpicker_cmd ~/.config/sway/scripts/nchat-picker.sh
 set $concord_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=110 --config initial_rows=34 start --always-new-process --class concord -- env ALSA_PLUGIN_DIR=/usr/lib/x86_64-linux-gnu/alsa-lib ~/.local/bin/concord
 set $ekphos_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=28 start --always-new-process --class ekphos -- ~/.cargo/bin/ekphos
 set $jocalsend_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=28 start --always-new-process --class jocalsend -- ~/.cargo/bin/jocalsend
@@ -83,7 +83,6 @@ for_window [app_id="^clipboard-tui$"] floating enable, move position center, bor
 for_window [app_id="^bitwarden$"] floating enable, move position center, border pixel 1, move to scratchpad, scratchpad show
 for_window [app_id="^ytsurf$"] floating enable, move position center, border pixel 1
 for_window [app_id="^nchat-(telegram|signal|whatsapp|work)$"] floating enable, move position center, border pixel 1, move to scratchpad, scratchpad show
-for_window [app_id="^nchat-picker$"] floating enable, move position center, border pixel 1
 for_window [app_id="^concord$"] floating enable, move position center, border pixel 1, move to scratchpad, scratchpad show
 for_window [app_id="^ekphos$"] floating enable, move position center, border pixel 1
 for_window [app_id="^jocalsend$"] floating enable, move position center, border pixel 1

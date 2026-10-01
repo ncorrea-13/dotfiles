@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-fzf_colors="fg:#cdd6f4,bg:#0b0712,hl:#7aa2f7,fg+:#cdd6f4,bg+:#24283b,hl+:#bd93f9,info:#e0af68,prompt:#7aa2f7,pointer:#f7768e,marker:#9ece6a,spinner:#7dcfff,border:#7aa2f7"
+source ~/.config/sway/scripts/menu.sh
 
 choice=$(printf "Telegram\nSignal\nWhatsApp\nWhatsApp Work\n" |
-  fzf --prompt="nchat > " --layout=reverse --border --color="$fzf_colors")
+  MENU_WIDTH=380 menu -mesg "nchat")
 [ -z "$choice" ] && exit 0
 
 case "$choice" in
