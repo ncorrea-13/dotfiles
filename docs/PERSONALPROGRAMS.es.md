@@ -90,6 +90,7 @@ Lista de todos los programas que referencian estos dotfiles, para poder instalar
 ### Productividad
 
 - [Obsidian](https://obsidian.md) + [Ekphos](https://github.com/hanebox/ekphos) (terminal, inspirado en Obsidian) + [Basalt](https://github.com/erikjuhani/basalt) (TUI, inspirado en Obsidian)
+- [Markpad](https://github.com/sftwrdotdev/Markpad)
 - [Bitwarden CLI](https://bitwarden.com/help/cli/) + [bw-tui](https://github.com/ncorrea-13/bw-tui)
 - [ONLYOFFICE](https://www.onlyoffice.com)
 - [Zathura](https://pwmt.org/projects/zathura/) - visor de PDF
