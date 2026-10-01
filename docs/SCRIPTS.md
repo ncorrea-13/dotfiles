@@ -4,7 +4,7 @@ _[Leer en español](SCRIPTS.es.md)_
 
 This repo ships two kinds of shell scripts:
 
-- **`.config/sway/scripts/`** - interactive tools wired to Sway/Waybar keybindings. Most are `fzf` pickers, several are launched inside a small floating Wezterm popup (see [KEYBINDINGS.md](KEYBINDINGS.md) for the exact shortcuts and popup profile).
+- **`.config/sway/scripts/`** - interactive tools wired to Sway/Waybar keybindings. Short option menus (`sway-tab`, `powermenu`, `screen-tui`, `screenshot-tui`, `nchat-picker`) use a shared rofi menu (`menu.sh` + `menu.rasi`); searchable lists (`app-launcher`, `clipboard-tui`) are `fzf` pickers inside a small floating Wezterm popup (see [KEYBINDINGS.md](KEYBINDINGS.md) for the exact shortcuts and popup profile).
 - **`scripts/`** - standalone installation/maintenance scripts and the lock screen wrappers. These are expected to live on `$PATH` (e.g. symlinked into `~/.local/bin`) under their own name, since `variables` and other scripts
   call them by bare name (`rustlock-script`, etc.).
 
@@ -32,15 +32,20 @@ Generates the live keybindings list. Parses `.config/sway/variables` for `set $v
 Idle & sleep daemon, started at Sway startup. Runs `swayidle` with four triggers: lock the screen and wipe the cached Bitwarden session after 10 minutes idle, turn outputs off (`dpms off`) 10 seconds after that, turn them back on on resume, and lock immediately before suspending. The actual lock screen is delegated to [`rustlock-script`](#rustlock-script--swaylock-script--i3lock-script).
 **Depends on:** `swayidle`, `bw` (Bitwarden CLI), `rustlock-script`.
 
+### `menu.sh` / `menu.rasi`
+
+Shared rofi menu sourced by the option-menu scripts. `menu` reads options from stdin and shows them in a fullscreen dimmed backdrop with a centered box (old fzf palette), no search bar and vim keys: `j`/`k` move, `g`/`G` first/last, `l`/`Enter` pick, `h`/`q`/`Esc` cancel. The list height fits the number of options (max 10). Environment knobs: `MENU_WIDTH` (box width in px, default 700), `MENU_ACCEPT` / `MENU_CANCEL` (override the accept/cancel keys, e.g. for grid menus that need `h`/`l` to move between columns).
+**Depends on:** `rofi` (Wayland fork), `swaymsg`, `jq`.
+
 ### `nchat-picker.sh`
 
 Account picker for `nchat`. Lets you pick a messaging account (Telegram, Signal, WhatsApp personal/work) and opens `nchat` pointed at that account's config dir inside a floating Wezterm popup. If a `nchat` window is already open on the _same_ account it's just recalled from the scratchpad; if it's open on a _different_ account, the old instance is killed first. Remembers the last-selected account in `~/.cache/nchat_account`.
-**Depends on:** `fzf`, `swaymsg`, `jq`, `wezterm`.
+**Depends on:** `menu.sh`, `swaymsg`, `jq`, `wezterm`.
 
 ### `powermenu.sh`
 
-`fzf` menu for shutdown / reboot / hibernate / suspend / logout / lock; every destructive action is gated behind a Yes/No confirmation prompt. Suspend additionally pauses `mpc` and mutes ALSA before calling suspend. All actions go through `elogind`.
-**Depends on:** `fzf`, `elogind`, optionally `mpc`/`amixer`.
+3x2 rofi grid (icon over label, `h`/`j`/`k`/`l` to move, `Enter` to pick, `q`/`Esc` to cancel) for shutdown / reboot / hibernate / lock / suspend / logout, with uptime in the header; every destructive action is gated behind a Yes/No confirmation prompt. Suspend additionally pauses `mpc` and mutes ALSA before calling suspend. All actions go through `elogind`.
+**Depends on:** `menu.sh`, `elogind`, optionally `mpc`/`amixer`.
 
 ### `scratchpad-toggle.sh`
 
@@ -49,20 +54,20 @@ Helper behind every "kept alive" launcher. Given an `app_id` and a command, it c
 
 ### `screenshot-tui.sh`
 
-Screenshot & screen-recording tool. `fzf` menu to pick area/window/fullscreen capture, then copy-to-clipboard or save-to-file (`~/Pictures/Screenshots`); or start/stop a screen recording (`~/Videos/Screencasts`) via `wf-recorder`. Pressing the shortcut again while recording stops it. Sends a desktop notification on completion.
-**Depends on:** `fzf`, `grim`, `slurp`, `wf-recorder`, `notify-send`, `wl-copy`.
+Screenshot & screen-recording tool. Rofi menu to pick area/window/fullscreen capture, then copy-to-clipboard or save-to-file (`~/Pictures/Screenshots`); or start/stop a screen recording (`~/Videos/Screencasts`) via `wf-recorder`. Pressing the shortcut again while recording stops it. Sends a desktop notification on completion.
+**Depends on:** `menu.sh`, `grim`, `slurp`, `wf-recorder`, `notify-send`, `wl-copy`.
 
 ### `screen-tui.sh`
 
-Monitor layout switcher. Detects a second connected output besides the built-in `eDP-1` panel and lets you fuzzy-pick Notebook-only / Monitor-only / Dual-screen, applying resolution and position via `swaymsg output`.
-**Depends on:** `swaymsg`, `jq`, `fzf`, `notify-send`.
+Monitor layout switcher. Detects a second connected output besides the built-in `eDP-1` panel and lets you pick Notebook-only / Monitor-only / Dual-screen / Mirror (plus orientation for the external monitor) from a rofi menu, applying resolution and position via `swaymsg output`.
+**Depends on:** `menu.sh`, `swaymsg`, `jq`, `notify-send`, optionally `wl-mirror`.
 
 > The laptop output name (`eDP-1`) and resolutions are hardcoded.
 
 ### `sway-tab.sh`
 
-Window switcher. Walks the Sway tree into a flat list of `[workspace] app_id` for every window, and jumps to the workspace of whichever one you pick via `fzf`.
-**Depends on:** `swaymsg`, `jq`, `fzf`.
+Window switcher (alt-tab style). Lists every window (Wayland, XWayland, floating and scratchpad) as `[workspace] app — title`, ordered by most recent use following Sway's per-container `focus` stack; scratchpad windows show as `[0]` at the end. The previous window is preselected, so `$mod+tab` then `l` jumps back. Focuses the picked window by `con_id`.
+**Depends on:** `menu.sh`, `swaymsg`, `jq`.
 
 ---
 

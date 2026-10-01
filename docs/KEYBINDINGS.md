@@ -31,8 +31,8 @@ Vim-style directional keys are also mapped: `$left`=`h`, `$down`=`j`, `$up`=`k`,
 | `$mod+Shift+e`          | Exit Sway (end session)                                          |
 | `$alt+Ctrl+l`           | Lock the screen (`rustlock-script`)                              |
 | `$mod+slash`            | Open emoji picker (`smile`)                                      |
-| `$mod+p`                | Open power menu TUI                                              |
-| `$mod+tab`              | Run `sway-tab.sh` (window management)                            |
+| `$mod+p`                | Open power menu (rofi grid)                                      |
+| `$mod+tab`              | Window switcher, most recently used first (`sway-tab.sh`)        |
 | `$mod+comma`            | Switch to previous workspace                                     |
 | `$mod+period`           | Switch to next workspace                                         |
 | `$mod+s` ; `Print`      | Screenshots                                                      |
@@ -72,7 +72,7 @@ Sway also auto-assigns known apps to fixed workspaces on launch, so things alway
 
 ### Launchers - floating TUI utilities (`keybindings/launchers`)
 
-These all open a small floating Wezterm popup (via `wezterm/tui-popup.lua`) running a specific TUI tool. Some are "kept alive" - instead of closing, they get pushed to the **scratchpad** via `scratchpad-toggle.sh` so re-pressing the shortcut just shows/hides the already-running instance instead of relaunching it.
+These mostly open a small floating Wezterm popup (via `wezterm/tui-popup.lua`) running a specific TUI tool; Nchat and Monitor control open the shared rofi menu instead (see [SCRIPTS.md](SCRIPTS.md#menush--menurasi)). Some are "kept alive" - instead of closing, they get pushed to the **scratchpad** via `scratchpad-toggle.sh` so re-pressing the shortcut just shows/hides the already-running instance instead of relaunching it.
 
 | Keybinding                     | Action                                         | Kept alive? |
 | ------------------------------ | ---------------------------------------------- | ----------- |

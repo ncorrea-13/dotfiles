@@ -19,7 +19,7 @@ Lista de todos los programas que referencian estos dotfiles, para poder instalar
 - [sway-fader](https://github.com/mgnsk/sway-fader) - efecto de fade-in en ventanas nuevas/enfocadas
 - [swaybg](https://github.com/swaywm/swaybg) - wallpaper
 - [swayidle](https://github.com/swaywm/swayidle) - manejo de inactividad (`lock.sh`)
-- [Dunst](https://github.com/dunst-project/dunst) - demonio de notificaciones
+- [Dunst](https://github.com/dunst-project/dunst) - demonio de notificaciones (con sonido para nchat)
 - [mate-polkit](https://github.com/mate-desktop/mate-polkit) - agente de autenticación polkit (prompts de huella/contraseña)
 - [greetd](https://git.sr.ht/~kennylevinsen/greetd/) - demonio de login manager
 - [rustlock](https://github.com/JorySeverijnse/rustlock) - la pantalla de bloqueo actualmente en uso
@@ -50,7 +50,8 @@ Lista de todos los programas que referencian estos dotfiles, para poder instalar
 
 ### Pickers y lanzador
 
-- [fzf](https://github.com/junegunn/fzf) - impulsa casi todos los selectores TUI de `.config/sway/scripts/`
+- [Rofi (fork de Wayland)](https://github.com/lbonn/rofi) - menú de opciones compartido (`menu.sh`) para el selector de ventanas, el menú de apagado y los selectores de monitores, capturas y nchat
+- [fzf](https://github.com/junegunn/fzf) - selectores con búsqueda (lanzador de apps, portapapeles)
 - [jq](https://jqlang.github.io/jq/) - parseo de JSON para la salida de `swaymsg` en varios scripts
 
 ### Sistema base y archivos
@@ -145,6 +146,6 @@ Lista de todos los programas que referencian estos dotfiles, para poder instalar
 Se mantienen como referencia - no forman parte de la configuración Wayland/Sway y no son necesarios para una instalación nueva, a menos que específicamente quieras la config vieja de i3:
 
 - i3wm, i3blocks-color, i3lock-color
-- Rofi - tanto el build de X11 usado por la vieja config de i3 como el fork de Wayland usado antes por `sway-tab.sh` (ver [SCRIPTS.es.md](SCRIPTS.es.md)); reemplazado por completo por `fzf` en todos lados
+- Rofi (build de X11) - usado por la vieja config de i3; el fork de Wayland sigue en uso (ver [SCRIPTS.es.md](SCRIPTS.es.md))
 - Vifm
 - Swaylock

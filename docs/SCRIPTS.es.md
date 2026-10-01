@@ -4,7 +4,7 @@ _[Read in English](SCRIPTS.md)_
 
 Este repositorio incluye dos tipos de scripts de shell:
 
-- **`.config/sway/scripts/`** - herramientas interactivas conectadas a atajos de Sway/Waybar. La mayoría son selectores con `fzf`, y varias se lanzan dentro de un popup flotante de Wezterm (ver [KEYBINDINGS.es.md](KEYBINDINGS.es.md) para los atajos exactos y el perfil del popup).
+- **`.config/sway/scripts/`** - herramientas interactivas conectadas a atajos de Sway/Waybar. Los menús cortos de opciones (`sway-tab`, `powermenu`, `screen-tui`, `screenshot-tui`, `nchat-picker`) usan un menú de rofi compartido (`menu.sh` + `menu.rasi`); las listas con búsqueda (`app-launcher`, `clipboard-tui`) son selectores `fzf` dentro de un popup flotante de Wezterm (ver [KEYBINDINGS.es.md](KEYBINDINGS.es.md) para los atajos exactos y el perfil del popup).
 - **`scripts/`** - scripts independientes de instalación/mantenimiento y los wrappers de la pantalla de bloqueo. Se espera que estén disponibles en el `$PATH` (por ejemplo, enlazados simbólicamente a `~/.local/bin`) con su propio nombre, ya que `variables` y otros scripts los llaman por nombre directo (`rustlock-script`, etc.).
 
 ---
@@ -31,15 +31,20 @@ Genera la lista de atajos en vivo. Parsea `.config/sway/variables` en busca de d
 Demonio de inactividad y suspensión, iniciado al arrancar Sway. Corre `swayidle` con cuatro disparadores: bloquear la pantalla y borrar la sesión cacheada de Bitwarden tras 10 minutos de inactividad, apagar las salidas (`dpms off`) 10 segundos después de eso, volver a encenderlas al reanudar, y bloquear inmediatamente antes de suspender. La pantalla de bloqueo en sí se delega a [`rustlock-script`](#rustlock-script--swaylock-script--i3lock-script).
 **Depende de:** `swayidle`, `bw` (CLI de Bitwarden), `rustlock-script`.
 
+### `menu.sh` / `menu.rasi`
+
+Menú de rofi compartido que cargan los scripts de opciones. `menu` lee las opciones por stdin y las muestra sobre un fondo oscurecido a pantalla completa con una caja centrada (paleta del viejo fzf), sin barra de búsqueda y con teclas de vim: `j`/`k` mueven, `g`/`G` primera/última, `l`/`Enter` eligen, `h`/`q`/`Esc` cancelan. La altura de la lista se ajusta a la cantidad de opciones (máximo 10). Variables de entorno: `MENU_WIDTH` (ancho de la caja en px, por defecto 700), `MENU_ACCEPT` / `MENU_CANCEL` (reemplazan las teclas de aceptar/cancelar, p. ej. en menús en cuadrícula que necesitan `h`/`l` para moverse entre columnas).
+**Depende de:** `rofi` (fork de Wayland), `swaymsg`, `jq`.
+
 ### `nchat-picker.sh`
 
 Selector de cuentas para `nchat`. Permite elegir una cuenta de mensajería (Telegram, Signal, WhatsApp personal/laboral) y abre `nchat` apuntando al directorio de configuración de esa cuenta dentro de un popup flotante de Wezterm. Si ya hay una ventana de `nchat` abierta con la _misma_ cuenta, simplemente se la vuelve a mostrar desde el scratchpad; si está abierta con una cuenta _distinta_, primero se mata la instancia anterior. Recuerda la última cuenta elegida en `~/.cache/nchat_account`.
-**Depende de:** `fzf`, `swaymsg`, `jq`, `wezterm`.
+**Depende de:** `menu.sh`, `swaymsg`, `jq`, `wezterm`.
 
 ### `powermenu.sh`
 
-Menú `fzf` para apagar / reiniciar / hibernar / suspender / cerrar sesión / bloquear; cada acción destructiva queda protegida detrás de una confirmación Sí/No. Suspender además pausa `mpc` y mutea ALSA antes de llamar a suspend. Las acciones de sesión pasan por `elogind`.
-**Depende de:** `fzf`, `elogind`, opcionalmente `mpc`/`amixer`.
+Cuadrícula de rofi de 3x2 (ícono sobre etiqueta, `h`/`j`/`k`/`l` para moverse, `Enter` para elegir, `q`/`Esc` para cancelar) para apagar / reiniciar / hibernar / bloquear / suspender / cerrar sesión, con el uptime en el encabezado; cada acción destructiva queda protegida detrás de una confirmación Sí/No. Suspender además pausa `mpc` y mutea ALSA antes de llamar a suspend. Las acciones de sesión pasan por `elogind`.
+**Depende de:** `menu.sh`, `elogind`, opcionalmente `mpc`/`amixer`.
 
 ### `scratchpad-toggle.sh`
 
@@ -48,20 +53,20 @@ Helper detrás de cada lanzador "kept alive". Dado un `app_id` y un comando, rev
 
 ### `screenshot-tui.sh`
 
-Herramienta de capturas y grabación de pantalla con `fzf` para elegir captura de área/ventana/pantalla completa, y luego copiar al portapapeles o guardar en archivo (`~/Pictures/Screenshots`); o iniciar/detener una grabación de pantalla (`~/Videos/Screencasts`) vía `wf-recorder`. Mientras se está grabando, al presionar el atajo de nuevo, la detiene. Envía una notificación de escritorio al terminar.
-**Depende de:** `fzf`, `grim`, `slurp`, `wf-recorder`, `notify-send`, `wl-copy`.
+Herramienta de capturas y grabación de pantalla con un menú de rofi para elegir captura de área/ventana/pantalla completa, y luego copiar al portapapeles o guardar en archivo (`~/Pictures/Screenshots`); o iniciar/detener una grabación de pantalla (`~/Videos/Screencasts`) vía `wf-recorder`. Mientras se está grabando, al presionar el atajo de nuevo, la detiene. Envía una notificación de escritorio al terminar.
+**Depende de:** `menu.sh`, `grim`, `slurp`, `wf-recorder`, `notify-send`, `wl-copy`.
 
 ### `screen-tui.sh`
 
-Selector de disposición de monitores. Detecta una segunda salida conectada además del panel integrado `eDP-1` y permite elegir por búsqueda difusa entre Solo notebook / Solo monitor / Dualscreen, aplicando resolución y posición vía `swaymsg output`.
-**Depende de:** `swaymsg`, `jq`, `fzf`, `notify-send`.
+Selector de disposición de monitores. Detecta una segunda salida conectada además del panel integrado `eDP-1` y permite elegir desde un menú de rofi entre Solo notebook / Solo monitor / Dualscreen / Espejo (más la orientación del monitor externo), aplicando resolución y posición vía `swaymsg output`.
+**Depende de:** `menu.sh`, `swaymsg`, `jq`, `notify-send`, opcionalmente `wl-mirror`.
 
 > El nombre de la salida del notebook (`eDP-1`) y las resoluciones están hardcodeadas.
 
 ### `sway-tab.sh`
 
-Selector de ventanas. Recorre el árbol de Sway armando una lista plana de `[workspace] app_id` por cada ventana, y salta al workspace de la que elijas mediante `fzf`.
-**Depende de:** `swaymsg`, `jq`, `fzf`.
+Selector de ventanas (estilo alt-tab). Lista todas las ventanas (Wayland, XWayland, flotantes y del scratchpad) como `[workspace] app — título`, ordenadas por uso más reciente según la pila `focus` de cada contenedor de Sway; las del scratchpad aparecen como `[0]` al final. La ventana anterior queda preseleccionada, así que `$mod+tab` y luego `l` vuelve a ella. Enfoca la ventana elegida por `con_id`.
+**Depende de:** `menu.sh`, `swaymsg`, `jq`.
 
 ---
 

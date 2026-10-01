@@ -19,7 +19,7 @@ A list of every program these dotfiles reference, for setting them up on a fresh
 - [sway-fader](https://github.com/mgnsk/sway-fader) - fade-in effect on new/focused windows
 - [swaybg](https://github.com/swaywm/swaybg) - wallpaper
 - [swayidle](https://github.com/swaywm/swayidle) - idle handling (`lock.sh`)
-- [Dunst](https://github.com/dunst-project/dunst) - notification daemon
+- [Dunst](https://github.com/dunst-project/dunst) - notification daemon (with nchat sound)
 - [mate-polkit](https://github.com/mate-desktop/mate-polkit) - polkit authentication agent (fingerprint/password prompts)
 - [greetd](https://git.sr.ht/~kennylevinsen/greetd/) - login manager daemon
 - [rustlock](https://github.com/JorySeverijnse/rustlock) - the lock screen actually in use
@@ -50,7 +50,8 @@ A list of every program these dotfiles reference, for setting them up on a fresh
 
 ### Pickers & launcher
 
-- [fzf](https://github.com/junegunn/fzf) - powers almost every TUI picker in `.config/sway/scripts/`
+- [Rofi (Wayland fork)](https://github.com/lbonn/rofi) - shared option menu (`menu.sh`) for the window switcher, power menu, monitor, screenshot and nchat pickers
+- [fzf](https://github.com/junegunn/fzf) - searchable pickers (app launcher, clipboard)
 - [jq](https://jqlang.github.io/jq/) - JSON parsing for `swaymsg` output in several scripts
 
 ### Core system & files
@@ -145,6 +146,6 @@ A list of every program these dotfiles reference, for setting them up on a fresh
 Kept for reference only - not part of the Wayland/Sway setup and not required for a fresh install unless you specifically want the old i3 config:
 
 - i3wm, i3blocks-color, i3lock-color
-- Rofi - both the X11 build used by the old i3 setup and the Wayland for previously used by `sway-tab.sh` (see [SCRIPTS.md](SCRIPTS.md)); full replaced by `fzf` everywhere
+- Rofi (X11 build) - used by the old i3 setup; the Wayland fork is still in use (see [SCRIPTS.md](SCRIPTS.md))
 - Vifm
 - Swaylock

@@ -31,8 +31,8 @@ También hay mapeadas teclas direccionales estilo Vim: `$left`=`h`, `$down`=`j`,
 | `$mod+Shift+e`          | Salir de Sway (terminar la sesión)                   |
 | `$alt+Ctrl+l`           | Bloquear la pantalla (`rustlock-script`)             |
 | `$mod+slash`            | Selector de emojis (`smile`)                         |
-| `$mod+p`                | Menú de apagado                                      |
-| `$mod+tab`              | Ejecutar `sway-tab.sh` (gestión de ventanas)         |
+| `$mod+p`                | Menú de apagado (cuadrícula de rofi)                 |
+| `$mod+tab`              | Selector de ventanas, por uso reciente (`sway-tab.sh`) |
 | `$mod+comma`            | Ir al workspace anterior                             |
 | `$mod+period`           | Ir al workspace siguiente                            |
 | `$mod+s` ; `Print`      | Capturas de pantalla                                 |
@@ -73,8 +73,10 @@ fijos al abrirlas, así que siempre abren en el mismo lugar:
 
 ### Lanzadores - utilidades TUI flotantes (`keybindings/launchers`)
 
-Todos estos abren un pequeño popup flotante de Wezterm (vía
-`wezterm/tui-popup.lua`) corriendo una herramienta TUI específica. Algunos
+La mayoría abre un pequeño popup flotante de Wezterm (vía
+`wezterm/tui-popup.lua`) corriendo una herramienta TUI específica; Nchat y el
+control de monitores abren el menú de rofi compartido (ver
+[SCRIPTS.es.md](SCRIPTS.es.md#menush--menurasi)). Algunos
 se mantienen "vivos" - en vez de cerrarse, se mandan al **scratchpad** vía
 `scratchpad-toggle.sh`, así que volver a presionar el atajo simplemente
 muestra/oculta la instancia que ya está corriendo en lugar de relanzarla.
