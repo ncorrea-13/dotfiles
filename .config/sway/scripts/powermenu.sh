@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-uptime_str="$(uptime -p | sed -e 's/up //g')"
-fzf_colors="fg:#cdd6f4,bg:#0b0712,hl:#7aa2f7,fg+:#cdd6f4,bg+:#24283b,hl+:#bd93f9,info:#e0af68,prompt:#7aa2f7,pointer:#f7768e,marker:#9ece6a,spinner:#7dcfff,border:#7aa2f7"
+uptime_str="$(uptime -p | sed -E 's/up //; s/ days?/d/; s/ hours?/h/; s/ minutes?/m/; s/,//g')"
+source ~/.config/sway/scripts/menu.sh
 
 shutdown=$' Shutdown'
 reboot=$' Reboot'
@@ -10,14 +10,20 @@ lock=$' Lock'
 suspend=$' Suspend'
 logout=$' Logout'
 
-choice=$(printf '%s\n%s\n%s\n%s\n%s\n%s\n' "$shutdown" "$reboot" "$hibernate" "$lock" "$suspend" "$logout" |
-  fzf --prompt="Goodbye $USER > " --header="Uptime: $uptime_str" --layout=reverse --border --color="$fzf_colors")
+items=("$shutdown" "$reboot" "$hibernate" "$lock" "$suspend" "$logout")
 
-[ -z "$choice" ] && exit 0
+idx=$(for i in "${items[@]}"; do printf "<span size='20pt'>%s</span>\n%s|" "${i%% *}" "${i#* }"; done |
+  MENU_ACCEPT="Return,KP_Enter" MENU_CANCEL="q,Escape" MENU_WIDTH=480 menu -sep '|' -eh 3 -markup-rows -format i \
+    -kb-row-left "h,Left" -kb-row-right "l,Right" -kb-move-char-back "" -kb-move-char-forward "" \
+    -theme-str 'listview {columns: 3; lines: 2; flow: horizontal;} element {padding: 10px 4px;} element-text {horizontal-align: 0.5;}' \
+    -mesg "Goodbye $USER · up $uptime_str")
+
+[ -z "$idx" ] && exit 0
+choice=${items[$idx]}
 
 confirm() {
   local answer
-  answer=$(printf 'Yes\nNo\n' | fzf --prompt="$1? > " --layout=reverse --border --color="$fzf_colors")
+  answer=$(printf 'Yes\nNo\n' | MENU_WIDTH=380 menu -mesg "$1?")
   [ "$answer" = "Yes" ]
 }
 
