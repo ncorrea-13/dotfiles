@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+args=()
+for a in "$@"; do
+  if [[ -e "$a" ]]; then args+=("$(realpath "$a")"); else args+=("$a"); fi
+done
+setsid -f markpad "${args[@]}" >/dev/null 2>&1
