@@ -75,6 +75,7 @@ screenshots/        # Devuan desktop screenshots
 ![Apps 2](screenshots/Devuan/Apps_2.png)
 ![Apps 3](screenshots/Devuan/Apps_3.png)
 ![Apps 4](screenshots/Devuan/Apps_4.png)
+![Powermenu](screenshots/Devuan/Powermenu.png)
 ![Rustlock](screenshots/Devuan/Rustlock.jpg)
 
 ## License
