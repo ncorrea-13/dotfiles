@@ -9,9 +9,9 @@
     "gopls-lsp@claude-plugins-official": false,
     "typescript-lsp@claude-plugins-official": false,
     "frontend-design@claude-plugins-official": false,
-    "code-review@claude-plugins-official": false,
-    "security-guidance@claude-plugins-official": false,
-    "context7@claude-plugins-official": false,
+    "code-review@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
     "ponytail@ponytail": true,
     "caveman@caveman": true
   },
