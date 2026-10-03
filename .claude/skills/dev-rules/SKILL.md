@@ -13,7 +13,7 @@ description: Personal engineering rules for error/failure handling, git/commit c
 ## Git and commit behavior
 
 - **Atomic commits:** Code changes should be split into separate, logical units.
-- **Strict Conventional Commits:** Every commit message must follow this structure: `type(scope): short description in infinitive form` (example: `feat(auth): ...`, `fix(shared): ...`).
+- **Strict Conventional Commits:** Every commit message must follow this structure: `type: short description in infinitive form` (example: `feat: ...`, `fix: ...`).
 - **Check before pushing:** Don't suggest pushing directly to main branches without making sure local tests and linters for the affected module pass first.
 
 ## Code and database standards (Backend / Prisma / SQL)
