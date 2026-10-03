@@ -3,9 +3,9 @@
 source ~/.config/sway/scripts/menu.sh
 
 laptop_output="eDP-1"
-external_output=$(swaymsg -t get_outputs | jq -r '.[].name' | grep -v -x "$laptop_output" | head -n 1)
+mapfile -t externals < <(swaymsg -t get_outputs | jq -r '.[].name' | grep -v -x "$laptop_output")
 
-if [ -z "$external_output" ]; then
+if [ ${#externals[@]} -eq 0 ]; then
   notify-send "Displays" "No external monitor connected"
   exit 0
 fi
@@ -31,23 +31,35 @@ if [ "$choice" = "$monitor" ] || [ "$choice" = "$dual" ]; then
   [ "$orientation" = "$vertical" ] && transform="270"
 fi
 
+# Place external outputs side by side, left to right, starting at x=$1.
+enable_externals() {
+  local x=$1 width=1920
+  [ "$transform" = "270" ] && width=1080
+  for o in "${externals[@]}"; do
+    swaymsg output "$o" enable res 1920x1080 pos "$x" 0 transform "$transform"
+    x=$((x + width))
+  done
+}
+
 case "$choice" in
 "$notebook")
   swaymsg output "$laptop_output" enable res 1366x768 pos 0 0
-  swaymsg output "$external_output" disable
+  for o in "${externals[@]}"; do swaymsg output "$o" disable; done
   ;;
 "$monitor")
-  swaymsg output "$external_output" enable res 1920x1080 pos 0 0 transform "$transform"
+  enable_externals 0
   swaymsg output "$laptop_output" disable
   ;;
 "$dual")
   swaymsg output "$laptop_output" enable res 1366x768 pos 0 0
-  swaymsg output "$external_output" enable res 1920x1080 pos 1366 0 transform "$transform"
+  enable_externals 1366
   ;;
 "$mirror")
   swaymsg output "$laptop_output" enable res 1366x768 pos 0 0
-  swaymsg output "$external_output" enable res 1920x1080 pos 1366 0
-  setsid wl-mirror --fullscreen-output "$external_output" "$laptop_output" >/dev/null 2>&1 &
+  enable_externals 1366
+  for o in "${externals[@]}"; do
+    setsid wl-mirror --fullscreen-output "$o" "$laptop_output" >/dev/null 2>&1 &
+  done
   ;;
 esac
 
