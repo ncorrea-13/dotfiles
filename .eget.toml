@@ -18,6 +18,7 @@ asset_filters = ["yt-dlp_linux", "^aarch64", "^armv7l", "^musl", "^zip"]
 ["chojs23/concord"]
 
 ["erikjuhani/basalt"]
+asset_filters = ["gnu"]
 
 ["jorgerojas26/lazysql"]
 
