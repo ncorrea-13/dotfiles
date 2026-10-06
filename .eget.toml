@@ -20,6 +20,9 @@ asset_filters = ["yt-dlp_linux", "^aarch64", "^armv7l", "^musl", "^zip"]
 ["erikjuhani/basalt"]
 asset_filters = ["gnu"]
 
+["d99kris/nchat"]
+asset_filters = ["glibc"]
+
 ["jorgerojas26/lazysql"]
 
 ["zyedidia/eget"]
