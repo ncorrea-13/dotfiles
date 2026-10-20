@@ -21,7 +21,7 @@
 sudo_command = "doas"
 
 # Disable specific steps - same options as the command line flag
-disable = ["vim", "git_repos"]
+disable = ["vim", "git_repos", "claude"]
 
 # Ignore failures for these steps
 # ignore_failures = ["powershell"]
