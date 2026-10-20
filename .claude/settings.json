@@ -1,8 +1,13 @@
 {
+  "env": {
+    "DISABLE_AUTOUPDATER": "1",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
   "attribution": {
     "commit": "",
     "pr": ""
   },
+  "model": "sonnet",
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": false,
     "pyright-lsp@claude-plugins-official": false,
@@ -13,7 +18,10 @@
     "security-guidance@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
     "ponytail@ponytail": true,
-    "caveman@caveman": true
+    "caveman@caveman": true,
+    "ux-ui-agent-skills@ux-ui-agent-skills": true,
+    "agent-skills@addy-agent-skills": true,
+    "claude-hud@claude-hud": true
   },
   "extraKnownMarketplaces": {
     "ponytail": {
@@ -27,8 +35,30 @@
         "source": "github",
         "repo": "JuliusBrussee/caveman"
       }
+    },
+    "ux-ui-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "plugin87/ux-ui-agent-skills"
+      }
+    },
+    "addy-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "addyosmani/agent-skills"
+      }
+    },
+    "claude-hud": {
+      "source": {
+        "source": "github",
+        "repo": "jarrodwatts/claude-hud"
+      }
     }
   },
   "effortLevel": "low",
-  "theme": "auto"
+  "theme": "auto",
+  "statusLine": {
+    "type": "command",
+    "command": "'/home/ncorrea/.local/share/mise/installs/bun/1.4.3/bin/bun' --env-file /dev/null '/home/ncorrea/.claude/plugins/claude-hud/statusline.mjs'"
+  }
 }
