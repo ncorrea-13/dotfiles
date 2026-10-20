@@ -18,7 +18,7 @@ exec wl-paste --type image --watch cliphist store
 exec /usr/libexec/polkit-mate-authentication-agent-1
 
 # sway fader for smooth transitions
-exec --no-startup-id sway-fader -d 100ms
+exec --no-startup-id sway-fader -d 300ms
 
 # wallpaper
 exec_always  swaybg -i ~/Pictures/Wallpapers/Wallpaper.jpg -m fill
