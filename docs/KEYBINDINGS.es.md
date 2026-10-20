@@ -23,25 +23,25 @@ También hay mapeadas teclas direccionales estilo Vim: `$left`=`h`, `$down`=`j`,
 
 ### General (`keybindings/basics`)
 
-| Atajo                   | Acción                                               |
-| ----------------------- | ---------------------------------------------------- |
-| `$mod+Shift+q`          | Cerrar la ventana                                    |
-| `$mod+space`            | Lanzador de aplicaciones (`scripts/app-launcher.sh`) |
-| `$mod+Shift+r`          | Recargar la config de Sway                           |
-| `$mod+Shift+e`          | Salir de Sway (terminar la sesión)                   |
-| `$alt+Ctrl+l`           | Bloquear la pantalla (`rustlock-script`)             |
-| `$mod+slash`            | Selector de emojis (`smile`)                         |
-| `$mod+p`                | Menú de apagado (cuadrícula de rofi)                 |
+| Atajo                   | Acción                                                 |
+| ----------------------- | ------------------------------------------------------ |
+| `$mod+Shift+q`          | Cerrar la ventana                                      |
+| `$mod+space`            | Lanzador de aplicaciones (`scripts/app-launcher.sh`)   |
+| `$mod+Shift+r`          | Recargar la config de Sway                             |
+| `$mod+Shift+e`          | Salir de Sway (terminar la sesión)                     |
+| `$alt+Ctrl+l`           | Bloquear la pantalla (`rustlock-script`)               |
+| `$mod+slash`            | Selector de emojis (`smile`)                           |
+| `$mod+p`                | Menú de apagado (cuadrícula de rofi)                   |
 | `$mod+tab`              | Selector de ventanas, por uso reciente (`sway-tab.sh`) |
-| `$mod+comma`            | Ir al workspace anterior                             |
-| `$mod+period`           | Ir al workspace siguiente                            |
-| `$mod+s` ; `Print`      | Capturas de pantalla                                 |
-| `XF86AudioRaiseVolume`  | Subir volumen 5%                                     |
-| `XF86AudioLowerVolume`  | Bajar volumen 5%                                     |
-| `XF86AudioMute`         | Silenciar/activar salida de audio                    |
-| `XF86AudioMicMute`      | Silenciar/activar micrófono                          |
-| `XF86MonBrightnessUp`   | Brillo +5%                                           |
-| `XF86MonBrightnessDown` | Brillo −5%                                           |
+| `$mod+comma`            | Ir al workspace anterior                               |
+| `$mod+period`           | Ir al workspace siguiente                              |
+| `$mod+s` ; `Print`      | Capturas de pantalla                                   |
+| `XF86AudioRaiseVolume`  | Subir volumen 5%                                       |
+| `XF86AudioLowerVolume`  | Bajar volumen 5%                                       |
+| `XF86AudioMute`         | Silenciar/activar salida de audio                      |
+| `XF86AudioMicMute`      | Silenciar/activar micrófono                            |
+| `XF86MonBrightnessUp`   | Brillo +5%                                             |
+| `XF86MonBrightnessDown` | Brillo −5%                                             |
 
 El `floating_modifier` también es `$mod`. Cualquier ventana que esté flontando se puede mover si se mantiene `$mod` y se arrastrá con el mouse.
 
@@ -92,7 +92,7 @@ muestra/oculta la instancia que ya está corriendo en lugar de relanzarla.
 | `$mod+c`                       | iKahl                                            |                    |
 | `$mod+Shift+v`                 | Wiremixer                                        |                    |
 | `$mod+Shift+b`                 | Bitwarden                                        | ✅                 |
-| `$mod+Shift+y`                 | YouTube (`ytsurf`)                               |                    |
+| `$mod+Shift+y`                 | YouTube (`ytglide`)                              |                    |
 | `$mod+Shift+n`                 | Nchat (Telegram/Signal/WhatsApp)                 |                    |
 | `$mod+Shift+d`                 | Discord (Concord)                                | ✅                 |
 | `$mod+Shift+o`                 | Ekphos                                           |                    |

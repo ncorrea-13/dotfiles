@@ -86,7 +86,7 @@ Lista de todos los programas que referencian estos dotfiles, para poder instalar
 - [Hayase](https://github.com/hayase-app/ui) (antes Miru)
 - [Stremio](https://www.stremio.com)
 - [ncspot](https://github.com/hrkfdn/ncspot) - cliente TUI de Spotify
-- [yt-dlp](https://github.com/yt-dlp/yt-dlp) + [ytsurf](https://github.com/Stan-breaks/ytsurf) + [mpv](https://mpv.io)
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp) + [ytglide](https://github.com/ncorrea-13/ytglide) + [mpv](https://mpv.io)
 
 ### Productividad
 

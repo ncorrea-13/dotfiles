@@ -33,8 +33,8 @@ bindsym $mod+Shift+v exec $volume_cmd
 # System monitor
 bindsym $mod+t exec $btop_cmd
 
-# YouTube TUI
-bindsym $mod+Shift+y exec $ytsurf_cmd
+# YouTube TUI (kept alive)
+bindsym $mod+Shift+y exec ~/.config/sway/scripts/scratchpad-toggle.sh ytglide $ytglide_cmd
 
 # Nhat (kept alive)
 bindsym $mod+Shift+n exec $nchatpicker_cmd

@@ -86,7 +86,7 @@ These mostly open a small floating Wezterm popup (via `wezterm/tui-popup.lua`) r
 | `$mod+c`                       | Keybindings                                    |             |
 | `$mod+Shift+v`                 | Wiremixer                                      |             |
 | `$mod+Shift+b`                 | Bitwarden                                      | ✅          |
-| `$mod+Shift+y`                 | YouTube (`ytsurf`)                             |             |
+| `$mod+Shift+y`                 | YouTube (`ytglide`)                            |             |
 | `$mod+Shift+n`                 | Nchat (Telegram/Signal/WhatsApp)               |             |
 | `$mod+Shift+d`                 | Discord (Concord)                              | ✅          |
 | `$mod+Shift+o`                 | Ekphos                                         |             |
