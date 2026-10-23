@@ -36,6 +36,7 @@ También hay mapeadas teclas direccionales estilo Vim: `$left`=`h`, `$down`=`j`,
 | `$mod+comma`            | Ir al workspace anterior                               |
 | `$mod+period`           | Ir al workspace siguiente                              |
 | `$mod+s` ; `Print`      | Capturas de pantalla                                   |
+| `$mod+z`                | Alternar No molestar (SwayNC)                                    |
 | `XF86AudioRaiseVolume`  | Subir volumen 5%                                       |
 | `XF86AudioLowerVolume`  | Bajar volumen 5%                                       |
 | `XF86AudioMute`         | Silenciar/activar salida de audio                      |
@@ -131,6 +132,22 @@ muestra/oculta la instancia que ya está corriendo en lugar de relanzarla.
 | `k`/`↑`                       | Reducir alto   |
 | `j`/`↓`                       | Aumentar alto  |
 | `Return`, `Escape` o `$mod+r` | Salir del modo |
+
+### Centro de notificaciones (`keybindings/notifications`)
+
+`$mod+x` abre el panel de SwayNC y entra a un modo que mapea teclas Vim sobre él (vía `wtype`). Las flechas y `Return` van directo al panel.
+
+| Keybinding                      | Acción                                                           |
+| ------------------------------- | ---------------------------------------------------------------- |
+| `$mod+x`                        | Abrir el panel de notificaciones y entrar al modo notifications  |
+| `j`/`↓`                         | Siguiente notificación o grupo                                   |
+| `k`/`↑`                         | Notificación o grupo anterior                                    |
+| `g` / `Shift+g`                 | Primera / última notificación                                    |
+| `l`/`Return`                    | Expandir/colapsar un grupo, o cerrar una notificación suelta     |
+| `d`                             | Cerrar la seleccionada (el grupo entero si está colapsado)       |
+| `Shift+c`                       | Cerrar todas las notificaciones                                  |
+| `Shift+d`                       | Alternar No molestar                                             |
+| `h`, `q`, `Escape` o `$mod+x`   | Cerrar el panel y salir del modo                                 |
 
 ### Scratchpad (`keybindings/scratchpad`)
 

@@ -36,6 +36,7 @@ Vim-style directional keys are also mapped: `$left`=`h`, `$down`=`j`, `$up`=`k`,
 | `$mod+comma`            | Switch to previous workspace                                     |
 | `$mod+period`           | Switch to next workspace                                         |
 | `$mod+s` ; `Print`      | Screenshots                                                      |
+| `$mod+z`                | Toggle Do Not Disturb (SwayNC)                                   |
 | `XF86AudioRaiseVolume`  | Volume up 5%                                                     |
 | `XF86AudioLowerVolume`  | Volume down 5%                                                   |
 | `XF86AudioMute`         | Toggle mute (output)                                             |
@@ -124,6 +125,22 @@ These mostly open a small floating Wezterm popup (via `wezterm/tui-popup.lua`) r
 | `k`/`↑`                         | Shrink height     |
 | `j`/`↓`                         | Grow height       |
 | `Return`, `Escape`, or `$mod+r` | Exit resize mode  |
+
+### Notification center (`keybindings/notifications`)
+
+`$mod+x` opens the SwayNC panel and enters a mode that maps Vim keys onto it (via `wtype`). The arrow keys and `Return` go straight to the panel.
+
+| Keybinding                      | Action                                                          |
+| ------------------------------- | --------------------------------------------------------------- |
+| `$mod+x`                        | Open the notification panel and enter notifications mode        |
+| `j`/`↓`                         | Next notification or group                                      |
+| `k`/`↑`                         | Previous notification or group                                  |
+| `g` / `Shift+g`                 | First / last notification                                       |
+| `l`/`Return`                    | Expand/collapse a group, or dismiss a single notification       |
+| `d`                             | Dismiss the selected notification (the whole group if collapsed) |
+| `Shift+c`                       | Dismiss all notifications                                       |
+| `Shift+d`                       | Toggle Do Not Disturb                                           |
+| `h`, `q`, `Escape`, or `$mod+x` | Close the panel and exit the mode                               |
 
 ### Scratchpad (`keybindings/scratchpad`)
 

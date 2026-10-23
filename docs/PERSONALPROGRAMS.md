@@ -19,7 +19,7 @@ A list of every program these dotfiles reference, for setting them up on a fresh
 - [sway-fader](https://github.com/mgnsk/sway-fader) - fade-in effect on new/focused windows
 - [swaybg](https://github.com/swaywm/swaybg) - wallpaper
 - [swayidle](https://github.com/swaywm/swayidle) - idle handling (`lock.sh`)
-- [Dunst](https://github.com/dunst-project/dunst) - notification daemon (with nchat sound)
+- [SwayNC](https://github.com/ErikReider/SwayNotificationCenter) - notification daemon and center (with nchat sound)
 - [mate-polkit](https://github.com/mate-desktop/mate-polkit) - polkit authentication agent (fingerprint/password prompts)
 - [greetd](https://git.sr.ht/~kennylevinsen/greetd/) - login manager daemon
 - [rustlock](https://github.com/JorySeverijnse/rustlock) - the lock screen actually in use

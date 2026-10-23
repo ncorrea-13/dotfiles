@@ -85,7 +85,7 @@ BetterDiscord, se espera en `~/.local/bin/bdcli`).
 
 ### `dotfiles.sh`
 
-Helper de sincronización inversa: copia las configuraciones _en vivo_ desde `~/.config` (`sway`, `waybar`, `dunst`, `btop`, `fastfetch`, `wezterm`, `zellij`, `cava`, `nvim`, `posting`, `mpv`) más `topgrade.toml` de vuelta a este repositorio (`~/Projects/things/dotfiles`). Está pensado para ejecutarse con `~/.config` como directorio de trabajo, como forma rápida de traer el estado actual de la máquina de vuelta al control de versiones antes de commitear.
+Helper de sincronización inversa: copia las configuraciones _en vivo_ desde `~/.config` (`sway`, `waybar`, `swaync`, `btop`, `fastfetch`, `wezterm`, `zellij`, `cava`, `nvim`, `posting`, `mpv`) más `topgrade.toml` de vuelta a este repositorio (`~/Projects/things/dotfiles`). Está pensado para ejecutarse con `~/.config` como directorio de trabajo, como forma rápida de traer el estado actual de la máquina de vuelta al control de versiones antes de commitear.
 **Depende de:** solo coreutils (`cp`).
 
 ### `rustlock-script`

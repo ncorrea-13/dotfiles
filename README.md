@@ -28,7 +28,7 @@ _[Leer en español](README.es.md)_
 | Editor | Neovim + LazyVim |
 | Multiplexer | Zellij |
 | File manager | Yazi (archived: vifm) |
-| Bar / notifications | Waybar, dunst |
+| Bar / notifications | Waybar, SwayNC |
 | Package fetch | eget (`.eget.toml`) |
 | Lock screen | rustlock-script |
 
@@ -47,7 +47,7 @@ cd ~/dotfiles
 ## Project Structure
 
 ```
-.config/          # symlink targets: sway, nvim, wezterm, zellij, waybar, dunst, btop, ...
+.config/          # symlink targets: sway, nvim, wezterm, zellij, waybar, swaync, btop, ...
 scripts/
 ├── install.sh          # symlinks configs into $HOME
 ├── dotfiles.sh          # repo helper
@@ -56,7 +56,7 @@ scripts/
 ├── discordDownloader
 └── rustlock-script
 docs/              # KEYBINDINGS, SCRIPTS, PERSONALPROGRAMS (+ .es variants)
-archive/           # deprecated Xorg/i3 setup, kept for reference
+archive/           # deprecated Xorg/i3 setup and old dunst config, kept for reference
 screenshots/        # Devuan desktop screenshots
 .zshrc, .alias, .eget.toml, .start-sway.sh   # dotfiles symlinked to $HOME root
 ```

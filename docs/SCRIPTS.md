@@ -86,7 +86,7 @@ CLI, expected at `~/.local/bin/bdcli`).
 
 ### `dotfiles.sh`
 
-Reverse-sync helper: copies the _live_ configs from `~/.config` (`sway`, `waybar`, `dunst`, `btop`, `fastfetch`, `wezterm`, `zellij`, `cava`, `nvim`, `posting`, `mpv`) plus `topgrade.toml` back into this repo (`~/Projects/things/dotfiles`). Meant to be run with `~/.config` as the working directory, as a quick way to pull current machine state back into version control before committing.
+Reverse-sync helper: copies the _live_ configs from `~/.config` (`sway`, `waybar`, `swaync`, `btop`, `fastfetch`, `wezterm`, `zellij`, `cava`, `nvim`, `posting`, `mpv`) plus `topgrade.toml` back into this repo (`~/Projects/things/dotfiles`). Meant to be run with `~/.config` as the working directory, as a quick way to pull current machine state back into version control before committing.
 **Depends on:** coreutils (`cp`) only.
 
 ### `rustlock-script`

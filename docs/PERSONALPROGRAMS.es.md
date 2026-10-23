@@ -19,7 +19,7 @@ Lista de todos los programas que referencian estos dotfiles, para poder instalar
 - [sway-fader](https://github.com/mgnsk/sway-fader) - efecto de fade-in en ventanas nuevas/enfocadas
 - [swaybg](https://github.com/swaywm/swaybg) - wallpaper
 - [swayidle](https://github.com/swaywm/swayidle) - manejo de inactividad (`lock.sh`)
-- [Dunst](https://github.com/dunst-project/dunst) - demonio de notificaciones (con sonido para nchat)
+- [SwayNC](https://github.com/ErikReider/SwayNotificationCenter) - demonio y centro de notificaciones (con sonido para nchat)
 - [mate-polkit](https://github.com/mate-desktop/mate-polkit) - agente de autenticación polkit (prompts de huella/contraseña)
 - [greetd](https://git.sr.ht/~kennylevinsen/greetd/) - demonio de login manager
 - [rustlock](https://github.com/JorySeverijnse/rustlock) - la pantalla de bloqueo actualmente en uso
