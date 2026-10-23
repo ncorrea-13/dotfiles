@@ -21,10 +21,10 @@ exec /usr/libexec/polkit-mate-authentication-agent-1
 exec --no-startup-id sway-fader -d 300ms
 
 # wallpaper
-exec_always  swaybg -i ~/Pictures/Wallpapers/Wallpaper.jpg -m fill
+exec  swaybg -i ~/Pictures/Wallpapers/Wallpaper.jpg -m fill
 
 # little script to lock the screen
-exec_always  ~/.config/sway/scripts/lock.sh
+exec  ~/.config/sway/scripts/lock.sh
 
 input type:keyboard {
     xkb_layout latam
