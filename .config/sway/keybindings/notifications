@@ -1,0 +1,22 @@
+# --------------------------
+# Notifications Block
+# --------------------------
+
+mode "notifications" {
+    bindsym $down exec wtype -k Down
+    bindsym $up exec wtype -k Up
+    bindsym g exec wtype -k Home
+    bindsym Shift+g exec wtype -k End
+
+    bindsym $right exec wtype -k Return
+    bindsym d exec wtype -k Delete
+
+    bindsym Shift+c exec swaync-client -C -sw
+    bindsym Shift+d exec swaync-client -d -sw
+
+    bindsym $left exec swaync-client -cp -sw; mode "default"
+    bindsym q exec swaync-client -cp -sw; mode "default"
+    bindsym Escape exec swaync-client -cp -sw; mode "default"
+    bindsym $mod+x exec swaync-client -cp -sw; mode "default"
+}
+bindsym $mod+x exec swaync-client -op -sw; mode "notifications"

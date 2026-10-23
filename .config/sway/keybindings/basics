@@ -42,4 +42,4 @@ bindsym $mod+s exec $screenshottui_cmd
 bindsym Print exec $screenshottui_cmd
 
 # Do not disturb
-bindsym $mod+z exec ~/.config/sway/scripts/dnd-toggle.sh
+bindsym $mod+z exec swaync-client -d -sw

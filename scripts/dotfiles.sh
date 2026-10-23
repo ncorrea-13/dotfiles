@@ -8,7 +8,7 @@ cp ~/.claude/settings.json ~/Projects/things/dotfiles/.claude/settings.json
 cp ~/.config/topgrade.toml ~/Projects/things/dotfiles/.config/
 cp -r ~/.config/sway ~/Projects/things/dotfiles/.config/
 cp -r ~/.config/waybar ~/Projects/things/dotfiles/.config/
-cp -r ~/.config/dunst ~/Projects/things/dotfiles/.config/
+cp -r ~/.config/swaync ~/Projects/things/dotfiles/.config/
 cp -r ~/.config/btop ~/Projects/things/dotfiles/.config/
 cp -r ~/.config/fastfetch ~/Projects/things/dotfiles/.config/
 cp -r ~/.config/wezterm ~/Projects/things/dotfiles/.config/

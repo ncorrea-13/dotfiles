@@ -4,8 +4,8 @@ xwayland enable
 # autotiling
 exec  autotiling
 
-# exec dunst to show notifications
-exec dunst
+# swaync to show notifications
+exec swaync
 
 # syncthing for server sync
 exec syncthing --no-browser

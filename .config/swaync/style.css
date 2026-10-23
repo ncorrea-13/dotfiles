@@ -1,0 +1,104 @@
+* {
+  font-family: "FiraCode Nerd Font";
+  font-size: 12px;
+}
+
+@define-color bg #0b0712;
+@define-color bg-sel #24283b;
+@define-color fg #cdd6f4;
+@define-color accent #7aa2f7;
+@define-color critical #f7768e;
+
+.control-center {
+  background: @bg;
+  color: @fg;
+  border: 1px solid @accent;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.notification-row {
+  outline: none;
+  padding: 2px 0;
+}
+
+.notification-background .notification,
+.control-center .notification-row .notification-background .notification {
+  background: @bg;
+  color: @fg;
+  border: 1px solid @accent;
+  border-radius: 8px;
+}
+
+.control-center .notification-row .notification-background .notification {
+  border-color: @bg-sel;
+}
+
+.notification-background .notification.critical {
+  border-color: @critical;
+}
+
+.control-center .notification-row:focus .notification-background .notification,
+.control-center .notification-row:hover .notification-background .notification {
+  background: @bg-sel;
+  border-color: @accent;
+}
+
+.notification-group:focus {
+  border: 1px solid @accent;
+  border-radius: 8px;
+  background: alpha(@bg-sel, 0.4);
+}
+
+.notification-group .notification-group-headers { margin: 0 8px; }
+.notification-group .notification-group-header { color: @accent; }
+.notification-group .notification-group-icon { color: @accent; }
+.notification-group .notification-group-buttons button {
+  background: @bg-sel;
+  color: @fg;
+  border: none;
+  border-radius: 50%;
+}
+
+.notification-content { padding: 8px; }
+.summary { font-weight: bold; color: @fg; }
+.time, .body { color: @fg; }
+.time { opacity: 0.6; }
+
+.notification-background .close-button {
+  background: @bg-sel;
+  color: @fg;
+  border-radius: 50%;
+}
+
+.widget-title {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: @accent;
+}
+
+.widget-title > button {
+  background: @bg-sel;
+  color: @fg;
+  border: none;
+  border-radius: 6px;
+  padding: 2px 10px;
+}
+
+.widget-title > button:hover { background: @accent; color: @bg; }
+
+.widget-dnd {
+  margin: 0 0 8px 0;
+  color: @fg;
+}
+
+.widget-dnd > switch {
+  background: @bg-sel;
+  border-radius: 12px;
+  border: none;
+}
+
+.widget-dnd > switch:checked { background: @accent; }
+.widget-dnd > switch slider { background: @fg; border-radius: 12px; }
+
+.blank-window { background: transparent; }
