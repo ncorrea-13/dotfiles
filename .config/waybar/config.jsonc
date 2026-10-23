@@ -13,6 +13,7 @@
     "backlight",
     "network",
     "bluetooth",
+    "custom/dnd",
     "idle_inhibitor",
     "pulseaudio",
     "battery",
@@ -117,6 +118,13 @@
     "interval": 1,
     "format": " {}%",
     "tooltip-format": "{used}/{total} GiB",
+  },
+  "custom/dnd": {
+    "exec": "[ \"$(dunstctl is-paused)\" = true ] && echo 󰂛",
+    "interval": 5,
+    "signal": 8,
+    "tooltip": false,
+    "on-click": "~/.config/sway/scripts/dnd-toggle.sh",
   },
   "custom/power": {
     "format": "󰤆",

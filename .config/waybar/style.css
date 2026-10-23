@@ -54,6 +54,7 @@
 }
 
 #network,
+#custom-dnd,
 #idle_inhibitor,
 #bluetooth {
   margin: 7px;
