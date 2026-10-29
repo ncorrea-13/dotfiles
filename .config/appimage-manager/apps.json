@@ -1,0 +1,43 @@
+{
+  "apps": [
+    {
+      "name": "freetube",
+      "repo": "FreeTubeApp/FreeTube",
+      "asset_pattern": "amd64.AppImage",
+      "prerelease": true,
+      "category": "AudioVideo",
+      "asset_exclude": "zsync"
+    },
+    {
+      "name": "localsend",
+      "repo": "localsend/localsend",
+      "asset_pattern": "AppImage",
+      "prerelease": false,
+      "category": "Network"
+    },
+    {
+      "name": "obsidian",
+      "repo": "obsidianmd/obsidian-releases",
+      "asset_pattern": "AppImage",
+      "asset_exclude": "arm64",
+      "prerelease": false,
+      "category": "Office"
+    },
+    {
+      "name": "markpad",
+      "repo": "sftwrdotdev/Markpad",
+      "asset_pattern": "amd64.AppImage",
+      "asset_exclude": "sig",
+      "prerelease": false,
+      "category": "Office"
+    },
+    {
+      "name": "MonoCode",
+      "repo": "hardbeat920/monocode",
+      "asset_pattern": "amd64.AppImage",
+      "asset_exclude": "sig",
+      "prerelease": true,
+      "category": "Development"
+    }
+  ]
+}
