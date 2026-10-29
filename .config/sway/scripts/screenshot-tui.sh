@@ -19,13 +19,25 @@ pick() {
   MENU_WIDTH=380 menu -mesg "$1"
 }
 
+notify() {
+  notify-send -a screenshot -i "$icon" "$@"
+}
+
+shot() {
+  if [ "$dest" = "$copy" ]; then
+    grim "$@" - | wl-copy && notify -u low 'Screenshot copied' || notify 'Screenshot failed'
+  else
+    grim "$@" "$file" && notify -u low 'Screenshot saved' || notify 'Screenshot failed'
+  fi
+}
+
 hide_console() {
   sleep 0.1
 }
 
 if pgrep -x wf-recorder >/dev/null; then
   pkill -INT -x wf-recorder
-  notify-send -i "$icon" --urgency low 'Recording saved'
+  notify -u low 'Recording saved'
   exit 0
 fi
 
@@ -54,7 +66,7 @@ if [ "$mode" = "$rec" ]; then
     ;;
   esac
 
-  notify-send -i "$icon" --urgency low 'Recording started' 'Run again to stop'
+  notify -u low 'Recording started' 'Run again to stop'
   exit 0
 fi
 
@@ -66,28 +78,16 @@ case "$mode" in
   region="$(slurp)"
   [ -z "$region" ] && exit 0
   hide_console
-  if [ "$dest" = "$copy" ]; then
-    grim -g "$region" - | wl-copy && notify-send -i "$icon" --urgency low 'Screenshot copied' || notify-send -i "$icon" 'failed to take screenshot'
-  else
-    grim -g "$region" "$file" && notify-send -i "$icon" --urgency low 'Screenshot Taken' || notify-send -i "$icon" 'failed to take screenshot'
-  fi
+  shot -g "$region"
   ;;
 "$cwin")
   hide_console
   region=$(swaymsg -t get_tree | jq -r '..|try(.nodes[])?|select(.type == "con" and .visible == true and .focused == true) | "\(.rect.x),\(.rect.y) \(.rect.width)x\(.rect.height)"')
   [ -z "$region" ] && exit 0
-  if [ "$dest" = "$copy" ]; then
-    grim -g "$region" - | wl-copy && notify-send -i "$icon" --urgency low 'Screenshot copied' || notify-send -i "$icon" 'failed to take screenshot'
-  else
-    grim -g "$region" "$file" && notify-send -i "$icon" --urgency low 'Screenshot Taken' || notify-send -i "$icon" 'failed to take screenshot'
-  fi
+  shot -g "$region"
   ;;
 "$full")
   hide_console
-  if [ "$dest" = "$copy" ]; then
-    grim - | wl-copy && notify-send -i "$icon" --urgency low 'Screenshot copied' || notify-send -i "$icon" 'failed to take screenshot'
-  else
-    grim "$file" && notify-send -i "$icon" --urgency low 'Screenshot Taken' || notify-send -i "$icon" 'failed to take screenshot'
-  fi
+  shot
   ;;
 esac

@@ -20,4 +20,4 @@ if swaymsg -t get_tree | jq -e --arg id "$app_id" '.. | objects | select(.app_id
   exit 0
 fi
 
-swaymsg exec "wezterm --config-file ~/.config/wezterm/nchat-popup.lua --config initial_cols=110 --config initial_rows=34 start --always-new-process --class $app_id -- nchat -d $dir" >/dev/null
+swaymsg exec "wezterm --config-file ~/.config/wezterm/nchat-popup.lua --config initial_cols=110 --config initial_rows=34 start --always-new-process --class $app_id -- env MAGIC=/usr/lib/file/magic.mgc nchat -d $dir" >/dev/null
