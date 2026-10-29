@@ -33,7 +33,7 @@
     "tooltip": true,
     "format-icons": {
       "activated": "\uf0f4",
-      "deactivated": "\uf0f4",
+      "deactivated": "\udb83\udfaa",
     },
   },
   "cpu": {
