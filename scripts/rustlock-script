@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+pgrep -x rustlock >/dev/null && exit 0
+
 rustlock \
   --screenshots \
   --clock \
