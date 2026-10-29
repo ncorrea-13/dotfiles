@@ -26,7 +26,7 @@ run_with_timeout() {
   wait "$pid" 2>/dev/null
   local status=$?
 
-  # el proceso ya terminó, no hace falta el watcher: lo matamos en silencio
+  # process already exited, watcher not needed: kill it silently
   kill "$watcher" 2>/dev/null
   wait "$watcher" 2>/dev/null
 

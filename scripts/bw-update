@@ -6,15 +6,15 @@ LATEST=$(curl -fs https://api.github.com/repos/bitwarden/clients/releases |
 CURRENT=$(bw --version 2>/dev/null || true)
 
 [[ "$LATEST" == "$CURRENT" ]] && {
-  echo "bw $CURRENT ya está al día"
+  echo "bw $CURRENT is up to date"
   exit 0
 }
 
-echo "Instalando bw v$LATEST (actual: ${CURRENT:-ninguna})..."
+echo "Installing bw v$LATEST (current: ${CURRENT:-none})..."
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
 curl -fLo "$TMP/bw.zip" \
   "https://github.com/bitwarden/clients/releases/download/cli-v${LATEST}/bw-linux-${LATEST}.zip"
 unzip -o "$TMP/bw.zip" -d ~/.local/bin/
 chmod +x ~/.local/bin/bw
-echo "Listo: $(bw --version)"
+echo "Done: $(bw --version)"
