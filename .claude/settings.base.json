@@ -1,7 +1,8 @@
 {
   "env": {
     "DISABLE_AUTOUPDATER": "1",
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "ENABLE_TOOL_SEARCH": "auto"
   },
   "attribution": {
     "commit": "",
@@ -57,8 +58,9 @@
   },
   "effortLevel": "low",
   "theme": "auto",
-  "statusLine": {
-    "type": "command",
-    "command": "'/home/ncorrea/.local/share/mise/installs/bun/1.4.3/bin/bun' --env-file /dev/null '/home/ncorrea/.claude/plugins/claude-hud/statusline.mjs'"
+  "modelSettings": {
+    "claude-sonnet-5-5": {
+      "autoCompactWindow": 400000
+    }
   }
 }
