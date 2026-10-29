@@ -6,7 +6,7 @@ laptop_output="eDP-1"
 mapfile -t externals < <(swaymsg -t get_outputs | jq -r '.[].name' | grep -v -x "$laptop_output")
 
 if [ ${#externals[@]} -eq 0 ]; then
-  notify-send "Displays" "No external monitor connected"
+  notify-send -a displays "Displays" "No external monitor connected"
   exit 0
 fi
 
@@ -31,6 +31,22 @@ if [ "$choice" = "$monitor" ] || [ "$choice" = "$dual" ]; then
   [ "$orientation" = "$vertical" ] && transform="270"
 fi
 
+# Side of the externals relative to the laptop (dual only).
+laptop_x=0 ext_x=1366
+if [ "$choice" = "$dual" ]; then
+  left=$'Left'
+  right=$'Right'
+  side=$(printf '%s\n%s\n' "$right" "$left" |
+    MENU_WIDTH=380 menu -mesg "External side")
+  [ -z "$side" ] && exit 0
+  if [ "$side" = "$left" ]; then
+    ext_width=1920
+    [ "$transform" = "270" ] && ext_width=1080
+    laptop_x=$((ext_width * ${#externals[@]}))
+    ext_x=0
+  fi
+fi
+
 # Place external outputs side by side, left to right, starting at x=$1.
 enable_externals() {
   local x=$1 width=1920
@@ -51,8 +67,8 @@ case "$choice" in
   swaymsg output "$laptop_output" disable
   ;;
 "$dual")
-  swaymsg output "$laptop_output" enable res 1366x768 pos 0 0
-  enable_externals 1366
+  swaymsg output "$laptop_output" enable res 1366x768 pos "$laptop_x" 0
+  enable_externals "$ext_x"
   ;;
 "$mirror")
   swaymsg output "$laptop_output" enable res 1366x768 pos 0 0
@@ -72,4 +88,4 @@ else
   setsid waybar >/dev/null 2>&1 &
 fi
 
-notify-send "Displays" "Applied: $choice"
+notify-send -a displays "Displays" "Applied: $choice"
