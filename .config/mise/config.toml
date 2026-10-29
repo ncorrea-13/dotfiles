@@ -1,0 +1,11 @@
+[tools]
+bun = "latest"
+claude = "latest"
+deno = "latest"
+gh = "latest"
+go = "latest"
+neovim = "latest"
+node = "latest"
+opencode = "latest"
+pnpm = "latest"
+python = "latest"
