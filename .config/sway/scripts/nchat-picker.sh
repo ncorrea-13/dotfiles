@@ -15,9 +15,15 @@ esac
 
 app_id=$(basename "$dir")
 
+case "$choice" in
+WhatsApp) cmd="env WPTUI_IMAGE_PROTOCOL=sixel wp-tui" ;;
+"WhatsApp Work") cmd="env WPTUI_IMAGE_PROTOCOL=sixel wp-tui -d $HOME/.local/share/wptui-work" ;;
+*) cmd="env MAGIC=/usr/lib/file/magic.mgc nchat -d $dir" ;;
+esac
+
 if swaymsg -t get_tree | jq -e --arg id "$app_id" '.. | objects | select(.app_id? == $id)' >/dev/null 2>&1; then
   swaymsg "[app_id=\"$app_id\"] scratchpad show" >/dev/null
   exit 0
 fi
 
-swaymsg exec "wezterm --config-file ~/.config/wezterm/nchat-popup.lua --config initial_cols=110 --config initial_rows=34 start --always-new-process --class $app_id -- env MAGIC=/usr/lib/file/magic.mgc nchat -d $dir" >/dev/null
+swaymsg exec "wezterm --config-file ~/.config/wezterm/nchat-popup.lua --config initial_cols=110 --config initial_rows=34 start --always-new-process --class $app_id -- $cmd" >/dev/null
