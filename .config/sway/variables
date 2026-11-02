@@ -39,7 +39,7 @@ set $powermenu_cmd ~/.config/sway/scripts/powermenu.sh
 set $screenshottui_cmd ~/.config/sway/scripts/screenshot-tui.sh
 set $clipboardtui_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=24 start --always-new-process --class clipboard-tui -- ~/.config/sway/scripts/clipboard-tui.sh
 set $bitwarden_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=28 start --always-new-process --class bitwarden -- ~/.local/bin/bw-tui
-set $ytglide_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=100 --config initial_rows=32 start --always-new-process --class ytglide -- ~/.local/bin/ytglide
+set $ytglide_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=100 --config initial_rows=32 start --always-new-process --class ytglide -- env YTGLIDE_IMAGE_PROTOCOL=sixel ~/.local/bin/ytglide
 set $nchatpicker_cmd ~/.config/sway/scripts/nchat-picker.sh
 set $concord_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=110 --config initial_rows=34 start --always-new-process --class concord -- env ALSA_PLUGIN_DIR=/usr/lib/x86_64-linux-gnu/alsa-lib ~/.local/bin/concord
 set $ekphos_cmd wezterm --config-file ~/.config/wezterm/tui-popup.lua --config initial_cols=90 --config initial_rows=28 start --always-new-process --class ekphos -- ~/.cargo/bin/ekphos
