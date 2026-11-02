@@ -4,6 +4,15 @@ shopt -s nullglob
 
 fzf_colors="fg:#cdd6f4,bg:#0b0712,hl:#7aa2f7,fg+:#cdd6f4,bg+:#24283b,hl+:#bd93f9,info:#e0af68,prompt:#7aa2f7,pointer:#f7768e,marker:#9ece6a,spinner:#7dcfff,border:#7aa2f7"
 
+files=()
+for f in ~/.local/share/applications/*.desktop \
+  ~/.local/share/applications/flatpak-applications/*.desktop \
+  /usr/local/share/applications/*.desktop \
+  /usr/share/applications/*.desktop \
+  /var/lib/flatpak/exports/share/applications/*.desktop; do
+  [ -r "$f" ] && files+=("$f")
+done
+
 entries=$(awk -F= '
   FNR==1 { name=""; execl=""; nodisplay=""; hidden="" }
   /^Name=/ && !name { name=substr($0,6) }
@@ -16,11 +25,7 @@ entries=$(awk -F= '
       print name "\t" execl
     }
   }
-' ~/.local/share/applications/*.desktop \
-  ~/.local/share/applications/flatpak-applications/*.desktop \
-  /usr/local/share/applications/*.desktop \
-  /usr/share/applications/*.desktop \
-  /var/lib/flatpak/exports/share/applications/*.desktop 2>/dev/null)
+' "${files[@]}" 2>/dev/null)
 
 choice=$(printf '%s\n' "$entries" | cut -f1 | sort |
   fzf --prompt=' ' --layout=reverse --border --color="$fzf_colors")
