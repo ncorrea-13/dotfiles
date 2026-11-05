@@ -1,0 +1,75 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugins": [
+    "@dietrichgebert/ponytail"
+  ],
+  "provider": {
+    "openai": {
+      "options": {
+        "baseURL": "http://127.0.0.1:8787/w/opencode/openai/v1"
+      }
+    },
+    "anthropic": {
+      "options": {
+        "baseURL": "http://127.0.0.1:8787/w/opencode/anthropic/v1"
+      }
+    },
+    "opencode-go": {
+      "options": {
+        "baseURL": "http://127.0.0.1:8787/w/opencode/compat/opencode-go/v1"
+      }
+    }
+  },
+  "skills": [
+    "~/.claude/plugins/marketplaces/claude-plugins-official/plugins/frontend-design/skills",
+    "~/.claude/plugins/marketplaces/addy-agent-skills/skills",
+    "~/.claude/plugins/marketplaces/ux-ui-agent-skills/.claude/skills",
+    "~/.claude/plugins/marketplaces/caveman/skills",
+    "~/.claude/plugins/marketplaces/mattpocock/skills/engineering",
+    "~/.claude/plugins/marketplaces/mattpocock/skills/productivity"
+  ],
+  "mcp": {
+    "caveman": {
+      "type": "local",
+      "command": [
+        "/home/ncorrea/.caveman/bin/caveman-mcp"
+      ],
+      "enabled": true
+    },
+    "servers": {
+      "rolboard-1": {
+        "type": "local",
+        "command": [
+          "/home/ncorrea/.local/bin/rolboard-mcp"
+        ],
+        "environment": {
+          "ROLBOARD_URL": "https://my-rolboard.ncorrea.com.ar",
+          "ROLBOARD_CAMPAIGN": "1"
+        }
+      },
+      "rolboard-2": {
+        "type": "local",
+        "command": [
+          "/home/ncorrea/.local/bin/rolboard-mcp"
+        ],
+        "environment": {
+          "ROLBOARD_URL": "https://my-rolboard.ncorrea.com.ar",
+          "ROLBOARD_CAMPAIGN": "2"
+        }
+      },
+      "utn-mendoza": {
+        "type": "local",
+        "command": [
+          "node",
+          "/home/ncorrea/Projects/things/utnfrm-mcp/dist/index.js"
+        ],
+        "environment": {
+          "UTN_MCP_ASSIGNMENT_SUBMISSIONS_ENABLED": "false"
+        }
+      }
+    }
+  },
+  "plugin": [
+    "./plugins/caveman"
+  ]
+}
