@@ -126,7 +126,7 @@ install_one() {
   cat >"$desktop_file" <<EOF
 [Desktop Entry]
 Name=${name^}
-Exec=$BIN_DIR/$name --no-sandbox %u
+Exec="$BIN_DIR/$name"
 Icon=$name
 Type=Application
 Categories=${category};
