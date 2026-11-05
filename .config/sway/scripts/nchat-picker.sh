@@ -16,8 +16,8 @@ esac
 app_id=$(basename "$dir")
 
 case "$choice" in
-WhatsApp) cmd="env WPTUI_IMAGE_PROTOCOL=sixel wp-tui" ;;
-"WhatsApp Work") cmd="env WPTUI_IMAGE_PROTOCOL=sixel wp-tui -d $HOME/.local/share/wptui-work" ;;
+WhatsApp) cmd="env WPTUI_IMAGE_PROTOCOL=iterm2 wp-tui" ;;
+"WhatsApp Work") cmd="env WPTUI_IMAGE_PROTOCOL=iterm2 wp-tui -d $HOME/.local/share/wptui-work" ;;
 *) cmd="env MAGIC=/usr/lib/file/magic.mgc nchat -d $dir" ;;
 esac
 
