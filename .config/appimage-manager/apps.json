@@ -32,12 +32,20 @@
       "category": "Office"
     },
     {
-      "name": "MonoCode",
-      "repo": "hardbeat920/monocode",
-      "asset_pattern": "amd64.AppImage",
-      "asset_exclude": "sig",
+      "name": "Orca",
+      "repo": "stablyai/orca",
+      "asset_pattern": ".AppImage",
+      "asset_exclude": "arm64",
       "prerelease": true,
       "category": "Development"
+    },
+    {
+      "name": "Xodus Nexus",
+      "repo": "domsvoboda/xodus-nexus",
+      "asset_pattern": "x86_64.AppImage",
+      "asset_exclude": "sha512sum",
+      "prerelease": true,
+      "category": "Gaming"
     }
   ]
 }
