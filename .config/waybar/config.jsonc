@@ -113,6 +113,7 @@
     "scroll-step": 5,
     "format": " {percent}%",
     "tooltip": false,
+    "on-click": "~/.config/sway/scripts/nightlight.sh",
   },
   "memory": {
     "interval": 1,

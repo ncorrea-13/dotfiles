@@ -43,3 +43,6 @@ bindsym Print exec $screenshottui_cmd
 
 # Do not disturb
 bindsym $mod+z exec swaync-client -d -sw
+
+# Night light (rofi menu)
+bindsym $mod+Shift+g exec ~/.config/sway/scripts/nightlight.sh
