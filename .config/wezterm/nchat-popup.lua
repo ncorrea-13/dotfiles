@@ -14,6 +14,7 @@ config.enable_tab_bar = false
 config.use_resize_increments = false
 config.window_close_confirmation = "NeverPrompt"
 config.check_for_updates = false
+config.enable_kitty_keyboard = true
 
 config.background = {
 	{
