@@ -42,6 +42,11 @@ Shared rofi menu sourced by the option-menu scripts. `menu` reads options from s
 Account picker for `nchat`. Lets you pick a messaging account (Telegram, Signal, WhatsApp personal/work) and opens `nchat` pointed at that account's config dir inside a floating Wezterm popup. If a `nchat` window is already open on the _same_ account it's just recalled from the scratchpad; if it's open on a _different_ account, the old instance is killed first. Remembers the last-selected account in `~/.cache/nchat_account`.
 **Depends on:** `menu.sh`, `swaymsg`, `jq`, `wezterm`.
 
+### `nightlight.sh`
+
+Rofi menu for the yellow screen filter. Lists `Off`, `Auto` (daemon that follows the sun for Mendoza, 3500K night / 6500K day) and fixed temperatures (2700K–4500K); it applies the pick and closes, and the header shows the active setting. Backend: `gammastep`. Current state lives in `$XDG_RUNTIME_DIR/nightlight.state`.
+**Depends on:** `gammastep`, `menu.sh` (`rofi`, `swaymsg`, `jq`).
+
 ### `powermenu.sh`
 
 3x2 rofi grid (icon over label, `h`/`j`/`k`/`l` to move, `Enter` to pick, `q`/`Esc` to cancel) for shutdown / reboot / hibernate / lock / suspend / logout, with uptime in the header; every destructive action is gated behind a Yes/No confirmation prompt. Suspend additionally pauses `mpc` and mutes ALSA before calling suspend. All actions go through `elogind`.

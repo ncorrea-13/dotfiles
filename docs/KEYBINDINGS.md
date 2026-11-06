@@ -37,6 +37,7 @@ Vim-style directional keys are also mapped: `$left`=`h`, `$down`=`j`, `$up`=`k`,
 | `$mod+period`           | Switch to next workspace                                         |
 | `$mod+s` ; `Print`      | Screenshots                                                      |
 | `$mod+z`                | Toggle Do Not Disturb (SwayNC)                                   |
+| `$mod+Shift+g`          | Toggle night light (yellow screen filter)                        |
 | `XF86AudioRaiseVolume`  | Volume up 5%                                                     |
 | `XF86AudioLowerVolume`  | Volume down 5%                                                   |
 | `XF86AudioMute`         | Toggle mute (output)                                             |

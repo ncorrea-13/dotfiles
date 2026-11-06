@@ -37,6 +37,7 @@ También hay mapeadas teclas direccionales estilo Vim: `$left`=`h`, `$down`=`j`,
 | `$mod+period`           | Ir al workspace siguiente                              |
 | `$mod+s` ; `Print`      | Capturas de pantalla                                   |
 | `$mod+z`                | Alternar No molestar (SwayNC)                                    |
+| `$mod+Shift+g`          | Alternar filtro de luz amarilla (night light)                    |
 | `XF86AudioRaiseVolume`  | Subir volumen 5%                                       |
 | `XF86AudioLowerVolume`  | Bajar volumen 5%                                       |
 | `XF86AudioMute`         | Silenciar/activar salida de audio                      |

@@ -37,6 +37,7 @@ Lista de todos los programas que referencian estos dotfiles, para poder instalar
 - [WireMix](https://github.com/tsowell/wiremix)
 - [brightnessctl](https://github.com/Hummer12007/brightnessctl)
 - [auto-cpufreq](https://github.com/AdnanHodzic/auto-cpufreq)
+- [gammastep](https://gitlab.com/chinstrap/gammastep) - filtro de luz amarilla / temperatura de color (`nightlight.sh`)
 
 ### Shell y terminal
 

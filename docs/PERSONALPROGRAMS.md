@@ -37,6 +37,7 @@ A list of every program these dotfiles reference, for setting them up on a fresh
 - [WireMix](https://github.com/tsowell/wiremix)
 - [brightnessctl](https://github.com/Hummer12007/brightnessctl)
 - [auto-cpufreq](https://github.com/AdnanHodzic/auto-cpufreq)
+- [gammastep](https://gitlab.com/chinstrap/gammastep) - night light / screen color temperature (`nightlight.sh`)
 
 ### Shell & terminal
 
