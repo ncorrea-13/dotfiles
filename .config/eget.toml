@@ -1,0 +1,21 @@
+[global]
+target = "~/.local/bin"
+upgrade_only = true
+
+["jesseduffield/lazydocker"]
+
+["jesseduffield/lazygit"]
+
+["rshelekhov/lazymake"]
+
+["hrkfdn/ncspot"]
+
+["gurgeous/tennis"]
+
+["yt-dlp/yt-dlp"]
+
+["chojs23/concord"]
+
+["erikjuhani/basalt"]
+
+["d99kris/nchat"]
