@@ -40,8 +40,8 @@
       "category": "Development"
     },
     {
-      "name": "Xodus Nexus",
-      "repo": "domsvoboda/xodus-nexus",
+      "name": "Nexus Laucher",
+      "repo": "domsvoboda/nexus-launcher",
       "asset_pattern": "x86_64.AppImage",
       "asset_exclude": "sha512sum",
       "prerelease": true,
