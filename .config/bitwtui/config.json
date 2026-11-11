@@ -1,0 +1,12 @@
+{
+  "bw_cmd": "bw",
+  "session_max_age_secs": 1200,
+  "clipboard_clear_secs": 9,
+  "generator": {
+    "length": 20,
+    "uppercase": true,
+    "lowercase": true,
+    "numbers": true,
+    "special": false
+  }
+}
