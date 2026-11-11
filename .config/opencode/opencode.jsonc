@@ -23,7 +23,6 @@
   "skills": [
     "~/.claude/plugins/marketplaces/claude-plugins-official/plugins/frontend-design/skills",
     "~/.claude/plugins/marketplaces/addy-agent-skills/skills",
-    "~/.claude/plugins/marketplaces/ux-ui-agent-skills/.claude/skills",
     "~/.claude/plugins/marketplaces/caveman/skills",
     "~/.claude/plugins/marketplaces/mattpocock/skills/engineering",
     "~/.claude/plugins/marketplaces/mattpocock/skills/productivity"
@@ -66,6 +65,11 @@
         "environment": {
           "UTN_MCP_ASSIGNMENT_SUBMISSIONS_ENABLED": "false"
         }
+      },
+      "tavily": {
+        "type": "remote",
+        "url": "https://mcp.tavily.com/mcp/?tavilyApiKey={env:TAVILY_API_KEY}",
+        "oauth": false
       }
     }
   },
