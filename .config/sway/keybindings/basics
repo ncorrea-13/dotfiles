@@ -36,6 +36,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 # Microphone mute/unmute
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioPlay exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Screenshots
 bindsym $mod+s exec $screenshottui_cmd
