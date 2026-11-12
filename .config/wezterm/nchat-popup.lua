@@ -16,6 +16,10 @@ config.window_close_confirmation = "NeverPrompt"
 config.check_for_updates = false
 config.enable_kitty_keyboard = true
 
+config.keys = {
+	{ key = "Delete", action = wezterm.action.SendString("\x1b[3~") },
+}
+
 config.background = {
 	{
 		source = { Color = "#0b0712" },
