@@ -62,6 +62,9 @@ alias ctf-pull='rsync -avz --delete arch-vm:~/VM/ ~/Pictures/VM/'
 alias pod-on='rc rc-service podman-service start'
 alias pod-off='rc rc-service podman-service stop'
 
+alias dock-on='rc rc-service docker start'
+alias dock-off='rc rc-service docker stop'
+
 # rclone
 alias onedrive-on='rclone --vfs-cache-mode writes mount OneDrive: ~/Drive &'
 alias onedrive-off='umount ~/Drive'
