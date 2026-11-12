@@ -45,6 +45,21 @@ Vim-style directional keys are also mapped: `$left`=`h`, `$down`=`j`, `$up`=`k`,
 | `XF86MonBrightnessUp`   | Brightness +5%                                                   |
 | `XF86MonBrightnessDown` | Brightness −5%                                                   |
 
+### USB number pad (`keybindings/media`)
+
+Bindings follow the keypad's horizontal orientation. Physical rows, left to right:
+
+| Row | Keys and actions |
+| --- | ---------------- |
+| `Backspace` · `-` · `+` · `Enter` (double-width) | Stop playback · volume −5% · volume +5% · mute microphone and output |
+| `*` · `9` · `6` · `3` · `.` | WezTerm · ncspot · ytglide · FreeTube · Discord |
+| `/` · `8` · `5` · `2` · `00` | Keep awake · next track · play/pause · previous track · unassigned |
+| `NumLock` · `7` · `4` · `1` · `0` | Do Not Disturb · mute microphone · unmute microphone · mute output · unmute output |
+
+`Keep awake` shares state with Waybar's coffee icon and inhibits idle locking and display power-off. `00` remains unassigned. Alternate keysyms with NumLock: `9`/`KP_Prior`, `6`/`KP_Right`, `3`/`KP_Next`, `.`/`Delete`, `8`/`KP_Up`, `5`/`KP_Begin`, `2`/`KP_Down`, `7`/`KP_Home`, `4`/`KP_Left`, `1`/`KP_End`, `0`/`KP_Insert`.
+
+Bindings target device `HID 04d9:1203`. `seat seat0 keyboard_grouping none` prevents Sway from also passing those keys to the focused application, working around a known `bindsym --input-device` issue. It isolates each keyboard's state, so modifiers and NumLock no longer synchronize across devices.
+
 The `floating_modifier` is also `$mod` - hold `$mod` and drag any window with the mouse to move it while floating.
 
 ### Applications (`keybindings/apps`)

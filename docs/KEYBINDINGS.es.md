@@ -45,6 +45,21 @@ También hay mapeadas teclas direccionales estilo Vim: `$left`=`h`, `$down`=`j`,
 | `XF86MonBrightnessUp`   | Brillo +5%                                             |
 | `XF86MonBrightnessDown` | Brillo −5%                                             |
 
+### Teclado numérico USB (`keybindings/media`)
+
+Atajos adaptados a la orientación horizontal. Filas físicas, de izquierda a derecha:
+
+| Fila | Teclas y acciones |
+| ---- | ----------------- |
+| `Backspace` · `-` · `+` · `Enter` (doble) | Detener reproducción · volumen −5% · volumen +5% · silenciar micrófono y salida |
+| `*` · `9` · `6` · `3` · `.` | WezTerm · ncspot · ytglide · FreeTube · Discord |
+| `/` · `8` · `5` · `2` · `00` | Mantener despierta · pista siguiente · play/pause · pista anterior · libre |
+| `NumLock` · `7` · `4` · `1` · `0` | No molestar · silenciar micrófono · activar micrófono · silenciar salida · activar salida |
+
+`Mantener despierta` comparte estado con la taza de Waybar e inhibe bloqueo y apagado de pantalla por inactividad. `00` queda libre. Keysyms alternativos con NumLock: `9`/`KP_Prior`, `6`/`KP_Right`, `3`/`KP_Next`, `.`/`Delete`, `8`/`KP_Up`, `5`/`KP_Begin`, `2`/`KP_Down`, `7`/`KP_Home`, `4`/`KP_Left`, `1`/`KP_End`, `0`/`KP_Insert`.
+
+Los atajos se limitan al dispositivo `HID 04d9:1203`. `seat seat0 keyboard_grouping none` evita que Sway también envíe esas teclas a la aplicación enfocada; corrige un problema conocido de los atajos `bindsym --input-device`. Aísla el estado de cada teclado, por lo que modificadores y NumLock ya no se sincronizan entre dispositivos.
+
 El `floating_modifier` también es `$mod`. Cualquier ventana que esté flontando se puede mover si se mantiene `$mod` y se arrastrá con el mouse.
 
 ### Aplicaciones (`keybindings/apps`)

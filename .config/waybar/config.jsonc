@@ -14,7 +14,7 @@
     "network",
     "bluetooth",
     "custom/notification",
-    "idle_inhibitor",
+    "custom/idle-inhibitor",
     "pulseaudio",
     "battery",
     "custom/power",
@@ -28,13 +28,11 @@
   "custom/separator": {
     "format": "|",
   },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "tooltip": true,
-    "format-icons": {
-      "activated": "\uf0f4",
-      "deactivated": "\udb83\udfaa",
-    },
+  "custom/idle-inhibitor": {
+    "exec": "~/.config/sway/scripts/idle-inhibitor.sh status",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "~/.config/sway/scripts/idle-inhibitor.sh toggle",
   },
   "cpu": {
     "interval": 1,

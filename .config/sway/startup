@@ -13,6 +13,7 @@ exec syncthing --no-browser
 # clipboard history
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
+exec playerctld daemon
 
 # polkit for fingerprint
 exec /usr/libexec/polkit-mate-authentication-agent-1

@@ -111,11 +111,14 @@ in_resize && /^\}/ {
 /^ *bindsym +/ {
   rest = $0
   sub(/^ *bindsym +/, "", rest)
+  is_keypad = (rest ~ /^--input-device=/)
+  sub(/^--input-device=[^ ]+ +/, "", rest)
   split_pos = index(rest, " ")
   key = substr(rest, 1, split_pos - 1)
   action = substr(rest, split_pos + 1)
 
   key_disp = subst(key)
+  if (is_keypad) key_disp = key_disp " [keypad]"
   gsub(/Mod4/, "Super", key_disp)
   gsub(/Mod1/, "Alt", key_disp)
   gsub(/[Ss]hift/, "Shift", key_disp)

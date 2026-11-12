@@ -55,7 +55,7 @@
 
 #network,
 #custom-notification,
-#idle_inhibitor,
+#custom-idle-inhibitor,
 #bluetooth {
   margin: 7px;
 }

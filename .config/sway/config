@@ -4,7 +4,10 @@ include ~/.config/sway/outputs
 include ~/.config/sway/inputs
 include ~/.config/sway/startup
 
+seat seat0 keyboard_grouping none
+
 include ~/.config/sway/keybindings/basics
+include ~/.config/sway/keybindings/media
 include ~/.config/sway/keybindings/apps
 include ~/.config/sway/keybindings/launchers
 include ~/.config/sway/keybindings/movement

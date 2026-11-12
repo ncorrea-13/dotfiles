@@ -1,0 +1,57 @@
+# Horizontal USB keypad
+set $keypad 1241:4611:HID_04d9:1203
+
+# Row 1: Backspace, -, +, Enter (double-width)
+# Stop playback
+bindsym --input-device=$keypad BackSpace exec ~/.config/sway/scripts/media-control.sh stop
+# Volume down
+bindsym --input-device=$keypad KP_Subtract exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+# Volume up
+bindsym --input-device=$keypad KP_Add exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+# Privacy: mute microphone and output
+bindsym --input-device=$keypad KP_Enter exec sh -c 'pactl set-source-mute @DEFAULT_SOURCE@ 1; wpctl set-mute @DEFAULT_AUDIO_SINK@ 1'
+
+# Row 2: *, 9, 6, 3, .
+# Terminal
+bindsym --input-device=$keypad KP_Multiply exec $term
+# ncspot
+bindsym --input-device=$keypad KP_9 exec ~/.config/sway/scripts/scratchpad-toggle.sh ncspot $ncspot_cmd
+bindsym --input-device=$keypad KP_Prior exec ~/.config/sway/scripts/scratchpad-toggle.sh ncspot $ncspot_cmd
+# ytglide
+bindsym --input-device=$keypad KP_6 exec ~/.config/sway/scripts/scratchpad-toggle.sh ytglide $ytglide_cmd
+bindsym --input-device=$keypad KP_Right exec ~/.config/sway/scripts/scratchpad-toggle.sh ytglide $ytglide_cmd
+# FreeTube
+bindsym --input-device=$keypad KP_3 exec $youtube
+bindsym --input-device=$keypad KP_Next exec $youtube
+# Discord
+bindsym --input-device=$keypad KP_Decimal exec $discord
+bindsym --input-device=$keypad Delete exec $discord
+
+# Row 3: /, 8, 5, 2, 00
+# Toggle keep-awake mode
+bindsym --input-device=$keypad KP_Divide exec ~/.config/sway/scripts/idle-inhibitor.sh toggle
+# Next track
+bindsym --input-device=$keypad KP_8 exec ~/.config/sway/scripts/media-control.sh next
+bindsym --input-device=$keypad KP_Up exec ~/.config/sway/scripts/media-control.sh next
+# Play/pause
+bindsym --input-device=$keypad KP_5 exec ~/.config/sway/scripts/media-control.sh play-pause
+bindsym --input-device=$keypad KP_Begin exec ~/.config/sway/scripts/media-control.sh play-pause
+# Previous track
+bindsym --input-device=$keypad KP_2 exec ~/.config/sway/scripts/media-control.sh previous
+bindsym --input-device=$keypad KP_Down exec ~/.config/sway/scripts/media-control.sh previous
+
+# Row 4: NumLock, 7, 4, 1, 0
+# Toggle Do Not Disturb
+bindsym --input-device=$keypad Num_Lock exec swaync-client -d -sw
+# Mute microphone
+bindsym --input-device=$keypad KP_7 exec pactl set-source-mute @DEFAULT_SOURCE@ 1
+bindsym --input-device=$keypad KP_Home exec pactl set-source-mute @DEFAULT_SOURCE@ 1
+# Unmute microphone
+bindsym --input-device=$keypad KP_4 exec pactl set-source-mute @DEFAULT_SOURCE@ 0
+bindsym --input-device=$keypad KP_Left exec pactl set-source-mute @DEFAULT_SOURCE@ 0
+# Mute output
+bindsym --input-device=$keypad KP_1 exec wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
+bindsym --input-device=$keypad KP_End exec wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
+# Unmute output
+bindsym --input-device=$keypad KP_0 exec wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+bindsym --input-device=$keypad KP_Insert exec wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
