@@ -45,7 +45,7 @@ Vim-style directional keys are also mapped: `$left`=`h`, `$down`=`j`, `$up`=`k`,
 | `XF86MonBrightnessUp`   | Brightness +5%                                                   |
 | `XF86MonBrightnessDown` | Brightness −5%                                                   |
 
-### USB number pad (`keybindings/media`)
+### External Deck (`keybindings/media`)
 
 Bindings follow the keypad's horizontal orientation. Physical rows, left to right:
 

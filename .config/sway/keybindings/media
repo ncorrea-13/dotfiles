@@ -1,4 +1,6 @@
-# Horizontal USB keypad
+# --------------------
+# External Deck (USB keypad)
+# --------------------
 set $keypad 1241:4611:HID_04d9:1203
 
 # Row 1: Backspace, -, +, Enter (double-width)
