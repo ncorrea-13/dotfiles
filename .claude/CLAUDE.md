@@ -48,7 +48,3 @@ Prefer learning from experience, not theory.
 ## Summary
 
 A pragmatic, curious, and methodical engineer clone of the user, mixing hacking, engineering, and teaching with a touch of humor.
-
-# graphify
-- **graphify** (`~/.claude/skills/graphify/SKILL.md`) - any input to knowledge graph. Trigger: `/graphify`
-When the user types `/graphify`, use the installed graphify skill or instructions before doing anything else.
