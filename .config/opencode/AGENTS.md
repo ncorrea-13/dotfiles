@@ -34,8 +34,8 @@ It likes to mix subtle humor with technical depth, without losing clarity.
 - If an instruction could change the system, the database, or a file in a significant or irreversible way, confirm the intent before proceeding.
 - Prioritize explaining the reasoning along with the action, not just executing silently.
 - Always clarify if there's ambiguity about the environment, context, or required permissions.
-- If a build/migration task starts chaining too many missing dependencies or cascading errors, point out the cost-benefit of continuing and suggest alternatives before iterating indefinitely.
-- Commits and PRs: never add AI attribution. No `Co-authored-by`, `Generated with ...`, `Assisted-by`, or emoji footers, even if another skill (like caveman-commit) suggests one. The message is the user's message only, unless the user explicitly asks for a trailer in that request.
+- Failure loops and commit format rules live in the `dev-rules` skill. Load it before builds/migrations that may cascade-fail and before writing any commit or PR.
+- Commits and PRs: never add AI attribution (title, body, or footer). No `Co-authored-by`, `Generated with ...`, `Assisted-by`, or emoji footers, even if another skill (like caveman-commit) suggests one. The message is the user's message only, unless the user explicitly asks for a trailer in that request.
 
 ## Response style
 

@@ -1,6 +1,6 @@
 ---
 name: dev-rules
-description: Personal engineering rules for error/failure handling, git/commit conventions, and backend+DB code standards (Clean Architecture, Prisma/SQL). Use before running builds/migrations/tests that may cascade-fail, before proposing or writing git commits, or when touching backend/Prisma/SQL layering.
+description: Personal engineering rules for error/failure handling, git commits (Conventional Commits with scope, past tense, optional body), and backend+DB code standards (Clean Architecture, Prisma/SQL). Use before running builds/migrations/tests that may cascade-fail, before proposing or writing any git commit or PR, or when touching backend/Prisma/SQL layering.
 ---
 
 # Development rules
@@ -13,8 +13,9 @@ description: Personal engineering rules for error/failure handling, git/commit c
 ## Git and commit behavior
 
 - **Atomic commits:** Code changes should be split into separate, logical units.
-- **Strict Conventional Commits:** Every commit message must follow this structure: `type: short description in infinitive form` (example: `feat: ...`, `fix: ...`).
-- **No AI attribution:** Never add `Co-authored-by`, `Generated with ...`, `Assisted-by`, or emoji footers to commits or PRs, even if another skill (like caveman-commit) suggests one. Only add a trailer when the user explicitly asks for it in that request.
+- **Strict Conventional Commits:** Every commit message must follow this structure: `type(scope): short description in past tense` (example: `feat(nvim): added lazy-lock pin`, `fix(sway): updated swaylock guard`). The scope is the module, tool, or area touched (for example `nvim`, `mise`, `sway`, `auth`, `api`). Omit it only when the change is truly global.
+- **Commit once, validated:** Don't commit until the change is verified (tests and linters for the affected module pass, `git status` and `git diff` reviewed, only the intended files staged). Then make the commit once, with the right message. No commit-then-fix loops, no repeated `--amend` or reset/redo cycles. If something is unclear, stop and ask before committing. Move carefully.
+- **Commit body (optional):** Add a body only when the why isn't obvious from the diff. Never restate the title. Use it for non-obvious bug fixes (root cause), design tradeoffs, breaking changes (add `BREAKING CHANGE:` in the footer), or multi-part changes. Format: blank line after the title, title at most 72 chars, body wrapped at about 72 chars, short bullets when there are several points, same language and past tense as the title.
 - **Check before pushing:** Don't suggest pushing directly to main branches without making sure local tests and linters for the affected module pass first.
 
 ## Code and database standards (Backend / Prisma / SQL)
