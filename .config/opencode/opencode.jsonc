@@ -20,13 +20,6 @@
       }
     }
   },
-  "skills": [
-    "~/.claude/plugins/marketplaces/claude-plugins-official/plugins/frontend-design/skills",
-    "~/.claude/plugins/marketplaces/addy-agent-skills/skills",
-    "~/.claude/plugins/marketplaces/caveman/skills",
-    "~/.claude/plugins/marketplaces/mattpocock/skills/engineering",
-    "~/.claude/plugins/marketplaces/mattpocock/skills/productivity"
-  ],
   "mcp": {
     "caveman": {
       "type": "local",
