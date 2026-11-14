@@ -131,6 +131,7 @@ disable = ["vim", "git_repos", "containers", "claude_code"]
 "Neovim Plugins (Lazy)" = "~/.local/share/mise/shims/nvim --headless -c 'Lazy! sync | qa'"
 "Vim Plugins" = "python ~/.vim_runtime/update_plugins.py"
 "Eget - Appimage" = "~/.local/bin/appimage-manager install all"
+"UX-UI skills (OpenCode)" = "~/.local/bin/sync-ux-ui-skills"
 
 [python]
 # enable_pip_review = true                         ###disabled by default
