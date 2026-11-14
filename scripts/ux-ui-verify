@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Run the ux-ui-agent-skills accuracy report with Playwright's Chromium.
+# Uses the newest Chromium Playwright installed, resolved at run time, so it
+# keeps working after Playwright updates. Extra args go to accuracy_report.mjs.
+set -euo pipefail
+
+KIT="${HOME}/.agents/kits/ux-ui-agent-skills"
+CHROME=$(find "${HOME}/.cache/ms-playwright" -path '*/chrome-linux64/chrome' -type f 2>/dev/null | sort -V | tail -n 1)
+
+if [ -z "$CHROME" ]; then
+  echo "ux-ui-verify: no Playwright Chromium found. Run: npx playwright install chromium" >&2
+  exit 1
+fi
+if [ ! -d "$KIT/scripts" ]; then
+  echo "ux-ui-verify: kit not found at $KIT. Run: sync-ux-ui-skills" >&2
+  exit 1
+fi
+
+cd "$KIT"
+DS_CHROME_PATH="$CHROME" exec node scripts/accuracy_report.mjs "$@"
